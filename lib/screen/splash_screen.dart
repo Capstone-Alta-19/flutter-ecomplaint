@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecomplaint/config/colors.dart';
+import 'package:flutter_ecomplaint/screen/homepage.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -9,20 +10,39 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  String token = "";
+  int splashtime = 5;
+  @override
+  void initState() {
+    Future.delayed(Duration(seconds: splashtime), () async {
+      if (token.isEmpty) {
+        Navigator.pushReplacement(context, MaterialPageRoute(
+            //pushReplacement = replacing the route so that
+            //splash screen won't show on back button press
+            //navigation to Home page.
+            builder: (context) {
+          return IntroductionScreen();
+        }));
+      } else {
+        Navigator.pushReplacement(context, MaterialPageRoute(
+            //pushReplacement = replacing the route so that
+            //splash screen won't show on back button press
+            //navigation to Home page.
+            builder: (context) {
+          return Homepage();
+        }));
+      }
+    });
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Column(
-          children: [
-            Text("Primary"),
-            Text(style: TextStyle(color: AppColors.fontsecondary), "Percobaan"),
-            FilledButton(onPressed: () {}, child: const Text("primary")),
-            ElevatedButton(onPressed: () {}, child: const Text("primary")),
-            Image.asset(""),
-          ],
-        ),
+        child: Image.asset("assets/logo/icon_logo.png"),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -42,6 +62,11 @@ class IntroductionScreen extends StatefulWidget {
 class _IntroductionScreenState extends State<IntroductionScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(),
+      body: Center(
+        child: Text("Intro"),
+      ),
+    );
   }
 }
