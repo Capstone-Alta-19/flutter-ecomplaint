@@ -43,13 +43,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Image.asset('assets/logo/icon-logo.png'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
+      body: SizedBox(
+        height: (MediaQuery.of(context).size.height),
+        width: (MediaQuery.of(context).size.width),
+        child: Center(
+          child: Image.asset('assets/logo/icon-logo.png'),
+        ),
       ),
     );
   }
@@ -86,35 +85,29 @@ class OnBoardingPageState extends State<OnBoardingPage> {
       globalBackgroundColor: Colors.white,
       allowImplicitScrolling: true,
       autoScrollDuration: 3000,
-
-      pages: [
-        PageViewModel(
-          title: ".",
-          bodyWidget: _buildImage(
-            'logo/logo-splash-screen.png',
-          ),
-          decoration: const PageDecoration(
-            titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700, color: Colors.white),
-            bodyTextStyle: bodyStyle,
-            bodyPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-            pageColor: Colors.white,
-            imagePadding: EdgeInsets.zero,
-            titlePadding: EdgeInsets.only(top: 100),
+      rawPages: [
+        SizedBox(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Center(child: Image.asset('assets/logo/logo-splash-screen.png')),
+        ),
+        SizedBox(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Center(
+            child: SizedBox(
+              width: 307,
+              child: Text(textAlign: TextAlign.center, "Tidak perlu repot-repot lagi menghubungi layanan pelanggan yang memakan waktu lama dan membingungkan. Dengan Complainz, kamu bisa membuat keluhan dengan mudah dan cepat lewat aplikasi."),
+            ),
           ),
         ),
-        PageViewModel(
-          title: "Learn as you go",
-          body: "Download the Stockpile app and master the market with our mini-lesson.",
-          image: _buildImage('img2.jpg'),
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
-          title: "Kids and teens",
-          body: "Kids and teens can track their stocks 24/7 and place trades that you approve.",
-          image: _buildImage('img3.jpg'),
-          decoration: pageDecoration,
+        SizedBox(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Center(child: Image.asset('assets/logo/logo-splash-screen.png')),
         ),
       ],
+
       onDone: () => Navigator.of(context).push(
         MaterialPageRoute(builder: (_) => const Homepage()),
       ),
