@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Image.asset("assets/logo/icon_logo.png"),
+        child: Image.asset('assets/logo/icon-logo.png'),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -65,7 +65,11 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Text("Intro"),
+        child: Container(
+          child: Image.asset(
+            'assets/logo/icon-logo.png',
+          ),
+        ),
       ),
     );
   }
