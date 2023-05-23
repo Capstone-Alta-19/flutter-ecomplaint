@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: 'Poppins',
         // primarySwatch: AppColors.primarySwatch,
         useMaterial3: true,
         // colorSchemeSeed: AppColors.primary,

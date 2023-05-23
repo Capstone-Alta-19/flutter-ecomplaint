@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
             //splash screen won't show on back button press
             //navigation to Home page.
             builder: (context) {
-          return OnBoardingPage();
+          return const OnBoardingPage();
         }));
       } else {
         Navigator.pushReplacement(context, MaterialPageRoute(
@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
             //splash screen won't show on back button press
             //navigation to Home page.
             builder: (context) {
-          return Homepage();
+          return const Homepage();
         }));
       }
     });
@@ -64,22 +64,8 @@ class OnBoardingPage extends StatefulWidget {
 class OnBoardingPageState extends State<OnBoardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
-  Widget _buildImage(String assetName, [double width = 350]) {
-    return Image.asset('assets/$assetName', width: width);
-  }
-
   @override
   Widget build(BuildContext context) {
-    const bodyStyle = TextStyle(fontSize: 19.0);
-
-    const pageDecoration = PageDecoration(
-      titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
-      bodyTextStyle: bodyStyle,
-      bodyPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-      pageColor: Colors.white,
-      imagePadding: EdgeInsets.zero,
-    );
-
     return IntroductionScreen(
       key: introKey,
       globalBackgroundColor: Colors.white,
@@ -94,26 +80,62 @@ class OnBoardingPageState extends State<OnBoardingPage> {
         SizedBox(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          child: Center(
+          child: const Center(
             child: SizedBox(
               width: 307,
-              child: Text(textAlign: TextAlign.center, "Tidak perlu repot-repot lagi menghubungi layanan pelanggan yang memakan waktu lama dan membingungkan. Dengan Complainz, kamu bisa membuat keluhan dengan mudah dan cepat lewat aplikasi."),
+              child: Text(
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: AppColors.primary),
+                textAlign: TextAlign.center,
+                "Tidak perlu repot-repot lagi menghubungi layanan pelanggan yang memakan waktu lama dan membingungkan. Dengan Complainz, kamu bisa membuat keluhan dengan mudah dan cepat lewat aplikasi.",
+              ),
             ),
           ),
         ),
         SizedBox(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          child: Center(child: Image.asset('assets/logo/logo-splash-screen.png')),
+          child: Center(child: Image.asset('assets/logo/logo-mulai-complaint.png')),
         ),
       ],
 
-      onDone: () => Navigator.of(context).push(
-        MaterialPageRoute(builder: (_) => const Homepage()),
-      ),
-      onSkip: () => Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const Homepage()),
-      ),
+      onDone: () {
+        Navigator.of(context).pushReplacement(
+          PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) {
+                return const Homepage();
+              },
+              transitionDuration: const Duration(milliseconds: 300),
+              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                final tween = Tween(
+                  begin: const Offset(2, 0),
+                  end: Offset.zero,
+                );
+                return SlideTransition(
+                  position: animation.drive(tween),
+                  child: child,
+                );
+              }),
+        );
+      },
+      onSkip: () {
+        Navigator.of(context).pushReplacement(
+          PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) {
+                return const Homepage();
+              },
+              transitionDuration: const Duration(milliseconds: 300),
+              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                final tween = Tween(
+                  begin: const Offset(2, 0),
+                  end: Offset.zero,
+                );
+                return SlideTransition(
+                  position: animation.drive(tween),
+                  child: child,
+                );
+              }),
+        );
+      },
       //onSkip: () => _onIntroEnd(context), // You can override onSkip callback
       showSkipButton: true,
       skipOrBackFlex: 0,
@@ -121,16 +143,16 @@ class OnBoardingPageState extends State<OnBoardingPage> {
       showBackButton: false,
       //rtl: true, // Display as right-to-left
       back: const Icon(Icons.arrow_back),
-      skip: const Text('Skip', style: TextStyle(fontWeight: FontWeight.w600)),
-      next: const Icon(Icons.arrow_forward),
-      done: const Icon(Icons.arrow_forward),
+      skip: const Text('Skip', style: TextStyle(fontWeight: FontWeight.w700, color: AppColors.primary)),
+      next: const ImageIcon(AssetImage("assets/icons/splash-arrow.png")),
+      done: const ImageIcon(AssetImage("assets/icons/splash-arrow.png")),
       curve: Curves.fastLinearToSlowEaseIn,
       controlsMargin: const EdgeInsets.all(16),
-      controlsPadding: kIsWeb ? const EdgeInsets.all(12.0) : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
+      controlsPadding: const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
       dotsDecorator: const DotsDecorator(
-        size: Size(10.0, 10.0),
-        color: Color(0xFFBDBDBD),
-        activeSize: Size(22.0, 10.0),
+        size: Size(9.0, 9.0),
+        color: AppColors.primary20,
+        activeSize: Size(24.0, 9.0),
         activeShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25.0)),
         ),
