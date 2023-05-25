@@ -15,16 +15,22 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController _usernameEmailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
-  void _toggle() {
-    setState(() {
-      _passwordVisible = !_passwordVisible;
-    });
+  @override
+  void initState() {
+    super.initState();
+    _passwordVisible = false;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: IconButton(
+            icon: ImageIcon(const AssetImage("assets/icons/arrow-back.png")),
+            onPressed: () {
+              Navigator.pop(context);
+            }),
+      ),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -76,10 +82,10 @@ class _LoginPageState extends State<LoginPage> {
                       });
                     },
                   ),
-                  labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
-                  hintStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
-                  enabledBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
-                  focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
+                  labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
+                  hintStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
+                  enabledBorder: const OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
+                  focusedBorder: const OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
                   labelText: 'Password',
                 ),
               ),

@@ -45,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
         height: (MediaQuery.of(context).size.height),
         width: (MediaQuery.of(context).size.width),
         child: Center(
-          child: Image.asset('assets/logo/icon-logo.png'),
+          child: Image.asset(width: 200, height: 200, 'assets/logo/hd-icon-logo.png'),
         ),
       ),
     );
@@ -73,7 +73,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
         SizedBox(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          child: Center(child: Image.asset('assets/logo/logo-splash-screen.png')),
+          child: Center(child: Image.asset(width: 316.27, height: 65.05, 'assets/logo/hd-logo-splash-screen.png')),
         ),
         SizedBox(
           height: MediaQuery.of(context).size.height,
@@ -92,7 +92,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
         SizedBox(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          child: Center(child: Image.asset('assets/logo/logo-mulai-complaint.png')),
+          child: Center(child: Image.asset(width: 307, height: 133, 'assets/logo/hd-logo-mulai-complaint.png')),
         ),
       ],
 

@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           seedColor: const Color(0xff3C486B),
         ),
       ),
-      home: const LoginPage(),
+      home: const SplashScreen(),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecomplaint/config/colors.dart';
+import 'package:flutter_ecomplaint/screen/login_page.dart';
 import 'package:flutter_ecomplaint/widget/account_question_button.dart';
 
 class LoginregisterPage extends StatelessWidget {
@@ -14,7 +15,7 @@ class LoginregisterPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/logo/logo-mulai-complaint.png'),
+              Image.asset(width: 307, height: 133, 'assets/logo/hd-logo-mulai-complaint.png'),
               const Padding(padding: EdgeInsets.only(top: 62.28)),
               FilledButton(
                 style: ButtonStyle(
@@ -28,7 +29,25 @@ class LoginregisterPage extends StatelessWidget {
                 textColor: AppColors.primary,
                 text: "Sudah Punya Akun, ",
                 btnText: "Masuk",
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) {
+                          return const LoginPage();
+                        },
+                        transitionDuration: const Duration(milliseconds: 300),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          final tween = Tween(
+                            begin: const Offset(2, 0),
+                            end: Offset.zero,
+                          );
+                          return SlideTransition(
+                            position: animation.drive(tween),
+                            child: child,
+                          );
+                        }),
+                  );
+                },
               ),
             ],
           )),
