@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecomplaint/screen/splash_screen.dart';
+import 'package:flutter_ecomplaint/screen/loginregister_page.dart';
+import 'package:flutter_ecomplaint/screen/splash_screen_page.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,8 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecomplaint/config/colors.dart';
-import 'package:flutter_ecomplaint/screen/homepage.dart';
+
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:flutter_ecomplaint/screen/loginregister_page.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -32,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
             //splash screen won't show on back button press
             //navigation to Home page.
             builder: (context) {
-          return const Homepage();
+          return const LoginregisterPage();
         }));
       }
     });
@@ -102,7 +103,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
         Navigator.of(context).pushReplacement(
           PageRouteBuilder(
               pageBuilder: (context, animation, secondaryAnimation) {
-                return const Homepage();
+                return const LoginregisterPage();
               },
               transitionDuration: const Duration(milliseconds: 300),
               transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -121,7 +122,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
         Navigator.of(context).pushReplacement(
           PageRouteBuilder(
               pageBuilder: (context, animation, secondaryAnimation) {
-                return const Homepage();
+                return const LoginregisterPage();
               },
               transitionDuration: const Duration(milliseconds: 300),
               transitionsBuilder: (context, animation, secondaryAnimation, child) {
