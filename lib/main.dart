@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecomplaint/screen/login_page.dart';
 
 import 'package:flutter_ecomplaint/screen/splash_screen_page.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
           seedColor: const Color(0xff3C486B),
         ),
       ),
-      home: const SplashScreen(),
+      home: const LoginPage(),
     );
   }
 }

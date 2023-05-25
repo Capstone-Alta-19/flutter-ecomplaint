@@ -1,23 +1,37 @@
 import 'package:flutter/material.dart';
-import '../config/colors.dart';
 
 class AccountQuestionButton extends StatelessWidget {
-  const AccountQuestionButton({Key? key, required this.text, required this.btnText, required this.onPressed}) : super(key: key);
+  const AccountQuestionButton({Key? key, required this.text, required this.btnText, required this.onPressed, required this.textColor}) : super(key: key);
   final String text;
   final String btnText;
+  final Color textColor;
   final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(style: const TextStyle(color: AppColors.primary, fontWeight: FontWeight.w500), text),
-        TextButton(
-          style: const ButtonStyle(padding: MaterialStatePropertyAll(EdgeInsets.zero)),
-          onPressed: onPressed,
-          child: Text(style: const TextStyle(color: AppColors.primary, fontWeight: FontWeight.w700), btnText),
+    return TextButton(
+      onPressed: onPressed,
+      child: RichText(
+        text: TextSpan(
+          children: [
+            TextSpan(
+              style: TextStyle(
+                color: textColor,
+                fontWeight: FontWeight.w500,
+                fontSize: 15,
+              ),
+              text: text,
+            ),
+            TextSpan(
+              style: TextStyle(
+                color: textColor,
+                fontWeight: FontWeight.w700,
+                fontSize: 14,
+              ),
+              text: btnText,
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

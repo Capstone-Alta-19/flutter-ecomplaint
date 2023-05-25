@@ -22,10 +22,11 @@ class LoginregisterPage extends StatelessWidget {
                   fixedSize: const MaterialStatePropertyAll(Size(357, 40)),
                 ),
                 onPressed: () {},
-                child: const Text("Buat Akun Baru"),
+                child: const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.secondary100), "Buat Akun Baru"),
               ),
               AccountQuestionButton(
-                text: "Sudah Punya Akun,",
+                textColor: AppColors.primary,
+                text: "Sudah Punya Akun, ",
                 btnText: "Masuk",
                 onPressed: () {},
               ),
