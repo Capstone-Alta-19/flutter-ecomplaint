@@ -7,7 +7,6 @@ class LoginregisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool btnenable = true;
     return Scaffold(
       body: SizedBox(
           height: MediaQuery.of(context).size.height,
@@ -22,7 +21,7 @@ class LoginregisterPage extends StatelessWidget {
                   backgroundColor: MaterialStateProperty.all(AppColors.btnenable),
                   fixedSize: const MaterialStatePropertyAll(Size(357, 40)),
                 ),
-                onPressed: btnenable ? () {} : null,
+                onPressed: () {},
                 child: const Text("Buat Akun Baru"),
               ),
               AccountQuestionButton(

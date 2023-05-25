@@ -1,8 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecomplaint/config/colors.dart';
-
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter_ecomplaint/screen/loginregister_page.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
