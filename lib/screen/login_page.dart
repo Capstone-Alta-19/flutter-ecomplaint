@@ -10,15 +10,48 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final formKey = GlobalKey<FormState>();
+  final TextEditingController usernameEmailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   bool _passwordVisible = true;
-
-  TextEditingController _usernameEmailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-
+  bool _isFormFilled = false;
   @override
   void initState() {
     super.initState();
     _passwordVisible = false;
+  }
+
+  void _checkFormStatus() {
+    setState(() {
+      _isFormFilled = usernameEmailController.text.isNotEmpty;
+      _isFormFilled = passwordController.text.isNotEmpty;
+    });
+  }
+
+  void _submitForm() {
+    if (_isFormFilled) {
+      /* if (formKey.currentState!.validate()) {
+        // If the form is valid, display a snackbar. In the real world,
+        // you'd often call a server or save the information in a database.
+        ScaffoldMessenger.of(context).showSnackBar( 
+          const SnackBar(content: Text('Processing Data')),
+        );
+      } */
+      /* Navigator.push(
+          context, MaterialPageRoute(builder: (context) => OtpPage())); */
+      final usernameEmail = usernameEmailController.text;
+      final password = passwordController.text;
+      // final commplainz = Complainz(
+      //     username: username, email: email, phone: phone, password: password);
+      // userProvider.registerUser() ;
+    }
+  }
+
+  @override
+  void dispose() {
+    usernameEmailController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -26,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            icon: ImageIcon(const AssetImage("assets/icons/arrow-back.png")),
+            icon: const ImageIcon(AssetImage("assets/icons/arrow-back.png")),
             onPressed: () {
               Navigator.pop(context);
             }),
@@ -34,72 +67,93 @@ class _LoginPageState extends State<LoginPage> {
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: Column(
-          children: [
-            const Text(
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.primary,
-                ),
-                "Selamat Datang Kembali"),
-            const Padding(padding: EdgeInsets.only(top: 24)),
-            const Text(
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.primary,
-                ),
-                "Complainz sudah menantikan kamu, ayo mulai laporkan keadaan terkini."),
-            const Padding(padding: EdgeInsets.only(top: 24)),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
-              child: TextField(
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
-                decoration: InputDecoration(
-                  labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
-                  hintStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
-                  enabledBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
-                  focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
-                  labelText: 'Username/Email ',
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-              child: TextField(
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
-                controller: _passwordController,
-                obscureText: _passwordVisible,
-                decoration: InputDecoration(
-                  suffixIcon: IconButton(
-                    icon: Icon(_passwordVisible ? Icons.visibility_outlined : Icons.visibility_off_outlined),
-                    onPressed: () {
-                      setState(() {
-                        _passwordVisible = !_passwordVisible;
-                      });
-                    },
+        child: Form(
+          key: formKey,
+          child: Column(
+            children: [
+              const Text(
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.primary,
                   ),
-                  labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
-                  hintStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
-                  enabledBorder: const OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
-                  focusedBorder: const OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
-                  labelText: 'Password',
+                  "Selamat Datang Kembali"),
+              const Padding(padding: EdgeInsets.only(top: 24)),
+              const Text(
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.primary,
+                  ),
+                  "Complainz sudah menantikan kamu, ayo mulai laporkan keadaan terkini."),
+              const Padding(padding: EdgeInsets.only(top: 24)),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                child: TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Username/Email tidak boleh kosong';
+                    }
+                    return null;
+                  },
+                  onChanged: (value) {
+                    _checkFormStatus();
+                  },
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
+                  decoration: const InputDecoration(
+                    labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
+                    hintStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
+                    enabledBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
+                    focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
+                    labelText: 'Username/Email ',
+                  ),
                 ),
               ),
-            ),
-            FilledButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(AppColors.btnenable),
-                fixedSize: const MaterialStatePropertyAll(Size(357, 40)),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                child: TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Password tidak boleh kosong';
+                    }
+                    return null;
+                  },
+                  onChanged: (value) {
+                    _checkFormStatus();
+                  },
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
+                  controller: passwordController,
+                  obscureText: _passwordVisible,
+                  decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                      icon: Icon(_passwordVisible ? Icons.visibility_outlined : Icons.visibility_off_outlined),
+                      onPressed: () {
+                        setState(() {
+                          _passwordVisible = !_passwordVisible;
+                        });
+                      },
+                    ),
+                    labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
+                    hintStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
+                    enabledBorder: const OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
+                    focusedBorder: const OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
+                    labelText: 'Password',
+                  ),
+                ),
               ),
-              onPressed: () {},
-              child: const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.secondary100), "Masuk"),
-            ),
-            AccountQuestionButton(text: "Belum Punya Akun, ", btnText: "Daftar Sekarang", onPressed: () {}, textColor: AppColors.fontsecondary)
-          ],
+              FilledButton.tonal(
+                style: ButtonStyle(
+                  backgroundColor: _isFormFilled ? MaterialStateProperty.all(AppColors.font) : null,
+                  fixedSize: const MaterialStatePropertyAll(Size(357, 40)),
+                ),
+                onPressed: _isFormFilled ? _submitForm : null,
+                child: const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.secondary100), "Masuk"),
+              ),
+              AccountQuestionButton(text: "Belum Punya Akun, ", btnText: "Daftar Sekarang", onPressed: () {}, textColor: AppColors.fontsecondary)
+            ],
+          ),
         ),
       ),
     );
