@@ -1,10 +1,51 @@
+import 'package:complainz/screen/complainz/create_account_screen.dart';
+import 'package:complainz/otp_page.dart';
+import 'package:complainz/screen/complainz/complainz_register_screen.dart';
+import 'package:complainz/timer.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+/* void main() {
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (_) => ),
+    ],
+    child: MaterialApp(
+      home: RegisterPage(),
+    ),
+    ),
+    );
+} */
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        useMaterial3: true,
+        //scaffoldBackgroundColor: const Color(0XFF58FF3E),
+      ),
+      debugShowCheckedModeBanner: false,
+      home: const CreateAccount(),
+    );
+  }
+} 
+
+
+
+
+
+
+
+
+/* class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
@@ -113,3 +154,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+ */
