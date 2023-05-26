@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "flutter_ecomplaint" "\0"
+            VALUE "FileDescription", "complainz" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "flutter_ecomplaint" "\0"
+            VALUE "InternalName", "complainz" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "flutter_ecomplaint.exe" "\0"
-            VALUE "ProductName", "flutter_ecomplaint" "\0"
+            VALUE "OriginalFilename", "complainz.exe" "\0"
+            VALUE "ProductName", "complainz" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

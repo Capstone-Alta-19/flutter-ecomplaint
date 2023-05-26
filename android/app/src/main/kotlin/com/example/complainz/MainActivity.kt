@@ -1,4 +1,4 @@
-package com.example.flutter_ecomplaint
+package com.example.complainz
 
 import io.flutter.embedding.android.FlutterActivity
 
