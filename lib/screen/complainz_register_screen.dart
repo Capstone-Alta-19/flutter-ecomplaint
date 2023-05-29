@@ -1,17 +1,19 @@
 import 'package:complainz/config/app_color.dart';
-import 'package:complainz/model/complainz_model.dart';
-import 'package:complainz/otp_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:email_validator/email_validator.dart';
-import 'package:complainz/model/user_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:complainz/model/post.dart';
+import 'package:complainz/notifiers/post_notifier.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State createState() {
+    return _RegisterPageState();
+  }
+  //State<RegisterPage> createState() => _RegisterPageState();
 }
 
 class _RegisterPageState extends State<RegisterPage> {
@@ -26,8 +28,32 @@ class _RegisterPageState extends State<RegisterPage> {
   bool _passwordMatch = true;
 
   final formKey = GlobalKey<FormState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  Post _post = new Post();
 
-  get userProvider => null;
+  _showSnackBar(String text, BuildContext context) {
+    final snackBar = SnackBar(content: Text(text));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
+  _createPost(BuildContext context) {
+    if (!formKey.currentState!.validate()) {
+      _showSnackBar("Failed to Create Post", context);
+      return;
+    }
+
+    formKey.currentState!.save();
+    //_post.username = admin;
+
+    PostNotifier postNotifier = Provider.of(context, listen: false);
+    //_post.username = postNotifier.getPostList().length + 1;
+    _post.phone = postNotifier.getPostList().length.toString();
+    postNotifier.uploadPost(_post).then((value) {
+      if (value) {
+        _showSnackBar("Post added Succesfully", context);
+      }
+    });
+  }
 
   @override
   void dispose() {
@@ -56,7 +82,8 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   void _submitForm() {
-    if (_isFormFilled) {
+    _createPost(context);
+    /* if (_isFormFilled) {
       /* if (formKey.currentState!.validate()) {
         // If the form is valid, display a snackbar. In the real world,
         // you'd often call a server or save the information in a database.
@@ -73,12 +100,12 @@ class _RegisterPageState extends State<RegisterPage> {
       final commplainz = Complainz(
           username: username, email: email, phone: phone, password: password);
       userProvider.registerUser();
-    }
+    } */
   }
 
   @override
   Widget build(BuildContext context) {
-    final userProvider = Provider.of<UserProvider>(context);
+    //final userProvider = Provider.of<RegisterPage>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -129,6 +156,9 @@ class _RegisterPageState extends State<RegisterPage> {
                             }
                             return null;
                           },
+                          onSaved: (String? value) {
+                            _post.username;
+                          },
                           onChanged: (value) {
                             _checkFormStatus();
                           },
@@ -166,6 +196,9 @@ class _RegisterPageState extends State<RegisterPage> {
                               return null;
                             }
                           },
+                          onSaved: (String? value) {
+                            _post.email;
+                          },
                         ),
                         const SizedBox(height: 16),
                         TextFormField(
@@ -176,6 +209,9 @@ class _RegisterPageState extends State<RegisterPage> {
                               return 'Nomor tidak boleh kosong';
                             }
                             return null;
+                          },
+                          onSaved: (String? value) {
+                            _post.phone;
                           },
                           onChanged: (value) {
                             _checkFormStatus();
@@ -198,6 +234,9 @@ class _RegisterPageState extends State<RegisterPage> {
                               return 'Password belum diisi';
                             }
                             return null;
+                          },
+                          onSaved: (String? value) {
+                            _post.password;
                           },
                           onChanged: (value) {
                             _checkFormStatus();
