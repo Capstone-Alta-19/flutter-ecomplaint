@@ -26,7 +26,7 @@ class LongLaporanItem extends StatelessWidget {
                 child: SizedBox(
                   width: 198,
                   child: Text(
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: AppColors.font,
                         fontSize: 24,
                         fontWeight: FontWeight.w600,
