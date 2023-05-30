@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.w700,
-                    color: AppColors.primary,
+                    color: AppColors.font,
                   ),
                   "Selamat Datang Kembali"),
               const Padding(padding: EdgeInsets.only(top: 24)),
@@ -85,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
-                    color: AppColors.primary,
+                    color: AppColors.font,
                   ),
                   "Complainz sudah menantikan kamu, ayo mulai laporkan keadaan terkini."),
               const Padding(padding: EdgeInsets.only(top: 24)),
@@ -101,10 +101,10 @@ class _LoginPageState extends State<LoginPage> {
                   onChanged: (value) {
                     _checkFormStatus();
                   },
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.font),
                   decoration: const InputDecoration(
-                    labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
-                    hintStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
+                    labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.font),
+                    hintStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.font),
                     enabledBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
                     focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
                     labelText: 'Username/Email ',
@@ -123,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                   onChanged: (value) {
                     _checkFormStatus();
                   },
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.font),
                   controller: passwordController,
                   obscureText: _passwordVisible,
                   decoration: InputDecoration(
@@ -135,8 +135,8 @@ class _LoginPageState extends State<LoginPage> {
                         });
                       },
                     ),
-                    labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
-                    hintStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary),
+                    labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.font),
+                    hintStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.font),
                     enabledBorder: const OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
                     focusedBorder: const OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
                     labelText: 'Password',

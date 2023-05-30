@@ -82,7 +82,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
             child: SizedBox(
               width: 307,
               child: Text(
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: AppColors.primary),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: AppColors.font),
                 textAlign: TextAlign.center,
                 "Tidak perlu repot-repot lagi menghubungi layanan pelanggan yang memakan waktu lama dan membingungkan. Dengan Complainz, kamu bisa membuat keluhan dengan mudah dan cepat lewat aplikasi.",
               ),
@@ -141,7 +141,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
       showBackButton: false,
       //rtl: true, // Display as right-to-left
       back: const Icon(Icons.arrow_back),
-      skip: const Text('Skip', style: TextStyle(fontWeight: FontWeight.w700, color: AppColors.primary)),
+      skip: const Text('Skip', style: TextStyle(fontWeight: FontWeight.w700, color: AppColors.font)),
       next: const ImageIcon(AssetImage("assets/icons/splash-arrow.png")),
       done: const ImageIcon(AssetImage("assets/icons/splash-arrow.png")),
       curve: Curves.fastLinearToSlowEaseIn,

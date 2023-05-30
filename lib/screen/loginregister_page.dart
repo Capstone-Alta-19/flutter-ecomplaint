@@ -26,7 +26,7 @@ class LoginregisterPage extends StatelessWidget {
                 child: const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.secondary100), "Buat Akun Baru"),
               ),
               AccountQuestionButton(
-                textColor: AppColors.primary,
+                textColor: AppColors.font,
                 text: "Sudah Punya Akun, ",
                 btnText: "Masuk",
                 onPressed: () {
