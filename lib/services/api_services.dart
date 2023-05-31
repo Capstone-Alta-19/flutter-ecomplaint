@@ -20,7 +20,7 @@ class ApiService {
         postList.add(Post.fromMap(element));
       });
 
-      print(postList.length);
+      //print(postList.length);
       postNotifier.setPostList(postList);
     });
   }

@@ -79,7 +79,7 @@ class _OtpPageState extends State<OtpPage> {
                       const SizedBox(
                         width: 16,
                       ),
-                      Container(
+                      SizedBox(
                         width: 70,
                         height: 90,
                         child: TextFormField(
@@ -100,7 +100,7 @@ class _OtpPageState extends State<OtpPage> {
                         ),
                       ),
                       const SizedBox(width: 16),
-                      Container(
+                      SizedBox(
                         width: 70,
                         height: 90,
                         child: TextFormField(
