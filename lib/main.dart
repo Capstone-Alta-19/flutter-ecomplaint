@@ -17,16 +17,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        fontFamily: 'Poppins',
-        // primarySwatch: AppColors.primarySwatch,
-        useMaterial3: true,
-        // colorSchemeSeed: AppColors.primary,
-        colorScheme: ColorScheme.fromSeed(
-          background: AppColors.secondary20,
-          seedColor: const Color(0xff3C486B),
-        ),
-      ),
-      home: const BeritaLaporanPage(),
+          fontFamily: 'Poppins',
+          // primarySwatch: AppColors.primarySwatch,
+          useMaterial3: true,
+          // colorSchemeSeed: AppColors.primary,
+          colorScheme: ColorScheme.fromSeed(
+            background: AppColors.secondary100,
+            seedColor: const Color(0xff3C486B),
+          ),
+          appBarTheme: const AppBarTheme(
+            backgroundColor: AppColors.secondary100,
+            surfaceTintColor: Colors.transparent,
+          )),
+      home: const SplashScreen(),
     );
   }
 }

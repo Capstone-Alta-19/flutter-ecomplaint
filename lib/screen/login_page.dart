@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecomplaint/config/colors.dart';
+import 'package:flutter_ecomplaint/screen/berita_laporan_page.dart';
 import 'package:flutter_ecomplaint/widget/account_question_button.dart';
 
 class LoginPage extends StatefulWidget {
@@ -151,7 +152,29 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: _isFormFilled ? _submitForm : null,
                 child: const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.secondary100), "Masuk"),
               ),
-              AccountQuestionButton(text: "Belum Punya Akun, ", btnText: "Daftar Sekarang", onPressed: () {}, textColor: AppColors.fontsecondary),
+              AccountQuestionButton(
+                  text: "Belum Punya Akun, ",
+                  btnText: "Daftar Sekarang",
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      PageRouteBuilder(
+                          pageBuilder: (context, animation, secondaryAnimation) {
+                            return const BeritaLaporanPage();
+                          },
+                          transitionDuration: const Duration(milliseconds: 300),
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                            final tween = Tween(
+                              begin: const Offset(2, 0),
+                              end: Offset.zero,
+                            );
+                            return SlideTransition(
+                              position: animation.drive(tween),
+                              child: child,
+                            );
+                          }),
+                    );
+                  },
+                  textColor: AppColors.fontsecondary),
             ],
           ),
         ),

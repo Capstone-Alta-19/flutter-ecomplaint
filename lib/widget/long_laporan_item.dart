@@ -12,9 +12,20 @@ class LongLaporanItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 19),
-      child: Card(
-        color: AppColors.secondary20,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: AppColors.secondary20,
+          boxShadow: [
+            const BoxShadow(
+              blurRadius: 8,
+              blurStyle: BlurStyle.outer,
+              color: Color.fromRGBO(0, 0, 0, 0.25),
+            ),
+          ],
+        ),
+        // color: AppColors.secondary20,
+        // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
         child: InkWell(
           borderRadius: BorderRadius.circular(30),
           onTap: onPressed,

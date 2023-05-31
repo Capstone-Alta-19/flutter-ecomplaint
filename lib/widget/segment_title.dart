@@ -16,7 +16,7 @@ class SegmentTitle extends StatelessWidget {
           IconButton(
               icon: const ImageIcon(AssetImage("assets/icons/arrow-back.png")),
               onPressed: () {
-                // Navigator.pop(context);
+                Navigator.pop(context);
               }),
           Text(
               style: const TextStyle(

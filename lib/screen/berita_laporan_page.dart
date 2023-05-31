@@ -79,6 +79,7 @@ class _BeritaLaporanPageState extends State<BeritaLaporanPage> {
                   title: "Lainnya",
                   onPressed: () {},
                 ),
+                const SizedBox(height: 24),
               ],
             ),
           ),

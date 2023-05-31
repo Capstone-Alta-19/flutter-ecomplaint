@@ -66,7 +66,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
   Widget build(BuildContext context) {
     return IntroductionScreen(
       key: introKey,
-      globalBackgroundColor: Colors.white,
+      globalBackgroundColor: AppColors.secondary100,
       allowImplicitScrolling: true,
       autoScrollDuration: 3000,
       rawPages: [
