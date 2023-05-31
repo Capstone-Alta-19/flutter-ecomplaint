@@ -2,6 +2,7 @@ import 'package:complainz/notifiers/post_notifier.dart';
 import 'package:complainz/screen/complainz_register_screen.dart';
 import 'package:complainz/screen/laporkan_screen.dart';
 import 'package:complainz/screen/pengaduan_screen.dart';
+import 'package:complainz/screen/tags_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -29,15 +30,15 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true),
-      /* home: const HomeScreen(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(useMaterial3: true),
+        /* home: const HomeScreen(
           key: ValueKey('Home Screen'), title: 'Flutter Demo Home Page'), */
-      home: const PengaduanPage(),
-      /* routes: {
+        home: const PengaduanPage()
+        /* routes: {
         "/add_post": (context) => AddPostScreen(),
       }, */
-    );
+        );
   }
 }
 
