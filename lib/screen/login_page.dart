@@ -151,7 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: _isFormFilled ? _submitForm : null,
                 child: const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.secondary100), "Masuk"),
               ),
-              AccountQuestionButton(text: "Belum Punya Akun, ", btnText: "Daftar Sekarang", onPressed: () {}, textColor: AppColors.fontsecondary)
+              AccountQuestionButton(text: "Belum Punya Akun, ", btnText: "Daftar Sekarang", onPressed: () {}, textColor: AppColors.fontsecondary),
             ],
           ),
         ),
