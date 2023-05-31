@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecomplaint/config/colors.dart';
-import 'package:flutter_ecomplaint/screen/berita_laporan_page.dart';
-import 'package:flutter_ecomplaint/screen/login_page.dart';
+import 'package:flutter_ecomplaint/screen/isi_berita_laporan_page.dart';
 
 import 'package:flutter_ecomplaint/screen/splash_screen_page.dart';
 
@@ -29,7 +28,7 @@ class MyApp extends StatelessWidget {
             backgroundColor: AppColors.secondary100,
             surfaceTintColor: Colors.transparent,
           )),
-      home: const SplashScreen(),
+      home: const IsiBeritaLaporanPage(),
     );
   }
 }

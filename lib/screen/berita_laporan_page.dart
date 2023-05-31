@@ -6,7 +6,7 @@ class BeritaLaporanPage extends StatefulWidget {
   const BeritaLaporanPage({Key? key}) : super(key: key);
 
   @override
-  _BeritaLaporanPageState createState() => _BeritaLaporanPageState();
+  State<BeritaLaporanPage> createState() => _BeritaLaporanPageState();
 }
 
 class _BeritaLaporanPageState extends State<BeritaLaporanPage> {
