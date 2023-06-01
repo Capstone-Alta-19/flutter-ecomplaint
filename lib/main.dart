@@ -3,6 +3,7 @@ import 'package:flutter_ecomplaint/config/colors.dart';
 import 'package:flutter_ecomplaint/screen/isi_berita_laporan_page.dart';
 
 import 'package:flutter_ecomplaint/screen/splash_screen_page.dart';
+import 'package:flutter_ecomplaint/screen/tester.dart';
 
 void main() {
   runApp(const MyApp());
