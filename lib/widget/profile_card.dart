@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import '../config/colors.dart';
 
 class ProfileCard extends StatelessWidget {
-  const ProfileCard({super.key});
+  final String avatar;
+  final String username;
+  final String name;
+  final String tanggal;
+
+  const ProfileCard({super.key, required this.avatar, required this.username, required this.name, required this.tanggal});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +19,7 @@ class ProfileCard extends StatelessWidget {
           Row(
             children: [
               CircleAvatar(
-                child: Image.asset(width: 40, "assets/logo/PP.png"),
+                child: Image.asset(width: 40, avatar),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
@@ -22,33 +27,33 @@ class ProfileCard extends StatelessWidget {
                     width: 206,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: AppColors.font,
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
                             ),
-                            "Jane Cooper"),
+                            name),
                         Text(
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: AppColors.font,
                               fontSize: 12,
                               fontWeight: FontWeight.w500,
                             ),
-                            "@nina_real"),
+                            username),
                       ],
                     )),
               ),
             ],
           ),
-          const Text(
-              style: TextStyle(
+          Text(
+              style: const TextStyle(
                 color: AppColors.font,
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
-              "12/05/2023"),
+              tanggal),
         ],
       ),
     );

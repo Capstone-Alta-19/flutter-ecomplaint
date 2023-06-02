@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecomplaint/config/colors.dart';
 import 'package:flutter_ecomplaint/widget/custom_card.dart';
+import 'package:flutter_ecomplaint/widget/interaction_card.dart';
 import 'package:flutter_ecomplaint/widget/isi_laporan_item.dart';
 import 'package:flutter_ecomplaint/widget/profile_card.dart';
 import 'package:flutter_ecomplaint/widget/segment_title.dart';
+import 'package:flutter_ecomplaint/widget/selengkapnya_button.dart';
 import 'package:like_button/like_button.dart';
+
+List<String> list = <String>['Urutkan Berdasarkan', 'Terbaru', 'Terlama'];
 
 class IsiBeritaLaporanPage extends StatefulWidget {
   const IsiBeritaLaporanPage({super.key});
@@ -14,6 +18,7 @@ class IsiBeritaLaporanPage extends StatefulWidget {
 }
 
 class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
+  String dropdownValue = list.first;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +27,6 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
       ),
       body: SingleChildScrollView(
         child: SizedBox(
-          height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: Center(
             child: Column(
@@ -30,6 +34,85 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                 const SegmentTitle(title: "Laporan"),
                 const SizedBox(
                   height: 87.0,
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(right: 16.0),
+                  child: Flex(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    direction: Axis.horizontal,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(border: Border.all(width: 1, color: AppColors.primary), borderRadius: BorderRadius.circular(8)),
+                        width: 184,
+                        height: 32,
+                        child: Center(
+                          child: DropdownButton<String>(
+                            value: dropdownValue,
+                            icon: const Icon(color: AppColors.primary, Icons.expand_more),
+                            elevation: 16,
+                            style: const TextStyle(color: AppColors.font, fontSize: 14, fontWeight: FontWeight.w500),
+                            // underline: Container(
+                            //   height: 2,
+                            //   color: AppColors.primary,
+                            // ),
+                            onChanged: (String? value) {
+                              // This is called when the user selects an item.
+                              setState(() {
+                                dropdownValue = value!;
+                              });
+                            },
+                            items: list.map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 26.0,
+                ),
+                //Isi berita laporan
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16, right: 16),
+                      child: CustomCard(
+                          child: Padding(
+                        padding: const EdgeInsets.only(
+                          left: 16.5,
+                          right: 10.5,
+                          top: 20.5,
+                          bottom: 12.5,
+                        ),
+                        child: Column(
+                          children: [
+                            const ProfileCard(
+                              avatar: "assets/logo/PP.png",
+                              name: "Jane Cooper",
+                              username: "@nina_real",
+                              tanggal: "12/05/2023",
+                            ),
+                            const SizedBox(height: 8),
+                            const IsiLaporanItem(
+                              laporan: "Dosen Matakuliah salah memasukan nilai",
+                              tanggapan: "Terimakasih telah menyuarakan melalui Complainz. Tim terkait sudah melakukan penyelidikan pada Dosen yang Bersangkutan",
+                            ),
+                            const SizedBox(height: 8),
+                            SelengkapnyaButton(onPressed: () {}),
+                          ],
+                        ),
+                      )),
+                    ),
+                    const SizedBox(height: 13.0),
+                    InteractionCard(),
+                    const SizedBox(height: 22.5),
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 16, right: 16),
@@ -43,91 +126,21 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                     ),
                     child: Column(
                       children: [
-                        const ProfileCard(),
+                        ProfileCard(avatar: "assets/logo/PP.png", name: "Jane Cooper", username: "@nina_real", tanggal: "12/05/2023"),
                         const SizedBox(height: 8),
-                        const IsiLaporanItem(),
-                        const SizedBox(height: 8),
-                        OutlinedButton(
-                          style: const ButtonStyle(fixedSize: MaterialStatePropertyAll(Size(double.maxFinite, 40))),
-                          onPressed: () {},
-                          child: const Text(
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w700,
-                                color: AppColors.fontsecondary,
-                              ),
-                              "Selengkapnya"),
+                        const IsiLaporanItem(
+                          laporan: "Dosen Matakuliah salah memasukan nilai",
+                          tanggapan: "Terimakasih telah menyuarakan melalui Complainz. Tim terkait sudah melakukan penyelidikan pada Dosen yang Bersangkutan",
                         ),
+                        const SizedBox(height: 8),
+                        SelengkapnyaButton(onPressed: () {}),
                       ],
                     ),
                   )),
                 ),
                 const SizedBox(height: 13.0),
-                Padding(
-                    padding: const EdgeInsets.only(left: 32, right: 26),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBox(
-                              width: 90,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  LikeButton(
-                                    size: 24,
-                                    circleColor: const CircleColor(start: Colors.redAccent, end: Colors.redAccent),
-                                    bubblesColor: const BubblesColor(
-                                      dotPrimaryColor: Colors.redAccent,
-                                      dotSecondaryColor: Colors.redAccent,
-                                    ),
-                                    likeBuilder: (bool isLiked) {
-                                      return Icon(
-                                        isLiked ? Icons.favorite : Icons.favorite_outline,
-                                        color: isLiked ? Colors.redAccent : AppColors.primary,
-                                        size: 24,
-                                      );
-                                    },
-                                  ),
-                                  GestureDetector(
-                                    child: Icon(size: 24, Icons.chat_outlined),
-                                    onTap: () {},
-                                  ),
-                                  GestureDetector(
-                                    child: Icon(size: 24, Icons.share),
-                                    onTap: () {},
-                                  ),
-                                ],
-                              ),
-                            ),
-                            LikeButton(
-                              size: 24,
-                              circleColor: const CircleColor(start: AppColors.primary, end: AppColors.primary),
-                              bubblesColor: const BubblesColor(
-                                dotPrimaryColor: AppColors.primary,
-                                dotSecondaryColor: AppColors.primary,
-                              ),
-                              likeBuilder: (bool isBookmark) {
-                                return Icon(
-                                  isBookmark ? Icons.bookmark : Icons.bookmark_add_outlined,
-                                  color: isBookmark ? AppColors.primary : AppColors.primary,
-                                  size: 24,
-                                );
-                              },
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 12),
-                        RichText(
-                          text: const TextSpan(children: [
-                            TextSpan(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.font), text: "200 "),
-                            TextSpan(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.font), text: "Likes"),
-                          ]),
-                        )
-                      ],
-                    )),
+                InteractionCard(),
+                const SizedBox(height: 22.5),
               ],
             ),
           ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecomplaint/config/colors.dart';
 
 class Tester extends StatefulWidget {
   const Tester({super.key});
@@ -41,20 +40,20 @@ class _TesterState extends State<Tester> {
                   },
                   child: const Text("Ubah state")),
               Builder(builder: (_) {
-                if (ditanggapi.isNotEmpty) {
-                  return Text("Text Aja");
-                } else if (ditanggapi.isEmpty) {
-                  return Text("Text ditanggapi");
-                } else if (ditanggapi.isEmpty) {
-                  return Text("Text foto");
-                } else if (ditanggapi.isEmpty) {
-                  return Text("Text Foto Ditanggapi");
-                } else if (ditanggapi.isEmpty) {
-                  return Text("Text Video");
-                } else if (ditanggapi.isEmpty) {
-                  return Text("Text vIDEO ditanggapi");
+                if (ditanggapi.isEmpty && foto.isEmpty && video.isEmpty) {
+                  return const Text("Text Aja");
+                } else if (ditanggapi.isNotEmpty && foto.isEmpty && video.isEmpty) {
+                  return const Text("Text ditanggapi");
+                } else if (ditanggapi.isEmpty && foto.isNotEmpty && video.isEmpty) {
+                  return const Text("Text foto");
+                } else if (ditanggapi.isNotEmpty && foto.isNotEmpty && video.isEmpty) {
+                  return const Text("Text Foto Ditanggapi");
+                } else if (ditanggapi.isEmpty && video.isNotEmpty && foto.isEmpty) {
+                  return const Text("Text Video");
+                } else if (ditanggapi.isNotEmpty && video.isNotEmpty && foto.isEmpty) {
+                  return const Text("Text vIDEO ditanggapi");
                 } else {
-                  return Text("Data kosong");
+                  return const Text("Data kosong");
                 }
               }),
             ],

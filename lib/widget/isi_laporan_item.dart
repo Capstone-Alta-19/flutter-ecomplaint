@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../config/colors.dart';
 
 class IsiLaporanItem extends StatelessWidget {
-  const IsiLaporanItem({super.key});
+  final String laporan;
+  final String tanggapan;
+  const IsiLaporanItem({super.key, required this.laporan, required this.tanggapan});
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +23,10 @@ class IsiLaporanItem extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.font), "Laporan"),
-                Text(style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.font), "Dosen Matakuliah salah memasukan nilai"),
+              children: [
+                const Text(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.font), "Laporan"),
+                Text(style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.font), laporan),
+                // "Dosen Matakuliah salah memasukan nilai"
               ],
             ),
           ),
@@ -41,17 +44,18 @@ class IsiLaporanItem extends StatelessWidget {
             child: Flex(
               direction: Axis.vertical,
               crossAxisAlignment: CrossAxisAlignment.end,
-              children: const [
-                Text(
+              children: [
+                const Text(
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.secondary100),
                   textAlign: TextAlign.right,
                   "Tindak Lanjut",
                 ),
                 Text(
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.secondary100),
+                  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.secondary100),
                   maxLines: 2,
                   textAlign: TextAlign.right,
-                  "Terimakasih telah menyuarakan melalui Complainz. Tim terkait sudah melakukan penyelidikan pada Dosen yang Bersangkutan",
+                  tanggapan,
+                  //   "Terimakasih telah menyuarakan melalui Complainz. Tim terkait sudah melakukan penyelidikan pada Dosen yang Bersangkutan"
                 ),
               ],
             ),
