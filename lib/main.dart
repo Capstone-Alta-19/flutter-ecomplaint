@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecomplaint/config/colors.dart';
-import 'package:flutter_ecomplaint/screen/isi_berita_laporan_page.dart';
-
 import 'package:flutter_ecomplaint/screen/splash_screen_page.dart';
+import 'package:flutter_ecomplaint/screen/status_complaint_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
           fontFamily: 'Poppins',
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
             backgroundColor: AppColors.secondary100,
             surfaceTintColor: Colors.transparent,
           )),
-      home: const IsiBeritaLaporanPage(),
+      home: const StatusComplaint(),
     );
   }
 }
