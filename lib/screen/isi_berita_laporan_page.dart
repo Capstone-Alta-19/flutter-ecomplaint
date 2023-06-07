@@ -101,7 +101,7 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                             const SizedBox(height: 8),
                             const IsiLaporanItem(
                               laporan: "Dosen Matakuliah salah memasukan nilai",
-                              tanggapan: "Terimakasih telah menyuarakan melalui Complainz. Tim terkait sudah melakukan penyelidikan pada Dosen yang Bersangkutan",
+                              tanggapan: null,
                             ),
                             const SizedBox(height: 8),
                             SelengkapnyaButton(onPressed: () {}),

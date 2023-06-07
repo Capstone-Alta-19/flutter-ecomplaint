@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecomplaint/config/colors.dart';
+import 'package:flutter_ecomplaint/screen/status_complaint_page.dart';
 import 'package:flutter_ecomplaint/widget/segment_title.dart';
 
+enum status { diterma, diproses, dijawab }
+
 class DetailStatusComplaint extends StatefulWidget {
-  const DetailStatusComplaint({super.key});
+  final status statusComplaint;
+  final idComplaint;
+
+  DetailStatusComplaint({super.key, required this.statusComplaint, required this.idComplaint});
 
   @override
   State<DetailStatusComplaint> createState() => _DetailStatusComplaintState();
 }
 
 class _DetailStatusComplaintState extends State<DetailStatusComplaint> {
+  final damn = "terima";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +31,9 @@ class _DetailStatusComplaintState extends State<DetailStatusComplaint> {
               SizedBox(
                 height: 37,
               ),
-              DetailDiproses(),
+              if (damn == "jawab") DetailDijawab(),
+              if (damn == "proses") DetailDiproses(),
+              if (damn == "terima") DetailDijawab(),
               SizedBox(height: 160),
               FilledButton(
                   style: ButtonStyle(
@@ -76,19 +85,59 @@ class DetailDiproses extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 39.0),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset("assets/logo/stepper-line-vertical.png"),
+          Image.asset("assets/logo/stepper-line-vertical2.png"),
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 17.0),
-                child: Image.asset(width: 212, "assets/logo/on-diterima.png"),
+                child: Image.asset(width: 212, "assets/logo/off-diterima.png"),
               ),
+              SizedBox(height: 110),
               Padding(
                 padding: const EdgeInsets.only(left: 17.0),
-                child: Image.asset(width: 212, "assets/logo/on-diterima.png"),
+                child: Image.asset(width: 212, "assets/logo/on-diproses.png"),
+              ),
+              SizedBox(height: 150),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class DetailDijawab extends StatelessWidget {
+  const DetailDijawab({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 39.0),
+      child: Row(
+        children: [
+          Column(
+            children: [
+              Image.asset("assets/logo/stepper-line-vertical3.png"),
+            ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 17.0),
+                child: Image.asset(width: 212, "assets/logo/off-diterima.png"),
+              ),
+              SizedBox(height: 100),
+              Padding(
+                padding: const EdgeInsets.only(left: 17.0),
+                child: Image.asset(width: 212, "assets/logo/off-diproses.png"),
+              ),
+              SizedBox(height: 90),
+              Padding(
+                padding: const EdgeInsets.only(left: 17.0),
+                child: Image.asset(width: 212, "assets/logo/on-dijawab.png"),
               ),
             ],
           )
