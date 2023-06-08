@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ecomplaint/config/colors.dart';
 import 'package:flutter_ecomplaint/screen/detail_status_complaint.dart';
 import 'package:flutter_ecomplaint/screen/isi_berita_laporan_page.dart';
+import 'package:flutter_ecomplaint/screen/riwayat_laporan_page.dart';
 import 'package:flutter_ecomplaint/screen/splash_screen_page.dart';
 import 'package:flutter_ecomplaint/screen/status_complaint_page.dart';
 
@@ -30,10 +31,10 @@ class MyApp extends StatelessWidget {
             backgroundColor: AppColors.secondary100,
             surfaceTintColor: Colors.transparent,
           )),
-      home: DetailStatusComplaint(
-        idComplaint: 1,
-        statusComplaint: status.dijawab,
-      ),
+      home: RiwayatLaporanPage(
+          // idComplaint: 1,
+          // statusComplaint: status.dijawab,
+          ),
     );
   }
 }
