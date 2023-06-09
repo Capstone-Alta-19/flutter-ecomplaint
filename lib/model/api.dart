@@ -108,12 +108,18 @@ Future login(
     "username_or_email": usernameEmail,
     "password": password,
   };
-
-  var response = await dio.post(AppUrl.login,
-      data: data,
-      options: Options(headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      }));
-
-  return response.data;
+  try {
+    var response = await dio.post(AppUrl.login,
+        data: data,
+        options: Options(headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        }));
+    if (response.statusCode == 200) {
+      return response.data;
+    } else if (response.statusCode == 400) {
+      return response.data;
+    }
+  } catch (e) {
+    return "Terjadi error";
+  }
 }

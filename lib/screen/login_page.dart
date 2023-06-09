@@ -31,13 +31,12 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _submitForm() async {
-    if (_isFormFilled) {
-      final usernameEmail = usernameEmailController.text;
-      final password = passwordController.text;
-      await login(usernameEmail, password).then((value) {
-        print(value);
-      });
-    }
+    final usernameEmail = usernameEmailController.text;
+    final password = passwordController.text;
+
+    await login(usernameEmailController.text, passwordController.text).then((value) {
+      print(value);
+    });
   }
 
   @override
@@ -85,6 +84,7 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                 child: TextFormField(
+                  controller: usernameEmailController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Username/Email tidak boleh kosong';
@@ -107,6 +107,7 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                 child: TextFormField(
+                  controller: passwordController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Password tidak boleh kosong';
@@ -117,7 +118,6 @@ class _LoginPageState extends State<LoginPage> {
                     _checkFormStatus();
                   },
                   style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.font),
-                  controller: passwordController,
                   obscureText: _passwordVisible,
                   decoration: InputDecoration(
                     suffixIcon: IconButton(
