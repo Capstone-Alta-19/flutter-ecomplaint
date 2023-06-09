@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecomplaint/config/colors.dart';
+import 'package:flutter_ecomplaint/model/api.dart';
 import 'package:flutter_ecomplaint/screen/berita_laporan_page.dart';
 import 'package:flutter_ecomplaint/widget/account_question_button.dart';
 
@@ -29,22 +30,13 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
-  void _submitForm() {
+  void _submitForm() async {
     if (_isFormFilled) {
-      /* if (formKey.currentState!.validate()) {
-        // If the form is valid, display a snackbar. In the real world,
-        // you'd often call a server or save the information in a database.
-        ScaffoldMessenger.of(context).showSnackBar( 
-          const SnackBar(content: Text('Processing Data')),
-        );
-      } */
-      /* Navigator.push(
-          context, MaterialPageRoute(builder: (context) => OtpPage())); */
       final usernameEmail = usernameEmailController.text;
       final password = passwordController.text;
-      // final commplainz = Complainz(
-      //     username: username, email: email, phone: phone, password: password);
-      // userProvider.registerUser() ;
+      await login(usernameEmail, password).then((value) {
+        print(value);
+      });
     }
   }
 
