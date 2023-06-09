@@ -1,4 +1,3 @@
-import 'package:complainz/notifiers/post_notifier.dart';
 import 'package:complainz/screen/complainz_register_screen.dart';
 import 'package:complainz/screen/laporkan_screen.dart';
 import 'package:complainz/screen/pengaduan_screen.dart';
@@ -9,9 +8,9 @@ import 'package:provider/provider.dart';
 Future<void> main() async {
   runApp(MultiProvider(
     providers: [
-      ChangeNotifierProvider(
+      /* ChangeNotifierProvider(
         create: (context) => PostNotifier(),
-      ),
+      ), */
     ],
     child: MyApp(),
   ));
@@ -34,7 +33,7 @@ class MyAppState extends State<MyApp> {
         theme: ThemeData(useMaterial3: true),
         /* home: const HomeScreen(
           key: ValueKey('Home Screen'), title: 'Flutter Demo Home Page'), */
-        home: const PengaduanPage()
+        home: const RegisterPage()
         /* routes: {
         "/add_post": (context) => AddPostScreen(),
       }, */

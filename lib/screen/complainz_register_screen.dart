@@ -1,10 +1,10 @@
 import 'package:complainz/config/app_color.dart';
+import 'package:complainz/model/api/register_api.dart';
+import 'package:complainz/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:provider/provider.dart';
-import 'package:complainz/model/post.dart';
-import 'package:complainz/notifiers/post_notifier.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -29,31 +29,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
   final formKey = GlobalKey<FormState>();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
-  Post _post = new Post();
-
-  _showSnackBar(String text, BuildContext context) {
-    final snackBar = SnackBar(content: Text(text));
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-  }
-
-  _createPost(BuildContext context) {
-    if (!formKey.currentState!.validate()) {
-      _showSnackBar("Failed to Create Post", context);
-      return;
-    }
-
-    formKey.currentState!.save();
-    //_post.username = admin;
-
-    PostNotifier postNotifier = Provider.of(context, listen: false);
-    //_post.username = postNotifier.getPostList().length + 1;
-    _post.phone = postNotifier.getPostList().length.toString();
-    postNotifier.uploadPost(_post).then((value) {
-      if (value) {
-        _showSnackBar("Post added Succesfully", context);
-      }
-    });
-  }
 
   @override
   void dispose() {
@@ -81,26 +56,16 @@ class _RegisterPageState extends State<RegisterPage> {
     });
   }
 
-  void _submitForm() {
-    _createPost(context);
-    /* if (_isFormFilled) {
-      /* if (formKey.currentState!.validate()) {
-        // If the form is valid, display a snackbar. In the real world,
-        // you'd often call a server or save the information in a database.
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Processing Data')),
-        );
-      } */
-      /* Navigator.push(
-          context, MaterialPageRoute(builder: (context) => OtpPage())); */
-      final username = controllerUsername.text;
-      final email = controllerEmail.text;
-      final phone = controllerNomor.text;
-      final password = controllerPassword.text;
-      final commplainz = Complainz(
-          username: username, email: email, phone: phone, password: password);
-      userProvider.registerUser();
-    } */
+  void _submitForm() async {
+    await postData(
+            controllerUsername.text,
+            controllerEmail.text,
+            controllerNomor.text,
+            controllerPassword.text,
+            controllerPasswordRepeat.text)
+        .then((value) {
+      print(value);
+    });
   }
 
   @override
@@ -156,9 +121,6 @@ class _RegisterPageState extends State<RegisterPage> {
                             }
                             return null;
                           },
-                          onSaved: (String? value) {
-                            _post.username;
-                          },
                           onChanged: (value) {
                             _checkFormStatus();
                           },
@@ -196,9 +158,6 @@ class _RegisterPageState extends State<RegisterPage> {
                               return null;
                             }
                           },
-                          onSaved: (String? value) {
-                            _post.email;
-                          },
                         ),
                         const SizedBox(height: 16),
                         TextFormField(
@@ -209,9 +168,6 @@ class _RegisterPageState extends State<RegisterPage> {
                               return 'Nomor tidak boleh kosong';
                             }
                             return null;
-                          },
-                          onSaved: (String? value) {
-                            _post.phone;
                           },
                           onChanged: (value) {
                             _checkFormStatus();
@@ -234,9 +190,6 @@ class _RegisterPageState extends State<RegisterPage> {
                               return 'Password belum diisi';
                             }
                             return null;
-                          },
-                          onSaved: (String? value) {
-                            _post.password;
                           },
                           onChanged: (value) {
                             _checkFormStatus();
@@ -286,36 +239,10 @@ class _RegisterPageState extends State<RegisterPage> {
                         const SizedBox(height: 24),
                         Column(
                           children: [
-                            FilledButton.tonal(
+                            ButtonPrimary(
                               onPressed: _isFormFilled ? _submitForm : null,
-                              child: Text(
-                                'Daftar',
-                                style: GoogleFonts.poppins(color: Colors.white),
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                minimumSize: const Size(358, 40),
-                                backgroundColor: AppColor.font,
-                              ),
+                              btnText: 'Daftar',
                             ),
-                            /* ElevatedButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Daftar',
-                                style: GoogleFonts.poppins(
-                                  color: const Color.fromRGBO(29, 27, 32, 1),
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0XFFE5E5E5),
-                                shadowColor: const Color(0XFFE5E5E5),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                                minimumSize: const Size(358, 40),
-                              ),
-                            ), */
                             const SizedBox(height: 12),
                             Padding(
                               padding:
