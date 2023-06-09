@@ -119,7 +119,7 @@ Future login(
     } else if (response.statusCode == 400) {
       return response.data;
     }
-  } catch (e) {
-    return "Terjadi error";
+  } on DioException catch (e) {
+    return "Username atau Password Salah";
   }
 }
