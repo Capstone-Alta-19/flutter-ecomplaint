@@ -1,7 +1,6 @@
 import 'package:complainz/config/app_color.dart';
 import 'package:complainz/widgets/textarea.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:chips_choice_null_safety/chips_choice_null_safety.dart';
 
 class PengaduanPage extends StatefulWidget {
@@ -33,12 +32,12 @@ class _PengaduanPageState extends State<PengaduanPage> {
         child: Column(
           children: [
             Row(
-              children: [
-                const Padding(padding: EdgeInsets.only(left: 137.42)),
+              children: const [
+                Padding(padding: EdgeInsets.only(left: 137.42)),
                 Text(
                   'Pengaduan',
-                  style: GoogleFonts.poppins(
-                    color: AppColor.font,
+                  style: TextStyle(
+                    color: AppColors.primary,
                     fontSize: 40,
                     fontWeight: FontWeight.w700,
                   ),
@@ -48,12 +47,12 @@ class _PengaduanPageState extends State<PengaduanPage> {
             const SizedBox(height: 30),
             Column(children: [
               Row(
-                children: [
-                  const Padding(padding: EdgeInsets.only(left: 16)),
+                children: const [
+                  Padding(padding: EdgeInsets.only(left: 16)),
                   Text(
                     'Masukkan Pesan Anda',
-                    style: GoogleFonts.poppins(
-                      color: AppColor.font,
+                    style: TextStyle(
+                      color: AppColors.primary,
                       fontSize: 16,
                       fontWeight: FontWeight.w700,
                     ),
@@ -71,24 +70,32 @@ class _PengaduanPageState extends State<PengaduanPage> {
                   OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
               positionBottom: 0,
               positionLeft: 1,
-              globalColor: AppColor.font,
+              globalColor: AppColors.primary,
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(0),
                   topRight: Radius.circular(30),
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30)),
-              icons1: const Icon(Icons.image, color: Colors.amber),
-              icons2: const Icon(Icons.file_copy, color: Colors.amber),
+              icons1: InkWell(
+                onTap: () {},
+                child: Image.asset('assets/icons/Img_box.png', width: 20.4),
+              ),
+              icons2: InkWell(
+                onTap: () {},
+                child: Image.asset('assets/icons/Video_file.png', width: 20.4),
+              ),
+              /* icons1: const Icon(Icons.image, color: Colors.amber),
+              icons2: const Icon(Icons.file_copy, color: Colors.amber), */
             ),
             const SizedBox(height: 38.6),
             Column(children: [
               Row(
-                children: [
-                  const Padding(padding: EdgeInsets.only(left: 14)),
+                children: const [
+                  Padding(padding: EdgeInsets.only(left: 14)),
                   Text(
                     'Pilih Kategori',
-                    style: GoogleFonts.poppins(
-                      color: AppColor.font,
+                    style: TextStyle(
+                      color: AppColors.primary,
                       fontSize: 16,
                       fontWeight: FontWeight.w700,
                     ),
@@ -98,8 +105,8 @@ class _PengaduanPageState extends State<PengaduanPage> {
             ]),
             const SizedBox(height: 8),
             SizedBox(
-              height: 170,
-              width: 358,
+              //height: 128,
+              width: MediaQuery.of(context).size.width,
               child: Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16),
                 child: Card(
@@ -116,6 +123,13 @@ class _PengaduanPageState extends State<PengaduanPage> {
                       label: (i, v) => v,
                     ),
                     choiceActiveStyle: const C2ChoiceStyle(
+                      showCheckmark: false,
+                      backgroundColor: AppColors.primary,
+                      labelStyle: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      ),
                       color: Color(0XFF36A8F4),
                       borderColor: Color(0XFF36A8F4),
                       borderRadius: BorderRadius.all(
@@ -137,12 +151,12 @@ class _PengaduanPageState extends State<PengaduanPage> {
             Column(
               children: [
                 Row(
-                  children: [
-                    const Padding(padding: EdgeInsets.only(left: 14)),
+                  children: const [
+                    Padding(padding: EdgeInsets.only(left: 14)),
                     Text(
                       'Jenis Laporan',
-                      style: GoogleFonts.poppins(
-                        color: AppColor.font,
+                      style: TextStyle(
+                        color: AppColors.primary,
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
                       ),
@@ -186,11 +200,11 @@ class _PengaduanPageState extends State<PengaduanPage> {
                     onPressed: () {},
                     child: Text(
                       'Daftar',
-                      style: GoogleFonts.poppins(color: Colors.white),
+                      style: TextStyle(color: Colors.white),
                     ),
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(358, 40),
-                      backgroundColor: AppColor.font,
+                      backgroundColor: AppColors.primary,
                     ),
                   ),
                 ),

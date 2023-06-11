@@ -1,11 +1,13 @@
-import 'package:complainz/screen/complainz_register_screen.dart';
+import 'package:complainz/screen/bottom.dart';
+import 'package:complainz/screen/register_screen.dart';
 import 'package:complainz/screen/laporkan_screen.dart';
 import 'package:complainz/screen/pengaduan_screen.dart';
-import 'package:complainz/screen/tags_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'config/app_color.dart';
+import 'screen/laporan_terbuka.dart';
 
-Future<void> main() async {
+/* Future<void> main() async {
   runApp(MultiProvider(
     providers: [
       /* ChangeNotifierProvider(
@@ -14,6 +16,10 @@ Future<void> main() async {
     ],
     child: MyApp(),
   ));
+} */
+
+void main() {
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -30,10 +36,20 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(useMaterial3: true),
+        theme: ThemeData(
+            useMaterial3: true,
+            fontFamily: 'Poppins',
+            colorScheme: ColorScheme.fromSeed(
+              background: AppColors.secondary100,
+              seedColor: const Color(0xff3C486B),
+            ),
+            appBarTheme: const AppBarTheme(
+              backgroundColor: AppColors.secondary100,
+              surfaceTintColor: Colors.transparent,
+            )),
         /* home: const HomeScreen(
           key: ValueKey('Home Screen'), title: 'Flutter Demo Home Page'), */
-        home: const RegisterPage()
+        home: PengaduanPage()
         /* routes: {
         "/add_post": (context) => AddPostScreen(),
       }, */

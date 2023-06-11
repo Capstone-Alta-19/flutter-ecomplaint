@@ -15,11 +15,14 @@ class ButtonPrimary extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         btnText,
-        style: GoogleFonts.poppins(color: Colors.white),
+        style: const TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w700,
+            color: AppColors.secondary100),
       ),
       style: ElevatedButton.styleFrom(
         minimumSize: const Size(358, 40),
-        backgroundColor: AppColor.font,
+        backgroundColor: AppColors.primary,
       ),
     );
   }

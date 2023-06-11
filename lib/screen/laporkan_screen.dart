@@ -2,8 +2,9 @@ import 'package:complainz/config/app_color.dart';
 import 'package:complainz/screen/pengaduan_screen.dart';
 import 'package:complainz/widgets/cards.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:molten_navigationbar_flutter/molten_navigationbar_flutter.dart';
+import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
+import 'package:circular_bottom_navigation/tab_item.dart';
 
 class LaporkanPage extends StatefulWidget {
   const LaporkanPage({super.key});
@@ -14,6 +15,49 @@ class LaporkanPage extends StatefulWidget {
 
 class _LaporkanPageState extends State<LaporkanPage> {
   int _selectedIndex = 0;
+  int selectedPos = 0;
+
+  double bottomNavBarHeight = 60;
+
+  List<TabItem> tabItems = List.of([
+    TabItem(
+      Icons.home,
+      "Home",
+      Colors.blue,
+      labelStyle: TextStyle(
+        fontWeight: FontWeight.normal,
+      ),
+    ),
+    TabItem(
+      Icons.search,
+      "Search",
+      Colors.orange,
+      labelStyle: TextStyle(
+        color: Colors.red,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    TabItem(
+      Icons.layers,
+      "Reports",
+      Colors.red,
+      circleStrokeColor: Colors.black,
+    ),
+    TabItem(
+      Icons.notifications,
+      "Notifications",
+      Colors.cyan,
+    ),
+  ]);
+
+  late CircularBottomNavigationController _navigationController;
+
+  @override
+  void initState() {
+    super.initState();
+    _navigationController = CircularBottomNavigationController(selectedPos);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,12 +67,12 @@ class _LaporkanPageState extends State<LaporkanPage> {
         padding: const EdgeInsets.only(top: 33),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 111, right: 16),
+            const Padding(
+              padding: EdgeInsets.only(left: 111, right: 16),
               child: Text(
                 'Pengaduan!',
-                style: GoogleFonts.poppins(
-                  color: AppColor.font,
+                style: TextStyle(
+                  color: AppColors.primary,
                   fontSize: 40,
                   fontWeight: FontWeight.w700,
                 ),
@@ -45,7 +89,7 @@ class _LaporkanPageState extends State<LaporkanPage> {
                             builder: (context) => const PengaduanPage()));
                   },
                   assets: Image.asset(
-                    'assets/pengaduan.png',
+                    'assets/images/pengaduan.png',
                     fit: BoxFit.cover,
                   ),
                   flex1: 1,
@@ -67,16 +111,16 @@ class _LaporkanPageState extends State<LaporkanPage> {
                   flexText: 2,
                   flexImage: 1,
                   assets: Image.asset(
-                    'assets/aspirasi.png',
+                    'assets/images/aspirasi.png',
                     fit: BoxFit.cover,
                   ),
                 )),
             const SizedBox(height: 99.5),
-            Text(
+            const Text(
               'Pilih Kategori \n Laporan',
               textAlign: TextAlign.center,
-              style: GoogleFonts.poppins(
-                color: AppColor.font,
+              style: TextStyle(
+                color: AppColors.primary,
                 fontSize: 32,
                 fontWeight: FontWeight.w600,
               ),
@@ -84,9 +128,18 @@ class _LaporkanPageState extends State<LaporkanPage> {
           ],
         ),
       )),
-      bottomNavigationBar: MoltenBottomNavigationBar(
-        domeCircleColor: Color(0XFFF0F0F0),
-        barColor: Color(0XFFF0F0F0),
+
+      /* bottomNavigationBar: MoltenBottomNavigationBar(
+        borderRaduis: const BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
+        ),
+        barHeight: 80,
+        domeCircleSize: 36,
+        domeWidth: 150,
+        domeHeight: 15,
+        domeCircleColor: AppColors.secondary100,
+        barColor: AppColors.secondary100,
         borderColor: Colors.black12,
         borderSize: 2,
         selectedIndex: _selectedIndex,
@@ -97,23 +150,23 @@ class _LaporkanPageState extends State<LaporkanPage> {
         },
         tabs: [
           MoltenTab(
-            selectedColor: Color(0XFF3C486B),
-            icon: Icon(Icons.home),
+            selectedColor: AppColors.primary,
+            icon: Image.asset('assets/icons/Home.png'),
           ),
           MoltenTab(
-            selectedColor: Color(0XFF3C486B),
-            icon: Icon(Icons.add_comment_rounded),
+            selectedColor: AppColors.primary,
+            icon: Image.asset('assets/icons/Chat_alt_add.png'),
           ),
           MoltenTab(
-            selectedColor: Color(0XFF3C486B),
-            icon: Icon(Icons.verified_user_outlined),
+            selectedColor: AppColors.primary,
+            icon: Image.asset('assets/icons/Shield.png'),
           ),
           MoltenTab(
-            selectedColor: Color(0XFF3C486B),
-            icon: Icon(Icons.account_box_outlined),
+            selectedColor: AppColors.primary,
+            icon: Image.asset('assets/icons/User.png'),
           ),
         ],
-      ),
+      ), */
       /* bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.circular(30),
         child: NavigationBar(

@@ -50,7 +50,7 @@ class Cards extends StatelessWidget {
                 child: Text(
                   cardText,
                   style: GoogleFonts.poppins(
-                    color: AppColor.font,
+                    color: AppColors.primary,
                     fontSize: 32,
                     fontWeight: FontWeight.w600,
                   ),
@@ -124,10 +124,10 @@ class CustomCards extends StatelessWidget {
               flex: flexText,
               child: Container(
                 padding: const EdgeInsets.only(left: 48),
-                child: Text(
+                child: const Text(
                   'Aspirasi',
-                  style: GoogleFonts.poppins(
-                    color: AppColor.font,
+                  style: TextStyle(
+                    color: AppColors.primary,
                     fontSize: 32,
                     fontWeight: FontWeight.w600,
                   ),

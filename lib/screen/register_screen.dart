@@ -2,7 +2,6 @@ import 'package:complainz/config/app_color.dart';
 import 'package:complainz/model/api/register_api.dart';
 import 'package:complainz/widgets/buttons.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:provider/provider.dart';
 
@@ -84,24 +83,24 @@ class _RegisterPageState extends State<RegisterPage> {
             padding: const EdgeInsets.only(top: 13),
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 16.0, right: 16),
+                const Padding(
+                  padding: EdgeInsets.only(left: 16.0, right: 16),
                   child: Text(
                     'Buat akun baru \n dan mulai',
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
-                      color: AppColor.font,
+                    style: TextStyle(
+                      color: AppColors.font,
                       fontSize: 40,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
                 ),
                 const SizedBox(height: 24),
-                Text(
+                const Text(
                   'Selamat bergabung, buat sebuah akun agar dapat \n komplain lebih mudah',
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
-                    color: const Color(0XFF3C486B),
+                  style: TextStyle(
+                    color: AppColors.font,
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
                   ),
@@ -124,13 +123,13 @@ class _RegisterPageState extends State<RegisterPage> {
                           onChanged: (value) {
                             _checkFormStatus();
                           },
-                          decoration: InputDecoration(
-                            border: const OutlineInputBorder(),
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
                             labelText: 'Username',
-                            hintStyle: GoogleFonts.roboto(
+                            hintStyle: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
-                              color: const Color(0XFF3C486B),
+                              color: AppColors.primary,
                             ),
                           ),
                         ),
@@ -141,13 +140,13 @@ class _RegisterPageState extends State<RegisterPage> {
                           onChanged: (value) {
                             _checkFormStatus();
                           },
-                          decoration: InputDecoration(
-                            border: const OutlineInputBorder(),
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
                             labelText: 'Email Kampus',
-                            hintStyle: GoogleFonts.roboto(
+                            hintStyle: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
-                              color: const Color(0XFF3C486B),
+                              color: AppColors.primary,
                             ),
                           ),
                           validator: (email) {
@@ -172,13 +171,13 @@ class _RegisterPageState extends State<RegisterPage> {
                           onChanged: (value) {
                             _checkFormStatus();
                           },
-                          decoration: InputDecoration(
-                            border: const OutlineInputBorder(),
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
                             labelText: 'Nomor WhatsApp',
-                            hintStyle: GoogleFonts.roboto(
+                            hintStyle: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
-                              color: const Color(0XFF3C486B),
+                              color: AppColors.primary,
                             ),
                           ),
                         ),
@@ -198,10 +197,10 @@ class _RegisterPageState extends State<RegisterPage> {
                           decoration: InputDecoration(
                               border: const OutlineInputBorder(),
                               labelText: 'Password',
-                              hintStyle: GoogleFonts.roboto(
+                              hintStyle: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w400,
-                                color: const Color(0XFF3C486B),
+                                color: AppColors.primary,
                               ),
                               suffixIcon: GestureDetector(
                                 onTap: () {
@@ -218,7 +217,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         const SizedBox(height: 16),
                         TextFormField(
-                          obscureText: true,
+                          obscureText: _obsecureText,
                           controller: controllerPasswordRepeat,
                           onChanged: (value) {
                             _checkFormStatus();
@@ -229,10 +228,10 @@ class _RegisterPageState extends State<RegisterPage> {
                             labelText: 'Masukkan Kembali Password',
                             errorText:
                                 _passwordMatch ? null : 'Password tidak cocok',
-                            hintStyle: GoogleFonts.roboto(
+                            hintStyle: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
-                              color: const Color(0XFF3C486B),
+                              color: AppColors.primary,
                             ),
                           ),
                         ),
@@ -250,10 +249,10 @@ class _RegisterPageState extends State<RegisterPage> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Sudah Punya Akun? ',
-                                    style: GoogleFonts.poppins(
-                                        color: AppColor.font,
+                                    style: TextStyle(
+                                        color: AppColors.primary,
                                         fontSize: 14,
                                         fontWeight: FontWeight.w500),
                                   ),
@@ -264,7 +263,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     child: const Text(
                                       'Masuk',
                                       style: TextStyle(
-                                        color: AppColor.font,
+                                        color: AppColors.primary,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16,
                                       ),

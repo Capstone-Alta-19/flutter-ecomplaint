@@ -194,7 +194,7 @@ class _OtpPageState extends State<OtpPage> {
                     ),
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(358, 40),
-                      backgroundColor: AppColor.font,
+                      backgroundColor: AppColors.primary,
                     ),
                   ),
                 ),

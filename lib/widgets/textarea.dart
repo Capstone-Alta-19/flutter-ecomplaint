@@ -11,8 +11,8 @@ class TextArea extends StatelessWidget {
   final double positionLeft;
   final Color globalColor;
   final BorderRadius borderRadius;
-  final Icon icons1;
-  final Icon icons2;
+  final InkWell icons1;
+  final InkWell icons2;
 
   const TextArea({
     super.key,
