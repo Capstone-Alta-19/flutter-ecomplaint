@@ -43,6 +43,9 @@ dependencies:
   like_button: ^2.0.5
   im_stepper: ^1.0.1+1
   dio: ^5.2.0+1
+  carousel_slider: ^4.2.1
+  circular_bottom_navigation: ^2.3.0
+  molten_navigationbar_flutter: ^1.0.1
   
 
 dev_dependencies:

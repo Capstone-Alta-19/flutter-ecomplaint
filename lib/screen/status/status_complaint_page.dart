@@ -13,27 +13,30 @@ class _StatusComplaintState extends State<StatusComplaint> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(0),
+        child: AppBar(),
+      ),
       body: SingleChildScrollView(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
           child: Center(
             child: Column(
               children: [
-                SegmentTitleWithoutBack(title: "Status Complaint"),
-                SizedBox(height: 30),
-                Text(
+                const SegmentTitleWithoutBack(title: "Status Complaint"),
+                const SizedBox(height: 30),
+                const Text(
                     style: TextStyle(
                       color: AppColors.font,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
                     "Click untuk melihat detail"),
-                SizedBox(height: 13),
+                const SizedBox(height: 13),
                 ComplaintDijawab(
                   onPressed: () {},
                 ),
-                SizedBox(height: 13),
+                const SizedBox(height: 13),
               ],
             ),
           ),
@@ -50,7 +53,7 @@ class ComplaintDiterima extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(left: 34, right: 34),
+        padding: const EdgeInsets.only(left: 34, right: 34),
         child: Column(
           children: [
             InkWell(
@@ -83,7 +86,7 @@ class ComplaintDiproses extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(left: 34, right: 34),
+        padding: const EdgeInsets.only(left: 34, right: 34),
         child: Column(
           children: [
             InkWell(
@@ -117,7 +120,7 @@ class ComplaintDijawab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(left: 34, right: 34),
+        padding: const EdgeInsets.only(left: 34, right: 34),
         child: Column(
           children: [
             InkWell(

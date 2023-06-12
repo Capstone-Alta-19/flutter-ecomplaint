@@ -148,13 +148,13 @@ class OnBoardingPageState extends State<OnBoardingPage> {
       controlsMargin: const EdgeInsets.all(16),
       controlsPadding: const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
       dotsDecorator: const DotsDecorator(
-        size: Size(9.0, 9.0),
-        color: AppColors.primary20,
-        activeSize: Size(24.0, 9.0),
-        activeShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(25.0)),
-        ),
-      ),
+          size: Size(9.0, 9.0),
+          color: AppColors.primary20,
+          activeSize: Size(24.0, 9.0),
+          activeShape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(25.0)),
+          ),
+          activeColor: AppColors.primary),
       dotsContainerDecorator: const ShapeDecoration(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(8.0)),

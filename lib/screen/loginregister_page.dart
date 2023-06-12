@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecomplaint/config/colors.dart';
-import 'package:flutter_ecomplaint/screen/login_page.dart';
+import 'package:flutter_ecomplaint/screen/login/login_page.dart';
 import 'package:flutter_ecomplaint/widget/account_question_button.dart';
 
 class LoginregisterPage extends StatelessWidget {

@@ -21,8 +21,9 @@ class _BeritaLaporanPageState extends State<BeritaLaporanPage> {
     GlobalKey laporanItemLainnya = GlobalKey();
 
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(0),
+        child: AppBar(),
       ),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,

@@ -6,7 +6,6 @@ import 'package:flutter_ecomplaint/widget/isi_laporan_item.dart';
 import 'package:flutter_ecomplaint/widget/profile_card.dart';
 import 'package:flutter_ecomplaint/widget/segment_title.dart';
 import 'package:flutter_ecomplaint/widget/selengkapnya_button.dart';
-import 'package:like_button/like_button.dart';
 
 List<String> list = <String>['Urutkan Berdasarkan', 'Terbaru', 'Terlama'];
 
@@ -22,8 +21,9 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(0),
+        child: AppBar(),
       ),
       body: SingleChildScrollView(
         child: SizedBox(
@@ -110,7 +110,7 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                       )),
                     ),
                     const SizedBox(height: 13.0),
-                    InteractionCard(),
+                    const InteractionCard(),
                     const SizedBox(height: 22.5),
                   ],
                 ),
@@ -126,7 +126,7 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                     ),
                     child: Column(
                       children: [
-                        ProfileCard(avatar: "assets/logo/PP.png", name: "Jane Cooper", username: "@nina_real", tanggal: "12/05/2023"),
+                        const ProfileCard(avatar: "assets/logo/PP.png", name: "Jane Cooper", username: "@nina_real", tanggal: "12/05/2023"),
                         const SizedBox(height: 8),
                         const IsiLaporanItem(
                           laporan: "Dosen Matakuliah salah memasukan nilai",
@@ -139,7 +139,7 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                   )),
                 ),
                 const SizedBox(height: 13.0),
-                InteractionCard(),
+                const InteractionCard(),
                 const SizedBox(height: 22.5),
               ],
             ),

@@ -18,6 +18,7 @@ class AppColors {
   static const font = Color(0XFF3C486B);
   static const secondary100 = Color(0XFFF0F0F0);
   static const secondary20 = Color(0XffFCFCFC);
+  static const accent = Color(0XffF9D949);
 
   static const btnenable = Color(0XFF3C486B);
   static const btndisable = Color(0XFF1D1B20);

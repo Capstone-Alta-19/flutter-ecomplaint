@@ -7,6 +7,7 @@ class DashedDivider extends StatelessWidget {
   final double height;
 
   const DashedDivider({
+    super.key,
     this.color = Colors.black,
     this.strokeWidth = 1.0,
     this.gapWidth = 4.0,
@@ -49,7 +50,7 @@ class _DashedDividerPainter extends CustomPainter {
       ..strokeWidth = strokeWidth
       ..style = PaintingStyle.stroke;
 
-    final dashWidth = 4.0; // Panjang garis putus-putus
+    const dashWidth = 4.0; // Panjang garis putus-putus
     final dashSpace = gapWidth; // Jarak antar garis putus-putus
 
     double startX = 0;

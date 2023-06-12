@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecomplaint/config/colors.dart';
-import 'package:flutter_ecomplaint/screen/status_complaint_page.dart';
 import 'package:flutter_ecomplaint/widget/custom_dialog.dart';
 import 'package:flutter_ecomplaint/widget/segment_title.dart';
 
-import '../widget/custom_alert_dialog.dart';
+import '../../widget/custom_alert_dialog.dart';
 
 enum status { diterma, diproses, dijawab }
 
@@ -23,7 +22,10 @@ class _DetailStatusComplaintState extends State<DetailStatusComplaint> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(0),
+        child: AppBar(),
+      ),
       body: SingleChildScrollView(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
@@ -31,15 +33,15 @@ class _DetailStatusComplaintState extends State<DetailStatusComplaint> {
               child: Column(
             children: [
               const SegmentTitle(title: "Detail Status"),
-              SizedBox(
+              const SizedBox(
                 height: 37,
               ),
-              if (damn == "jawab") DetailDijawab(),
-              if (damn == "proses") DetailDiproses(),
-              if (damn == "terima") DetailDijawab(),
-              SizedBox(height: 160),
+              if (damn == "jawab") const DetailDijawab(),
+              if (damn == "proses") const DetailDiproses(),
+              if (damn == "terima") const DetailDijawab(),
+              const SizedBox(height: 160),
               FilledButton(
-                  style: ButtonStyle(
+                  style: const ButtonStyle(
                     minimumSize: MaterialStatePropertyAll(Size(358, 40)),
                     backgroundColor: MaterialStatePropertyAll(AppColors.primary),
                   ),
@@ -54,7 +56,7 @@ class _DetailStatusComplaintState extends State<DetailStatusComplaint> {
                                 showDialog(
                                     barrierColor: null,
                                     context: context,
-                                    builder: (BuildContext context) => CustomAlertDialog(
+                                    builder: (BuildContext context) => const CustomAlertDialog(
                                           title: "Laporan Terhapus",
                                           icon: "assets/icons/Trash.png",
                                         ));
@@ -64,7 +66,7 @@ class _DetailStatusComplaintState extends State<DetailStatusComplaint> {
                               title: "Kamu Yakin Untuk Mencabut Laporan?",
                             ));
                   },
-                  child: Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: AppColors.secondary100), "Edit laporan")),
+                  child: const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: AppColors.secondary100), "Edit laporan")),
             ],
           )),
         ),
@@ -89,7 +91,7 @@ class DetailDiterima extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 17.0),
                 child: Image.asset(width: 212, "assets/logo/on-diterima.png"),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 300,
               ),
             ],
@@ -117,12 +119,12 @@ class DetailDiproses extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 17.0),
                 child: Image.asset(width: 212, "assets/logo/off-diterima.png"),
               ),
-              SizedBox(height: 110),
+              const SizedBox(height: 110),
               Padding(
                 padding: const EdgeInsets.only(left: 17.0),
                 child: Image.asset(width: 212, "assets/logo/on-diproses.png"),
               ),
-              SizedBox(height: 150),
+              const SizedBox(height: 150),
             ],
           )
         ],
@@ -152,12 +154,12 @@ class DetailDijawab extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 17.0),
                 child: Image.asset(width: 212, "assets/logo/off-diterima.png"),
               ),
-              SizedBox(height: 100),
+              const SizedBox(height: 100),
               Padding(
                 padding: const EdgeInsets.only(left: 17.0),
                 child: Image.asset(width: 212, "assets/logo/off-diproses.png"),
               ),
-              SizedBox(height: 90),
+              const SizedBox(height: 90),
               Padding(
                 padding: const EdgeInsets.only(left: 17.0),
                 child: Image.asset(width: 212, "assets/logo/on-dijawab.png"),
