@@ -128,16 +128,15 @@ class _LaporkanPageState extends State<LaporkanPage> {
           ],
         ),
       )),
-
-      /* bottomNavigationBar: MoltenBottomNavigationBar(
+      bottomNavigationBar: MoltenBottomNavigationBar(
         borderRaduis: const BorderRadius.only(
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),
         ),
         barHeight: 80,
         domeCircleSize: 36,
-        domeWidth: 150,
-        domeHeight: 15,
+        domeWidth: 100,
+        domeHeight: 10,
         domeCircleColor: AppColors.secondary100,
         barColor: AppColors.secondary100,
         borderColor: Colors.black12,
@@ -166,7 +165,7 @@ class _LaporkanPageState extends State<LaporkanPage> {
             icon: Image.asset('assets/icons/User.png'),
           ),
         ],
-      ), */
+      ),
       /* bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.circular(30),
         child: NavigationBar(

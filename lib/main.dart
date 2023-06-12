@@ -5,6 +5,8 @@ import 'package:complainz/screen/pengaduan_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'config/app_color.dart';
+import 'screen/cobaan.dart';
+import 'screen/komentar_screen.dart';
 import 'screen/laporan_terbuka.dart';
 
 /* Future<void> main() async {
@@ -49,7 +51,7 @@ class MyAppState extends State<MyApp> {
             )),
         /* home: const HomeScreen(
           key: ValueKey('Home Screen'), title: 'Flutter Demo Home Page'), */
-        home: PengaduanPage()
+        home: LaporkanPage()
         /* routes: {
         "/add_post": (context) => AddPostScreen(),
       }, */
