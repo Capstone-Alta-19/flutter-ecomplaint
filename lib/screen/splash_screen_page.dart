@@ -7,7 +7,7 @@ class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
@@ -66,7 +66,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
   Widget build(BuildContext context) {
     return IntroductionScreen(
       key: introKey,
-      globalBackgroundColor: Colors.white,
+      globalBackgroundColor: AppColors.secondary100,
       allowImplicitScrolling: true,
       autoScrollDuration: 3000,
       rawPages: [
@@ -82,7 +82,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
             child: SizedBox(
               width: 307,
               child: Text(
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: AppColors.primary),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: AppColors.font),
                 textAlign: TextAlign.center,
                 "Tidak perlu repot-repot lagi menghubungi layanan pelanggan yang memakan waktu lama dan membingungkan. Dengan Complainz, kamu bisa membuat keluhan dengan mudah dan cepat lewat aplikasi.",
               ),
@@ -141,20 +141,20 @@ class OnBoardingPageState extends State<OnBoardingPage> {
       showBackButton: false,
       //rtl: true, // Display as right-to-left
       back: const Icon(Icons.arrow_back),
-      skip: const Text('Skip', style: TextStyle(fontWeight: FontWeight.w700, color: AppColors.primary)),
+      skip: const Text('Skip', style: TextStyle(fontWeight: FontWeight.w700, color: AppColors.font)),
       next: const ImageIcon(AssetImage("assets/icons/splash-arrow.png")),
       done: const ImageIcon(AssetImage("assets/icons/splash-arrow.png")),
       curve: Curves.fastLinearToSlowEaseIn,
       controlsMargin: const EdgeInsets.all(16),
       controlsPadding: const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
       dotsDecorator: const DotsDecorator(
-        size: Size(9.0, 9.0),
-        color: AppColors.primary20,
-        activeSize: Size(24.0, 9.0),
-        activeShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(25.0)),
-        ),
-      ),
+          size: Size(9.0, 9.0),
+          color: AppColors.primary20,
+          activeSize: Size(24.0, 9.0),
+          activeShape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(25.0)),
+          ),
+          activeColor: AppColors.primary),
       dotsContainerDecorator: const ShapeDecoration(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(8.0)),
