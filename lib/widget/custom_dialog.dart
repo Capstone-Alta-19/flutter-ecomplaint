@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_ecomplaint/widget/custom_alert_dialog.dart';
 
 import '../config/colors.dart';
 
@@ -16,26 +13,26 @@ class CustomDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: AppColors.primary,
-      child: Container(
+      child: SizedBox(
         height: 190,
         child: Padding(
-          padding: EdgeInsets.fromLTRB(24, 20, 24, 20),
+          padding: const EdgeInsets.fromLTRB(24, 20, 24, 20),
           child: Center(
               child: Column(
             children: [
               ImageIcon(color: Colors.yellow, size: 46, AssetImage(icon)),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Text(
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: AppColors.primary20,
                   ),
                   title),
-              SizedBox(
+              const SizedBox(
                 height: 2,
               ),
               SizedBox(
@@ -47,18 +44,18 @@ class CustomDialog extends StatelessWidget {
                         onPressed: onPressed,
                         child: Text(
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w700,
                               color: AppColors.secondary100,
                             ),
                             confirm)),
                     FilledButton(
-                        style: ButtonStyle(minimumSize: MaterialStatePropertyAll(Size(83, 40)), backgroundColor: MaterialStatePropertyAll(Colors.yellow)),
+                        style: const ButtonStyle(minimumSize: MaterialStatePropertyAll(Size(83, 40)), backgroundColor: MaterialStatePropertyAll(Colors.yellow)),
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: Text(
+                        child: const Text(
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 14,

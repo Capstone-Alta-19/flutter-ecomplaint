@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecomplaint/config/colors.dart';
-import 'package:flutter_ecomplaint/model/api.dart';
+import 'package:flutter_ecomplaint/model/auth.dart';
 import 'package:flutter_ecomplaint/screen/home_page.dart';
 import 'package:flutter_ecomplaint/screen/laporan/berita_laporan_page.dart';
 import 'package:flutter_ecomplaint/widget/account_question_button.dart';
@@ -35,23 +35,23 @@ class _LoginPageState extends State<LoginPage> {
     await login(usernameEmailController.text, passwordController.text).then((value) {
       print(value);
 
-      Navigator.of(context).push(
-        PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) {
-              return const Homepage();
-            },
-            transitionDuration: const Duration(milliseconds: 300),
-            transitionsBuilder: (context, animation, secondaryAnimation, child) {
-              final tween = Tween(
-                begin: const Offset(2, 0),
-                end: Offset.zero,
-              );
-              return SlideTransition(
-                position: animation.drive(tween),
-                child: child,
-              );
-            }),
-      );
+      // Navigator.of(context).push(
+      //   PageRouteBuilder(
+      //       pageBuilder: (context, animation, secondaryAnimation) {
+      //         return const Homepage();
+      //       },
+      //       transitionDuration: const Duration(milliseconds: 300),
+      //       transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      //         final tween = Tween(
+      //           begin: const Offset(2, 0),
+      //           end: Offset.zero,
+      //         );
+      //         return SlideTransition(
+      //           position: animation.drive(tween),
+      //           child: child,
+      //         );
+      //       }),
+      // );
     });
   }
 
@@ -158,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                     fixedSize: const MaterialStatePropertyAll(Size(357, 40)),
                   ),
                   onPressed: _isFormFilled ? _submitForm : null,
-                  child: const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.secondary100), "Masuk"),
+                  child: _isFormFilled ? const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.secondary100), "Masuk") : const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.grey), "Masuk"),
                 ),
                 AccountQuestionButton(
                     text: "Belum Punya Akun, ",
