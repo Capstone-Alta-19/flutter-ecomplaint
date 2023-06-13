@@ -17,8 +17,7 @@ class _PengaduanPageState extends State<PengaduanPage> {
   List<String> tags = [];
 
   List<String> options = [
-    'Dosen',
-    'Akademik',
+    'Dosen dan Staff Akademik',
     'Sarana dan Prasarana',
     'Organisasi Mahasiswa',
     'Mahasiswa',

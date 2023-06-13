@@ -8,6 +8,7 @@ import 'config/app_color.dart';
 import 'screen/cobaan.dart';
 import 'screen/komentar_screen.dart';
 import 'screen/laporan_terbuka.dart';
+import 'screen/my_account_screen.dart';
 
 /* Future<void> main() async {
   runApp(MultiProvider(

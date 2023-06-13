@@ -17,47 +17,6 @@ class _LaporkanPageState extends State<LaporkanPage> {
   int _selectedIndex = 0;
   int selectedPos = 0;
 
-  double bottomNavBarHeight = 60;
-
-  List<TabItem> tabItems = List.of([
-    TabItem(
-      Icons.home,
-      "Home",
-      Colors.blue,
-      labelStyle: TextStyle(
-        fontWeight: FontWeight.normal,
-      ),
-    ),
-    TabItem(
-      Icons.search,
-      "Search",
-      Colors.orange,
-      labelStyle: TextStyle(
-        color: Colors.red,
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-    TabItem(
-      Icons.layers,
-      "Reports",
-      Colors.red,
-      circleStrokeColor: Colors.black,
-    ),
-    TabItem(
-      Icons.notifications,
-      "Notifications",
-      Colors.cyan,
-    ),
-  ]);
-
-  late CircularBottomNavigationController _navigationController;
-
-  @override
-  void initState() {
-    super.initState();
-    _navigationController = CircularBottomNavigationController(selectedPos);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
