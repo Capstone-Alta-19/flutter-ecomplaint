@@ -59,25 +59,25 @@ class _RegisterPageState extends State<RegisterPage> {
   void _submitForm() async {
     await postData(controllerUsername.text, controllerEmail.text, controllerNomor.text, controllerPassword.text, controllerPasswordRepeat.text).then((value) {
       print(value);
-
-      Navigator.of(context).push(
-        PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) {
-              return const CreateAccount();
-            },
-            transitionDuration: const Duration(milliseconds: 300),
-            transitionsBuilder: (context, animation, secondaryAnimation, child) {
-              final tween = Tween(
-                begin: const Offset(2, 0),
-                end: Offset.zero,
-              );
-              return SlideTransition(
-                position: animation.drive(tween),
-                child: child,
-              );
-            }),
-      );
     });
+
+    Navigator.of(context).push(
+      PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const CreateAccount();
+          },
+          transitionDuration: const Duration(milliseconds: 300),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            final tween = Tween(
+              begin: const Offset(2, 0),
+              end: Offset.zero,
+            );
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          }),
+    );
   }
 
   @override
@@ -86,7 +86,11 @@ class _RegisterPageState extends State<RegisterPage> {
 
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back_ios)),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back_ios)),
         //backgroundColor: const Color(0XFF58FF3E),
       ),
       body: SingleChildScrollView(

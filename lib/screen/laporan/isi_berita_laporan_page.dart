@@ -1,3 +1,4 @@
+import 'package:complainz/screen/komentar_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../config/app_color.dart';
@@ -78,70 +79,68 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                 const SizedBox(
                   height: 26.0,
                 ),
-                //Isi berita laporan
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 16, right: 16),
-                      child: CustomCard(
-                          child: Padding(
-                        padding: const EdgeInsets.only(
-                          left: 16.5,
-                          right: 10.5,
-                          top: 20.5,
-                          bottom: 12.5,
-                        ),
-                        child: Column(
-                          children: [
-                            const ProfileCard(
-                              avatar: "assets/logo/PP.png",
-                              name: "Jane Cooper",
-                              username: "@nina_real",
-                              tanggal: "12/05/2023",
-                            ),
-                            const SizedBox(height: 8),
-                            const IsiLaporanItem(
-                              laporan: "Dosen Matakuliah salah memasukan nilai",
-                              tanggapan: null,
-                            ),
-                            const SizedBox(height: 8),
-                            SelengkapnyaButton(onPressed: () {}),
-                          ],
-                        ),
-                      )),
-                    ),
-                    const SizedBox(height: 13.0),
-                    const InteractionCard(),
-                    const SizedBox(height: 22.5),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 16, right: 16),
-                  child: CustomCard(
-                      child: Padding(
-                    padding: const EdgeInsets.only(
-                      left: 16.5,
-                      right: 10.5,
-                      top: 20.5,
-                      bottom: 12.5,
-                    ),
-                    child: Column(
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: ScrollPhysics(),
+                  itemCount: 2,
+                  itemBuilder: (context, index) {
+                    return Column(
                       children: [
-                        const ProfileCard(avatar: "assets/logo/PP.png", name: "Jane Cooper", username: "@nina_real", tanggal: "12/05/2023"),
-                        const SizedBox(height: 8),
-                        const IsiLaporanItem(
-                          laporan: "Dosen Matakuliah salah memasukan nilai",
-                          tanggapan: "Terimakasih telah menyuarakan melalui Complainz. Tim terkait sudah melakukan penyelidikan pada Dosen yang Bersangkutan",
+                        Padding(
+                          padding: const EdgeInsets.only(left: 16, right: 16),
+                          child: CustomCard(
+                              child: Padding(
+                            padding: const EdgeInsets.only(
+                              left: 16.5,
+                              right: 10.5,
+                              top: 20.5,
+                              bottom: 12.5,
+                            ),
+                            child: Column(
+                              children: [
+                                const ProfileCard(
+                                  avatar: "assets/logo/PP.png",
+                                  name: "Jane Cooper",
+                                  username: "@nina_real",
+                                  tanggal: "12/05/2023",
+                                ),
+                                const SizedBox(height: 8),
+                                const IsiLaporanItem(
+                                  laporan: "Dosen Matakuliah salah memasukan nilai",
+                                  tanggapan: "lalalalalal",
+                                ),
+                                const SizedBox(height: 8),
+                                SelengkapnyaButton(onPressed: () {
+                                  Navigator.of(context).push(
+                                    PageRouteBuilder(
+                                        pageBuilder: (context, animation, secondaryAnimation) {
+                                          return const KomentarScreen();
+                                        },
+                                        transitionDuration: const Duration(milliseconds: 300),
+                                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                          final tween = Tween(
+                                            begin: const Offset(2, 0),
+                                            end: Offset.zero,
+                                          );
+                                          return SlideTransition(
+                                            position: animation.drive(tween),
+                                            child: child,
+                                          );
+                                        }),
+                                  );
+                                }),
+                              ],
+                            ),
+                          )),
                         ),
-                        const SizedBox(height: 8),
-                        SelengkapnyaButton(onPressed: () {}),
+                        const SizedBox(height: 13.0),
+                        const InteractionCard(),
+                        const SizedBox(height: 22.5),
                       ],
-                    ),
-                  )),
-                ),
-                const SizedBox(height: 13.0),
-                const InteractionCard(),
-                const SizedBox(height: 22.5),
+                    );
+                  },
+                )
+                //Isi berita laporan
               ],
             ),
           ),

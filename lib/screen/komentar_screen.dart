@@ -19,7 +19,9 @@ class _KomentarScreenState extends State<KomentarScreen> {
     return Scaffold(
         appBar: AppBar(
           leading: InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.pop(context);
+            },
             child: const ImageIcon(
               size: 50,
               AssetImage('assets/icons/BACK.png'),
@@ -53,30 +55,27 @@ class _KomentarScreenState extends State<KomentarScreen> {
                       Padding(
                         padding: const EdgeInsets.only(left: 16, right: 16),
                         child: CustomCard(
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                              left: 16.5,
-                              right: 20,
-                              top: 20.5,
-                              bottom: 12.5,
-                            ),
-                            child: Column(
-                              children: const [
-                                ProfileCard(
+                          child: Column(
+                            children: const [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  left: 16.5,
+                                  right: 20,
+                                  top: 20.5,
+                                ),
+                                child: ProfileCard(
                                   avatar: 'assets/images/Profile.png',
                                   name: 'Jane Cooper',
                                   username: '@nina_real',
                                   tanggal: '2022',
                                 ),
-                                SizedBox(height: 8),
-                                IsiLaporanItem(
-                                  laporan:
-                                      "Dosen Matakuliah salah memasukan nilai",
-                                  tanggapan:
-                                      "Terimakasih telah menyuarakan melalui Complainz. Tim terkait sudah melakukan penyelidikan pada Dosen yang Bersangkutan",
-                                ),
-                              ],
-                            ),
+                              ),
+                              SizedBox(height: 8),
+                              IsiLaporanItem(
+                                laporan: "Dosen Matakuliah salah memasukan nilai",
+                                tanggapan: "Terimakasih telah menyuarakan melalui Complainz. Tim terkait sudah melakukan penyelidikan pada Dosen yang Bersangkutan",
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -105,8 +104,7 @@ class _KomentarScreenState extends State<KomentarScreen> {
                                 ),
                                 SizedBox(height: 8),
                                 IsiKomentarItem(
-                                  laporan:
-                                      "Dosen Matakuliah salah memasukan nilai",
+                                  laporan: "Dosen Matakuliah salah memasukan nilai",
                                 ),
                               ],
                             ),
@@ -181,8 +179,7 @@ class _KomentarScreenState extends State<KomentarScreen> {
                   padding: EdgeInsets.all(8.0),
                   child: InkWell(
                     onTap: () {},
-                    child:
-                        ImageIcon(AssetImage('assets/icons/ButtonComment.png')),
+                    child: ImageIcon(AssetImage('assets/icons/ButtonComment.png')),
                   )),
             ],
           ),
