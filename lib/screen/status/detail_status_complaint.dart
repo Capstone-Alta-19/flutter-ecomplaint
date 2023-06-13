@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecomplaint/config/colors.dart';
-import 'package:flutter_ecomplaint/widget/custom_dialog.dart';
-import 'package:flutter_ecomplaint/widget/segment_title.dart';
 
+import '../../config/app_color.dart';
 import '../../widget/custom_alert_dialog.dart';
+import '../../widget/custom_dialog.dart';
+import '../../widget/segment_title.dart';
 
 enum status { diterma, diproses, dijawab }
 

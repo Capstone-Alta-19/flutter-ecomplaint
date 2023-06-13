@@ -1,3 +1,4 @@
+import 'package:complainz/screen/cobaan.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -120,12 +121,33 @@ class _CreateAccountState extends State<CreateAccount> {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      Text(
-                        'Lewati',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                          color: const Color(0XFF3C486B),
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            PageRouteBuilder(
+                                pageBuilder: (context, animation, secondaryAnimation) {
+                                  return HomePage();
+                                },
+                                transitionDuration: const Duration(milliseconds: 300),
+                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                  final tween = Tween(
+                                    begin: const Offset(2, 0),
+                                    end: Offset.zero,
+                                  );
+                                  return SlideTransition(
+                                    position: animation.drive(tween),
+                                    child: child,
+                                  );
+                                }),
+                          );
+                        },
+                        child: Text(
+                          'Lewati',
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                            color: const Color(0XFF3C486B),
+                          ),
                         ),
                       ),
                       const SizedBox(height: 22),

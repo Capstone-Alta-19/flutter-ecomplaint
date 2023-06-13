@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecomplaint/config/colors.dart';
-import 'package:flutter_ecomplaint/widget/segment_title_without_back.dart';
+
+import '../../config/app_color.dart';
+import '../../widget/segment_title_without_back.dart';
 
 class StatusComplaint extends StatefulWidget {
   const StatusComplaint({super.key});

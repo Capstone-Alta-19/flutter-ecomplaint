@@ -1,6 +1,7 @@
-import 'package:complainz/config/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'config/app_color.dart';
 
 class OtpPage extends StatefulWidget {
   const OtpPage({super.key});
@@ -94,8 +95,7 @@ class _OtpPageState extends State<OtpPage> {
                               borderRadius: BorderRadius.circular(15),
                             ),
                             hintText: '-',
-                            hintStyle: const TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w400),
+                            hintStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                           ),
                         ),
                       ),
@@ -115,8 +115,7 @@ class _OtpPageState extends State<OtpPage> {
                               borderRadius: BorderRadius.circular(15),
                             ),
                             hintText: '-',
-                            hintStyle: const TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w400),
+                            hintStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                           ),
                         ),
                       ),
@@ -136,8 +135,7 @@ class _OtpPageState extends State<OtpPage> {
                               borderRadius: BorderRadius.circular(15),
                             ),
                             hintText: '-',
-                            hintStyle: const TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w400),
+                            hintStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                           ),
                         ),
                       ),
@@ -157,8 +155,7 @@ class _OtpPageState extends State<OtpPage> {
                               borderRadius: BorderRadius.circular(15),
                             ),
                             hintText: '-',
-                            hintStyle: const TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w400),
+                            hintStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                           ),
                         ),
                       ),

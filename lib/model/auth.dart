@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_ecomplaint/config/app_url.dart';
+
+import '../config/app_url.dart';
 
 Dio dio = Dio();
 

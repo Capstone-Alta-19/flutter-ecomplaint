@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecomplaint/config/colors.dart';
-import 'package:flutter_ecomplaint/widget/segment_title.dart';
 
+import '../../config/app_color.dart';
 import '../../widget/dashed_divider.dart';
+import '../../widget/segment_title.dart';
 
 class RiwayatLaporanPage extends StatefulWidget {
   const RiwayatLaporanPage({super.key});
