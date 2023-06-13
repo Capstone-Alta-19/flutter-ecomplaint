@@ -1,5 +1,6 @@
 import 'package:complainz/config/app_color.dart';
 import 'package:complainz/model/api/register_api.dart';
+import 'package:complainz/screen/complainz/create_account_screen.dart';
 import 'package:complainz/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
@@ -56,14 +57,26 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   void _submitForm() async {
-    await postData(
-            controllerUsername.text,
-            controllerEmail.text,
-            controllerNomor.text,
-            controllerPassword.text,
-            controllerPasswordRepeat.text)
-        .then((value) {
+    await postData(controllerUsername.text, controllerEmail.text, controllerNomor.text, controllerPassword.text, controllerPasswordRepeat.text).then((value) {
       print(value);
+
+      Navigator.of(context).push(
+        PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) {
+              return const CreateAccount();
+            },
+            transitionDuration: const Duration(milliseconds: 300),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              final tween = Tween(
+                begin: const Offset(2, 0),
+                end: Offset.zero,
+              );
+              return SlideTransition(
+                position: animation.drive(tween),
+                child: child,
+              );
+            }),
+      );
     });
   }
 
@@ -73,8 +86,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {}, icon: const Icon(Icons.arrow_back_ios)),
+        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back_ios)),
         //backgroundColor: const Color(0XFF58FF3E),
       ),
       body: SingleChildScrollView(
@@ -150,8 +162,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
                           validator: (email) {
-                            if (email != null &&
-                                !EmailValidator.validate(email)) {
+                            if (email != null && !EmailValidator.validate(email)) {
                               return 'Enter a Email valid';
                             } else {
                               return null;
@@ -209,9 +220,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   });
                                 },
                                 child: Icon(
-                                  _obsecureText
-                                      ? Icons.visibility
-                                      : Icons.visibility_off,
+                                  _obsecureText ? Icons.visibility : Icons.visibility_off,
                                 ),
                               )),
                         ),
@@ -226,8 +235,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(),
                             labelText: 'Masukkan Kembali Password',
-                            errorText:
-                                _passwordMatch ? null : 'Password tidak cocok',
+                            errorText: _passwordMatch ? null : 'Password tidak cocok',
                             hintStyle: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
@@ -244,17 +252,13 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             const SizedBox(height: 12),
                             Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(16, 16, 16, 16),
+                              padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   const Text(
                                     'Sudah Punya Akun? ',
-                                    style: TextStyle(
-                                        color: AppColors.primary,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500),
+                                    style: TextStyle(color: AppColors.primary, fontSize: 14, fontWeight: FontWeight.w500),
                                   ),
                                   GestureDetector(
                                     onTap: () {

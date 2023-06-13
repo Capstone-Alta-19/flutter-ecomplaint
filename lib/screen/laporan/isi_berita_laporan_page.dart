@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecomplaint/config/colors.dart';
-import 'package:flutter_ecomplaint/widget/custom_card.dart';
-import 'package:flutter_ecomplaint/widget/interaction_card.dart';
-import 'package:flutter_ecomplaint/widget/isi_laporan_item.dart';
-import 'package:flutter_ecomplaint/widget/profile_card.dart';
-import 'package:flutter_ecomplaint/widget/segment_title.dart';
-import 'package:flutter_ecomplaint/widget/selengkapnya_button.dart';
+
+import '../../config/app_color.dart';
+import '../../widget/custom_card.dart';
+import '../../widget/interaction_card.dart';
+import '../../widget/isi_laporan_item.dart';
+import '../../widget/profile_card.dart';
+import '../../widget/segment_title.dart';
+import '../../widget/selengkapnya_button.dart';
 
 List<String> list = <String>['Urutkan Berdasarkan', 'Terbaru', 'Terlama'];
 

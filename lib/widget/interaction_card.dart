@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
 
-import '../config/colors.dart';
+import '../config/app_color.dart';
 
 class InteractionCard extends StatelessWidget {
   const InteractionCard({super.key});

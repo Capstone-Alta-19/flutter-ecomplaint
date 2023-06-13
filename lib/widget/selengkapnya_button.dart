@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../config/colors.dart';
+
+import '../config/app_color.dart';
 
 class SelengkapnyaButton extends StatelessWidget {
   final void Function() onPressed;

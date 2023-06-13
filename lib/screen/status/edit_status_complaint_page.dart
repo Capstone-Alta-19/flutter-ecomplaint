@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../config/colors.dart';
+import '../../config/app_color.dart';
 import '../../widget/dashed_divider.dart';
 import '../../widget/segment_title.dart';
 

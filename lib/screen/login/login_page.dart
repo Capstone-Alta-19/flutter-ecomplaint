@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecomplaint/config/colors.dart';
-import 'package:flutter_ecomplaint/model/auth.dart';
-import 'package:flutter_ecomplaint/screen/home_page.dart';
-import 'package:flutter_ecomplaint/screen/laporan/berita_laporan_page.dart';
-import 'package:flutter_ecomplaint/widget/account_question_button.dart';
+
+import '../../config/app_color.dart';
+import '../../model/auth.dart';
+import '../../widget/account_question_button.dart';
+import '../home_page.dart';
+import '../laporan/berita_laporan_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -35,23 +36,23 @@ class _LoginPageState extends State<LoginPage> {
     await login(usernameEmailController.text, passwordController.text).then((value) {
       print(value);
 
-      // Navigator.of(context).push(
-      //   PageRouteBuilder(
-      //       pageBuilder: (context, animation, secondaryAnimation) {
-      //         return const Homepage();
-      //       },
-      //       transitionDuration: const Duration(milliseconds: 300),
-      //       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      //         final tween = Tween(
-      //           begin: const Offset(2, 0),
-      //           end: Offset.zero,
-      //         );
-      //         return SlideTransition(
-      //           position: animation.drive(tween),
-      //           child: child,
-      //         );
-      //       }),
-      // );
+      Navigator.of(context).push(
+        PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) {
+              return const Homepage();
+            },
+            transitionDuration: const Duration(milliseconds: 300),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              final tween = Tween(
+                begin: const Offset(2, 0),
+                end: Offset.zero,
+              );
+              return SlideTransition(
+                position: animation.drive(tween),
+                child: child,
+              );
+            }),
+      );
     });
   }
 

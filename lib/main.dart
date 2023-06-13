@@ -2,10 +2,8 @@ import 'package:complainz/screen/bottom.dart';
 import 'package:complainz/screen/register_screen.dart';
 import 'package:complainz/screen/laporkan_screen.dart';
 import 'package:complainz/screen/pengaduan_screen.dart';
+import 'package:complainz/screen/splash_screen_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecomplaint/config/colors.dart';
-import 'package:flutter_ecomplaint/screen/berita/detail_berita_page.dart';
-import 'package:flutter_ecomplaint/screen/login/login_page.dart';
 import 'package:provider/provider.dart';
 import 'config/app_color.dart';
 import 'screen/cobaan.dart';
@@ -55,7 +53,7 @@ class MyAppState extends State<MyApp> {
             )),
         /* home: const HomeScreen(
           key: ValueKey('Home Screen'), title: 'Flutter Demo Home Page'), */
-        home: LaporkanPage()
+        home: SplashScreen()
         /* routes: {
         "/add_post": (context) => AddPostScreen(),
       }, */
@@ -130,8 +128,8 @@ class MyAppState extends State<MyApp> {
       ],
       child: const MyApp(),
     ),
-  );
-}
+    );
+  }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -141,7 +139,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       home: RegisterPage(),
     );
-  }
+}
 } */
 
 
