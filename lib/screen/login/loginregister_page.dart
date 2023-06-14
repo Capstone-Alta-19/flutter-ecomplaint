@@ -1,7 +1,9 @@
+import 'package:complainz/screen/register_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:complainz/config/app_color.dart';
-import 'package:complainz/screen/login/login_page.dart';
-import 'package:complainz/widget/account_question_button.dart';
+
+import '../../config/app_color.dart';
+import '../../widget/account_question_button.dart';
+import 'login_page.dart';
 
 class LoginregisterPage extends StatelessWidget {
   const LoginregisterPage({Key? key}) : super(key: key);
@@ -26,7 +28,26 @@ class LoginregisterPage extends StatelessWidget {
                       MaterialStateProperty.all(AppColors.btnenable),
                   fixedSize: const MaterialStatePropertyAll(Size(357, 40)),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) {
+                          return const RegisterPage();
+                        },
+                        transitionDuration: const Duration(milliseconds: 300),
+                        transitionsBuilder:
+                            (context, animation, secondaryAnimation, child) {
+                          final tween = Tween(
+                            begin: const Offset(2, 0),
+                            end: Offset.zero,
+                          );
+                          return SlideTransition(
+                            position: animation.drive(tween),
+                            child: child,
+                          );
+                        }),
+                  );
+                },
                 child: const Text(
                     style: TextStyle(
                         fontSize: 14,

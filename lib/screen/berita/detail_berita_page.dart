@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:complainz/widget/segment_title.dart';
 
 import '../../config/app_color.dart';
 import '../../widget/custom_card.dart';
+import '../../widget/segment_title.dart';
 
 class DetailBerita extends StatelessWidget {
   const DetailBerita({Key? key}) : super(key: key);

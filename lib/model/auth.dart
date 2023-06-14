@@ -1,9 +1,14 @@
+import 'package:complainz/model/auth_token.dart';
 import 'package:dio/dio.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import '../config/app_url.dart';
+
+enum LoginStatus { success, failed }
 
 Dio dio = Dio();
 
-Future login(
+Future<LoginStatus> login(
   String usernameEmail,
   String password,
 ) async {
@@ -18,14 +23,17 @@ Future login(
           'Content-type': 'application/json; charset=UTF-8',
         }));
     if (response.statusCode == 200) {
-      return response.data;
-    } else if (response.statusCode == 400) {
-      return response.data;
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setString('token', response.data['user']['token']);
+      return LoginStatus.success;
+    } else {
+      return LoginStatus.failed;
     }
   } on DioException {
-    return "Username atau Password Salah";
+    return LoginStatus.failed;
   }
 }
+ 
 
 // import 'package:dio/dio.dart';
 // import 'package:flutter_ecomplaint/config/app_url.dart';

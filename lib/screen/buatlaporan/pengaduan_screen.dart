@@ -1,5 +1,5 @@
 import 'package:complainz/config/app_color.dart';
-import 'package:complainz/widgets/textarea.dart';
+import 'package:complainz/widget/textarea.dart';
 import 'package:flutter/material.dart';
 import 'package:chips_choice_null_safety/chips_choice_null_safety.dart';
 
@@ -16,13 +16,7 @@ class _PengaduanPageState extends State<PengaduanPage> {
   int tag = 1;
   List<String> tags = [];
 
-  List<String> options = [
-    'Dosen dan Staff Akademik',
-    'Sarana dan Prasarana',
-    'Organisasi Mahasiswa',
-    'Mahasiswa',
-    'Lainnya'
-  ];
+  List<String> options = ['Dosen dan Staff Akademik', 'Sarana dan Prasarana', 'Organisasi Mahasiswa', 'Mahasiswa', 'Lainnya'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,16 +70,11 @@ class _PengaduanPageState extends State<PengaduanPage> {
               minLine: 6,
               typeKeyboard: TextInputType.multiline,
               hinText: 'Ketik disini',
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
               positionBottom: 0,
               positionLeft: 1,
               globalColor: AppColors.primary,
-              borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(0),
-                  topRight: Radius.circular(30),
-                  bottomLeft: Radius.circular(30),
-                  bottomRight: Radius.circular(30)),
+              borderRadius: const BorderRadius.only(topLeft: Radius.circular(0), topRight: Radius.circular(30), bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
               icons1: InkWell(
                 onTap: () {},
                 child: Image.asset('assets/icons/Img_box.png', width: 20.4),

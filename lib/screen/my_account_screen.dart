@@ -1,6 +1,10 @@
 import 'package:complainz/config/app_color.dart';
+<<<<<<< HEAD
 import 'package:complainz/screen/ganti_password.dart';
 import 'package:complainz/widgets/buttons.dart';
+=======
+import 'package:complainz/widget/buttons.dart';
+>>>>>>> b1302cb54e85eca400b2ac004ace06b01a1d88c0
 import 'package:flutter/material.dart';
 import 'package:molten_navigationbar_flutter/molten_navigationbar_flutter.dart';
 
@@ -40,10 +44,7 @@ class _MyAccountState extends State<MyAccount> {
               children: [
                 const Text(
                   'John Doe',
-                  style: TextStyle(
-                      color: AppColors.primary,
-                      fontSize: 40,
-                      fontWeight: FontWeight.w700),
+                  style: TextStyle(color: AppColors.primary, fontSize: 40, fontWeight: FontWeight.w700),
                 ),
                 const SizedBox(height: 8),
                 Container(
@@ -232,8 +233,7 @@ class _MyAccountState extends State<MyAccount> {
                         Row(
                           children: const [
                             Padding(padding: EdgeInsets.only(left: 26)),
-                            ImageIcon(
-                                AssetImage('assets/icons/Profile_icon.png')),
+                            ImageIcon(AssetImage('assets/icons/Profile_icon.png')),
                             Padding(padding: EdgeInsets.only(left: 30)),
                             Text(
                               'Ubah Profile',
@@ -283,10 +283,7 @@ class _MyAccountState extends State<MyAccount> {
                         Padding(padding: EdgeInsets.only(left: 30)),
                         Text(
                           'Tentang Kami',
-                          style: TextStyle(
-                              color: AppColors.primary,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700),
+                          style: TextStyle(color: AppColors.primary, fontSize: 20, fontWeight: FontWeight.w700),
                         ),
                       ],
                     ),

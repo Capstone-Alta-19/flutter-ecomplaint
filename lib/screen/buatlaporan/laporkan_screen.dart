@@ -7,6 +7,8 @@ import 'package:complainz/screen/my_account_screen.dart';
 import 'package:complainz/screen/pengaduan_screen.dart';
 import 'package:complainz/screen/status/status_complaint_page.dart';
 import 'package:complainz/widgets/cards.dart';
+import 'package:complainz/screen/buatlaporan/pengaduan_screen.dart';
+import 'package:complainz/widget/cards.dart';
 import 'package:flutter/material.dart';
 import 'package:molten_navigationbar_flutter/molten_navigationbar_flutter.dart';
 import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';

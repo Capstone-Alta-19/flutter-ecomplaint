@@ -1,10 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:complainz/config/app_color.dart';
-import 'package:complainz/screen/laporan/berita_laporan_page.dart';
-import 'package:complainz/screen/laporan/isi_berita_laporan_page.dart';
-import 'package:complainz/widget/custom_card.dart';
+
+import '../config/app_color.dart';
+import '../widget/custom_card.dart';
+import 'laporan/berita_laporan_page.dart';
+import 'laporan/isi_berita_laporan_page.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});

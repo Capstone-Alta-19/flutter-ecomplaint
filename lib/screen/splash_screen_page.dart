@@ -1,7 +1,16 @@
+import 'package:complainz/screen/cobaan.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:complainz/config/app_color.dart';
 import 'package:complainz/screen/loginregister_page.dart';
+=======
+
+>>>>>>> b1302cb54e85eca400b2ac004ace06b01a1d88c0
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../config/app_color.dart';
+import 'login/loginregister_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -11,12 +20,13 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  String token = "";
   int splashtime = 5;
   @override
   void initState() {
     Future.delayed(Duration(seconds: splashtime), () async {
-      if (token.isEmpty) {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      bool getLoginStatus = prefs.containsKey('token');
+      if (!getLoginStatus) {
         Navigator.pushReplacement(context, MaterialPageRoute(
             //pushReplacement = replacing the route so that
             //splash screen won't show on back button press
@@ -30,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
             //splash screen won't show on back button press
             //navigation to Home page.
             builder: (context) {
-          return const LoginregisterPage();
+          return HomePage();
         }));
       }
     });

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:complainz/config/app_color.dart';
-import 'package:complainz/widget/custom_card.dart';
-import 'package:complainz/widget/segment_title.dart';
+
+import '../../config/app_color.dart';
+import '../../widget/custom_card.dart';
+import '../../widget/segment_title.dart';
 
 class BeritaTerkiniPage extends StatefulWidget {
   BeritaTerkiniPage({super.key});

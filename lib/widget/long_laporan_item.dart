@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:complainz/widget/custom_card.dart';
 
 import '../config/app_color.dart';
+import 'custom_card.dart';
 
 class LongLaporanItem extends StatelessWidget {
   final String gambar;
