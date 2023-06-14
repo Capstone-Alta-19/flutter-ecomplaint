@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../config/colors.dart';
+import '../config/app_color.dart';
 
 class SelengkapnyaButton extends StatelessWidget {
   final void Function() onPressed;
@@ -8,7 +8,8 @@ class SelengkapnyaButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
-      style: const ButtonStyle(fixedSize: MaterialStatePropertyAll(Size(double.maxFinite, 40))),
+      style: const ButtonStyle(
+          fixedSize: MaterialStatePropertyAll(Size(double.maxFinite, 40))),
       onPressed: onPressed,
       child: const Text(
           style: TextStyle(

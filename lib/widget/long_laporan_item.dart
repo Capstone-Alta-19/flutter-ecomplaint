@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecomplaint/widget/custom_card.dart';
+import 'package:complainz/widget/custom_card.dart';
 
-import '../config/colors.dart';
+import '../config/app_color.dart';
 
 class LongLaporanItem extends StatelessWidget {
   final String gambar;
   final String title;
   final void Function() onPressed;
-  const LongLaporanItem({Key? key, required this.gambar, required this.title, required this.onPressed}) : super(key: key);
+  const LongLaporanItem(
+      {Key? key,
+      required this.gambar,
+      required this.title,
+      required this.onPressed})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

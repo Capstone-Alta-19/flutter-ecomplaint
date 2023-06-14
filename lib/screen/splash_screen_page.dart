@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecomplaint/config/colors.dart';
-import 'package:flutter_ecomplaint/screen/loginregister_page.dart';
+import 'package:complainz/config/app_color.dart';
+import 'package:complainz/screen/loginregister_page.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -45,7 +45,8 @@ class _SplashScreenState extends State<SplashScreen> {
         height: (MediaQuery.of(context).size.height),
         width: (MediaQuery.of(context).size.width),
         child: Center(
-          child: Image.asset(width: 200, height: 200, 'assets/logo/hd-icon-logo.png'),
+          child: Image.asset(
+              width: 200, height: 200, 'assets/logo/hd-icon-logo.png'),
         ),
       ),
     );
@@ -73,7 +74,11 @@ class OnBoardingPageState extends State<OnBoardingPage> {
         SizedBox(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          child: Center(child: Image.asset(width: 316.27, height: 65.05, 'assets/logo/hd-logo-splash-screen.png')),
+          child: Center(
+              child: Image.asset(
+                  width: 316.27,
+                  height: 65.05,
+                  'assets/logo/hd-logo-splash-screen.png')),
         ),
         SizedBox(
           height: MediaQuery.of(context).size.height,
@@ -82,7 +87,10 @@ class OnBoardingPageState extends State<OnBoardingPage> {
             child: SizedBox(
               width: 307,
               child: Text(
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: AppColors.font),
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.font),
                 textAlign: TextAlign.center,
                 "Tidak perlu repot-repot lagi menghubungi layanan pelanggan yang memakan waktu lama dan membingungkan. Dengan Complainz, kamu bisa membuat keluhan dengan mudah dan cepat lewat aplikasi.",
               ),
@@ -92,7 +100,11 @@ class OnBoardingPageState extends State<OnBoardingPage> {
         SizedBox(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          child: Center(child: Image.asset(width: 307, height: 133, 'assets/logo/hd-logo-mulai-complaint.png')),
+          child: Center(
+              child: Image.asset(
+                  width: 307,
+                  height: 133,
+                  'assets/logo/hd-logo-mulai-complaint.png')),
         ),
       ],
 
@@ -103,7 +115,8 @@ class OnBoardingPageState extends State<OnBoardingPage> {
                 return const LoginregisterPage();
               },
               transitionDuration: const Duration(milliseconds: 300),
-              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
                 final tween = Tween(
                   begin: const Offset(2, 0),
                   end: Offset.zero,
@@ -122,7 +135,8 @@ class OnBoardingPageState extends State<OnBoardingPage> {
                 return const LoginregisterPage();
               },
               transitionDuration: const Duration(milliseconds: 300),
-              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
                 final tween = Tween(
                   begin: const Offset(2, 0),
                   end: Offset.zero,
@@ -141,7 +155,8 @@ class OnBoardingPageState extends State<OnBoardingPage> {
       showBackButton: false,
       //rtl: true, // Display as right-to-left
       back: const Icon(Icons.arrow_back),
-      skip: const Text('Skip', style: TextStyle(fontWeight: FontWeight.w700, color: AppColors.font)),
+      skip: const Text('Skip',
+          style: TextStyle(fontWeight: FontWeight.w700, color: AppColors.font)),
       next: const ImageIcon(AssetImage("assets/icons/splash-arrow.png")),
       done: const ImageIcon(AssetImage("assets/icons/splash-arrow.png")),
       curve: Curves.fastLinearToSlowEaseIn,

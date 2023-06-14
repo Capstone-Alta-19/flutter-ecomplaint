@@ -1,28 +1,9 @@
-import 'package:complainz/screen/bottom.dart';
-import 'package:complainz/screen/register_screen.dart';
-import 'package:complainz/screen/laporkan_screen.dart';
-import 'package:complainz/screen/pengaduan_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecomplaint/config/colors.dart';
-import 'package:flutter_ecomplaint/screen/berita/detail_berita_page.dart';
-import 'package:flutter_ecomplaint/screen/login/login_page.dart';
+
 import 'package:provider/provider.dart';
 import 'config/app_color.dart';
-import 'screen/cobaan.dart';
-import 'screen/komentar_screen.dart';
-import 'screen/laporan_terbuka.dart';
-import 'screen/my_account_screen.dart';
-
-/* Future<void> main() async {
-  runApp(MultiProvider(
-    providers: [
-      /* ChangeNotifierProvider(
-        create: (context) => PostNotifier(),
-      ), */
-    ],
-    child: MyApp(),
-  ));
-} */
+import 'screen/bottom_navbar.dart';
+import 'Provider/bottom_navbar_provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -40,26 +21,28 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-            useMaterial3: true,
-            fontFamily: 'Poppins',
-            colorScheme: ColorScheme.fromSeed(
-              background: AppColors.secondary100,
-              seedColor: const Color(0xff3C486B),
-            ),
-            appBarTheme: const AppBarTheme(
-              backgroundColor: AppColors.secondary100,
-              surfaceTintColor: Colors.transparent,
-            )),
-        /* home: const HomeScreen(
+    return ChangeNotifierProvider<BottomNavigationBarProvider>(
+        create: (_) => BottomNavigationBarProvider(),
+        child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+                useMaterial3: true,
+                fontFamily: 'Poppins',
+                colorScheme: ColorScheme.fromSeed(
+                  background: AppColors.secondary100,
+                  seedColor: const Color(0xff3C486B),
+                ),
+                appBarTheme: const AppBarTheme(
+                  backgroundColor: AppColors.secondary100,
+                  surfaceTintColor: Colors.transparent,
+                )),
+            /* home: const HomeScreen(
           key: ValueKey('Home Screen'), title: 'Flutter Demo Home Page'), */
-        home: LaporkanPage()
-        /* routes: {
+            home: BottomNavigationBrWidget()
+            /* routes: {
         "/add_post": (context) => AddPostScreen(),
       }, */
-        );
+            ));
   }
 }
 

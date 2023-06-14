@@ -1,6 +1,5 @@
 import 'package:complainz/config/app_color.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class OtpPage extends StatefulWidget {
   const OtpPage({super.key});
@@ -56,7 +55,7 @@ class _OtpPageState extends State<OtpPage> {
                 Text(
                   'Masukkan kode verifikasi',
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
+                  style: TextStyle(
                     color: const Color(0XFF3C486B),
                     fontSize: 40,
                     fontWeight: FontWeight.w700,
@@ -66,7 +65,7 @@ class _OtpPageState extends State<OtpPage> {
                 Text(
                   'Kami telah mengirim kode verifikasi, \n periksa pesan masuk anda',
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
+                  style: TextStyle(
                     color: const Color(0XFF3C486B),
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
@@ -168,7 +167,7 @@ class _OtpPageState extends State<OtpPage> {
                 const SizedBox(height: 10),
                 Text(
                   '5:00',
-                  style: GoogleFonts.poppins(
+                  style: TextStyle(
                     color: const Color.fromRGBO(60, 72, 107, 1),
                     fontSize: 24,
                     fontWeight: FontWeight.w600,
@@ -177,7 +176,7 @@ class _OtpPageState extends State<OtpPage> {
                 const SizedBox(height: 14),
                 Text(
                   'Kirim ulang',
-                  style: GoogleFonts.poppins(
+                  style: TextStyle(
                     color: const Color(0XFF1D1B20),
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
@@ -190,7 +189,7 @@ class _OtpPageState extends State<OtpPage> {
                     onPressed: _isFormFilled ? _submitForm : null,
                     child: Text(
                       'Verifikasi',
-                      style: GoogleFonts.poppins(color: Colors.white),
+                      style: TextStyle(color: Colors.white),
                     ),
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(358, 40),
@@ -204,7 +203,7 @@ class _OtpPageState extends State<OtpPage> {
                     onPressed: () {},
                     child: Text(
                       'Daftar',
-                      style: GoogleFonts.poppins(
+                      style: TextStyle(
                         color: const Color.fromRGBO(29, 27, 32, 1),
                         fontSize: 14,
                         fontWeight: FontWeight.w700,

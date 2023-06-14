@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
-
-import '../config/colors.dart';
+import '../config/app_color.dart';
 
 class CustomDialog extends StatelessWidget {
   final String title;
   final String confirm;
   final String icon;
   final void Function() onPressed;
-  const CustomDialog({super.key, required this.title, required this.confirm, required this.icon, required this.onPressed});
+  const CustomDialog(
+      {super.key,
+      required this.title,
+      required this.confirm,
+      required this.icon,
+      required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +55,10 @@ class CustomDialog extends StatelessWidget {
                             ),
                             confirm)),
                     FilledButton(
-                        style: const ButtonStyle(minimumSize: MaterialStatePropertyAll(Size(83, 40)), backgroundColor: MaterialStatePropertyAll(Colors.yellow)),
+                        style: const ButtonStyle(
+                            minimumSize: MaterialStatePropertyAll(Size(83, 40)),
+                            backgroundColor:
+                                MaterialStatePropertyAll(Colors.yellow)),
                         onPressed: () {
                           Navigator.pop(context);
                         },

@@ -1,10 +1,17 @@
 import 'package:complainz/config/app_color.dart';
+import 'package:complainz/screen/bottom_navbar.dart';
+import 'package:complainz/Provider/bottom_navbar_provider.dart';
+import 'package:complainz/screen/home_page.dart';
+import 'package:complainz/screen/login/login_page.dart';
+import 'package:complainz/screen/my_account_screen.dart';
 import 'package:complainz/screen/pengaduan_screen.dart';
+import 'package:complainz/screen/status/status_complaint_page.dart';
 import 'package:complainz/widgets/cards.dart';
 import 'package:flutter/material.dart';
 import 'package:molten_navigationbar_flutter/molten_navigationbar_flutter.dart';
 import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
 import 'package:circular_bottom_navigation/tab_item.dart';
+import 'package:provider/provider.dart';
 
 class LaporkanPage extends StatefulWidget {
   const LaporkanPage({super.key});
@@ -65,7 +72,7 @@ class _LaporkanPageState extends State<LaporkanPage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const PengaduanPage()));
+                            builder: (context) => const AspirasiPage()));
                   },
                   flexText: 2,
                   flexImage: 1,
@@ -87,7 +94,7 @@ class _LaporkanPageState extends State<LaporkanPage> {
           ],
         ),
       )),
-      bottomNavigationBar: MoltenBottomNavigationBar(
+      /* bottomNavigationBar: MoltenBottomNavigationBar(
         borderRaduis: const BorderRadius.only(
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),
@@ -124,7 +131,8 @@ class _LaporkanPageState extends State<LaporkanPage> {
             icon: Image.asset('assets/icons/User.png'),
           ),
         ],
-      ),
+      ), */ //extendBody: screens[currentScreenIndex],
+
       /* bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.circular(30),
         child: NavigationBar(

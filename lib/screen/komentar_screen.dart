@@ -66,7 +66,7 @@ class _KomentarScreenState extends State<KomentarScreen> {
                                   avatar: 'assets/images/Profile.png',
                                   name: 'Jane Cooper',
                                   username: '@nina_real',
-                                  tanggal: '2022',
+                                  tanggal: '20/03/2022',
                                 ),
                                 SizedBox(height: 8),
                                 IsiLaporanItem(

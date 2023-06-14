@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecomplaint/widget/long_laporan_item.dart';
-import 'package:flutter_ecomplaint/widget/segment_title.dart';
+import 'package:complainz/widget/long_laporan_item.dart';
+import 'package:complainz/widget/segment_title.dart';
 
 class BeritaLaporanPage extends StatefulWidget {
   const BeritaLaporanPage({Key? key}) : super(key: key);

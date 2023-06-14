@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecomplaint/config/colors.dart';
-import 'package:flutter_ecomplaint/widget/custom_dialog.dart';
-import 'package:flutter_ecomplaint/widget/segment_title.dart';
+import 'package:complainz/config/app_color.dart';
+import 'package:complainz/widget/custom_dialog.dart';
+import 'package:complainz/widget/segment_title.dart';
 
 import '../../widget/custom_alert_dialog.dart';
 
@@ -11,7 +11,8 @@ class DetailStatusComplaint extends StatefulWidget {
   final status statusComplaint;
   final idComplaint;
 
-  DetailStatusComplaint({super.key, required this.statusComplaint, required this.idComplaint});
+  DetailStatusComplaint(
+      {super.key, required this.statusComplaint, required this.idComplaint});
 
   @override
   State<DetailStatusComplaint> createState() => _DetailStatusComplaintState();
@@ -43,7 +44,8 @@ class _DetailStatusComplaintState extends State<DetailStatusComplaint> {
               FilledButton(
                   style: const ButtonStyle(
                     minimumSize: MaterialStatePropertyAll(Size(358, 40)),
-                    backgroundColor: MaterialStatePropertyAll(AppColors.primary),
+                    backgroundColor:
+                        MaterialStatePropertyAll(AppColors.primary),
                   ),
                   onPressed: () {
                     showDialog(
@@ -56,7 +58,8 @@ class _DetailStatusComplaintState extends State<DetailStatusComplaint> {
                                 showDialog(
                                     barrierColor: null,
                                     context: context,
-                                    builder: (BuildContext context) => const CustomAlertDialog(
+                                    builder: (BuildContext context) =>
+                                        const CustomAlertDialog(
                                           title: "Laporan Terhapus",
                                           icon: "assets/icons/Trash.png",
                                         ));
@@ -66,7 +69,12 @@ class _DetailStatusComplaintState extends State<DetailStatusComplaint> {
                               title: "Kamu Yakin Untuk Mencabut Laporan?",
                             ));
                   },
-                  child: const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: AppColors.secondary100), "Edit laporan")),
+                  child: const Text(
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.secondary100),
+                      "Edit laporan")),
             ],
           )),
         ),

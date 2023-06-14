@@ -50,6 +50,7 @@ dependencies:
   chips_choice: ^3.0.0
   circular_bottom_navigation: ^2.3.0
   convex_bottom_bar: ^3.2.0
+  d_view: ^0.0.3
 
 dev_dependencies:
   flutter_test:
@@ -73,18 +74,10 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-<<<<<<< HEAD
   assets:
   - assets/logo/
   - assets/icons/
   - assets/images/
-=======
->>>>>>> origin/user/reza/dev
-  # To add assets to your application, add an assets section, like this:
-  assets:
-    - assets/images/
-    - assets/icons/
-  #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,10 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecomplaint/config/colors.dart';
-import 'package:flutter_ecomplaint/screen/laporan/berita_laporan_page.dart';
-import 'package:flutter_ecomplaint/screen/laporan/isi_berita_laporan_page.dart';
-import 'package:flutter_ecomplaint/widget/custom_card.dart';
+import 'package:complainz/config/app_color.dart';
+import 'package:complainz/screen/laporan/berita_laporan_page.dart';
+import 'package:complainz/screen/laporan/isi_berita_laporan_page.dart';
+import 'package:complainz/widget/custom_card.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -82,19 +82,26 @@ class _HomepageState extends State<Homepage> {
                             color: AppColors.primary20,
                             activeSize: Size(24.0, 9.0),
                             activeShape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(25.0)),
                             ),
                             activeColor: AppColors.primary),
                       ),
                       const SizedBox(
                         height: 26,
                       ),
-                      const Text(style: TextStyle(fontWeight: FontWeight.w700, fontSize: 40, color: AppColors.primary), "Kategori"),
+                      const Text(
+                          style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 40,
+                              color: AppColors.primary),
+                          "Kategori"),
                       const SizedBox(height: 24),
                       GridView(
                         shrinkWrap: true,
                         physics: const ScrollPhysics(),
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           mainAxisSpacing: 16,
                           crossAxisSpacing: 25,
@@ -107,11 +114,14 @@ class _HomepageState extends State<Homepage> {
                               onPressed: () {
                                 Navigator.of(context).push(
                                   PageRouteBuilder(
-                                      pageBuilder: (context, animation, secondaryAnimation) {
+                                      pageBuilder: (context, animation,
+                                          secondaryAnimation) {
                                         return const IsiBeritaLaporanPage();
                                       },
-                                      transitionDuration: const Duration(milliseconds: 300),
-                                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                      transitionDuration:
+                                          const Duration(milliseconds: 300),
+                                      transitionsBuilder: (context, animation,
+                                          secondaryAnimation, child) {
                                         final tween = Tween(
                                           begin: const Offset(2, 0),
                                           end: Offset.zero,
@@ -129,11 +139,14 @@ class _HomepageState extends State<Homepage> {
                               onPressed: () {
                                 Navigator.of(context).push(
                                   PageRouteBuilder(
-                                      pageBuilder: (context, animation, secondaryAnimation) {
+                                      pageBuilder: (context, animation,
+                                          secondaryAnimation) {
                                         return const IsiBeritaLaporanPage();
                                       },
-                                      transitionDuration: const Duration(milliseconds: 300),
-                                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                      transitionDuration:
+                                          const Duration(milliseconds: 300),
+                                      transitionsBuilder: (context, animation,
+                                          secondaryAnimation, child) {
                                         final tween = Tween(
                                           begin: const Offset(2, 0),
                                           end: Offset.zero,
@@ -151,11 +164,14 @@ class _HomepageState extends State<Homepage> {
                               onPressed: () {
                                 Navigator.of(context).push(
                                   PageRouteBuilder(
-                                      pageBuilder: (context, animation, secondaryAnimation) {
+                                      pageBuilder: (context, animation,
+                                          secondaryAnimation) {
                                         return const IsiBeritaLaporanPage();
                                       },
-                                      transitionDuration: const Duration(milliseconds: 300),
-                                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                      transitionDuration:
+                                          const Duration(milliseconds: 300),
+                                      transitionsBuilder: (context, animation,
+                                          secondaryAnimation, child) {
                                         final tween = Tween(
                                           begin: const Offset(2, 0),
                                           end: Offset.zero,
@@ -173,11 +189,14 @@ class _HomepageState extends State<Homepage> {
                               onPressed: () {
                                 Navigator.of(context).push(
                                   PageRouteBuilder(
-                                      pageBuilder: (context, animation, secondaryAnimation) {
+                                      pageBuilder: (context, animation,
+                                          secondaryAnimation) {
                                         return const BeritaLaporanPage();
                                       },
-                                      transitionDuration: const Duration(milliseconds: 300),
-                                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                      transitionDuration:
+                                          const Duration(milliseconds: 300),
+                                      transitionsBuilder: (context, animation,
+                                          secondaryAnimation, child) {
                                         final tween = Tween(
                                           begin: const Offset(2, 0),
                                           end: Offset.zero,
@@ -195,15 +214,22 @@ class _HomepageState extends State<Homepage> {
                       Directionality(
                         textDirection: TextDirection.rtl,
                         child: OutlinedButton.icon(
-                          style: const ButtonStyle(shape: MaterialStatePropertyAll(BeveledRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(4))))),
+                          style: const ButtonStyle(
+                              shape: MaterialStatePropertyAll(
+                                  BeveledRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(4))))),
                           onPressed: () {
                             Navigator.of(context).push(
                               PageRouteBuilder(
-                                  pageBuilder: (context, animation, secondaryAnimation) {
+                                  pageBuilder:
+                                      (context, animation, secondaryAnimation) {
                                     return const BeritaLaporanPage();
                                   },
-                                  transitionDuration: const Duration(milliseconds: 300),
-                                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                  transitionDuration:
+                                      const Duration(milliseconds: 300),
+                                  transitionsBuilder: (context, animation,
+                                      secondaryAnimation, child) {
                                     final tween = Tween(
                                       begin: const Offset(2, 0),
                                       end: Offset.zero,
@@ -215,8 +241,14 @@ class _HomepageState extends State<Homepage> {
                                   }),
                             );
                           },
-                          icon: const ImageIcon(AssetImage("assets/icons/Expand_right.png")),
-                          label: const Text(style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14, color: AppColors.primary), "Lihat Semua"),
+                          icon: const ImageIcon(
+                              AssetImage("assets/icons/Expand_right.png")),
+                          label: const Text(
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 14,
+                                  color: AppColors.primary),
+                              "Lihat Semua"),
                         ),
                       ),
                     ],
@@ -225,7 +257,16 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
           ),
-          Positioned(right: 8, height: MediaQuery.of(context).size.height + 30, child: InkWell(child: Container(height: 90, width: 85, decoration: const BoxDecoration(shape: BoxShape.circle), child: Image.asset("assets/icons/Chat-live-button.png")))),
+          Positioned(
+              right: 8,
+              height: MediaQuery.of(context).size.height + 30,
+              child: InkWell(
+                  child: Container(
+                      height: 90,
+                      width: 85,
+                      decoration: const BoxDecoration(shape: BoxShape.circle),
+                      child:
+                          Image.asset("assets/icons/Chat-live-button.png")))),
         ],
       ),
     );
@@ -236,7 +277,11 @@ class HomepageItem extends StatelessWidget {
   final String gambar;
   final String title;
   final void Function() onPressed;
-  const HomepageItem({super.key, required this.gambar, required this.title, required this.onPressed});
+  const HomepageItem(
+      {super.key,
+      required this.gambar,
+      required this.title,
+      required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -262,7 +307,9 @@ class HomepageItem extends StatelessWidget {
                 ),
               ),
               child: Container(
-                  decoration: const BoxDecoration(border: Border(top: BorderSide(width: 1, color: Colors.black12))),
+                  decoration: const BoxDecoration(
+                      border: Border(
+                          top: BorderSide(width: 1, color: Colors.black12))),
                   height: 66,
                   child: Center(
                     child: Text(

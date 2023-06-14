@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../config/colors.dart';
+import '../../config/app_color.dart';
 import '../../widget/dashed_divider.dart';
 import '../../widget/segment_title.dart';
 
@@ -22,7 +21,8 @@ class _EditStatusComplaintState extends State<EditStatusComplaint> {
       body: SingleChildScrollView(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             const SegmentTitle(title: "Detail Status"),
             const SizedBox(height: 30),
             Padding(
@@ -79,7 +79,22 @@ class _EditStatusComplaintState extends State<EditStatusComplaint> {
                           return Expanded(
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [SizedBox(width: 185, child: Text(style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.w500), maxLines: 1, textAlign: TextAlign.left, "${index + 1}. Mata Kuliah Banyak Tugas")), IconButton(icon: const ImageIcon(AssetImage("assets/icons/Trash.png")), onPressed: () {})],
+                              children: [
+                                SizedBox(
+                                    width: 185,
+                                    child: Text(
+                                        style: const TextStyle(
+                                            color: AppColors.primary,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w500),
+                                        maxLines: 1,
+                                        textAlign: TextAlign.left,
+                                        "${index + 1}. Mata Kuliah Banyak Tugas")),
+                                IconButton(
+                                    icon: const ImageIcon(
+                                        AssetImage("assets/icons/Trash.png")),
+                                    onPressed: () {})
+                              ],
                             ),
                           );
                         },

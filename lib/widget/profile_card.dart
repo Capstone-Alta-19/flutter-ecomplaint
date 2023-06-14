@@ -1,5 +1,6 @@
+import 'package:d_view/d_view.dart';
 import 'package:flutter/material.dart';
-import '../config/colors.dart';
+import '../config/app_color.dart';
 
 class ProfileCard extends StatelessWidget {
   final String avatar;
@@ -7,7 +8,12 @@ class ProfileCard extends StatelessWidget {
   final String name;
   final String tanggal;
 
-  const ProfileCard({super.key, required this.avatar, required this.username, required this.name, required this.tanggal});
+  const ProfileCard(
+      {super.key,
+      required this.avatar,
+      required this.username,
+      required this.name,
+      required this.tanggal});
 
   @override
   Widget build(BuildContext context) {
@@ -24,26 +30,25 @@ class ProfileCard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: SizedBox(
-                    width: 206,
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                            style: const TextStyle(
-                              color: AppColors.font,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                            ),
-                            name),
-                        Text(
-                            style: const TextStyle(
-                              color: AppColors.font,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            username),
-                      ],
-                    )),
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                        style: const TextStyle(
+                          color: AppColors.font,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                        ),
+                        name),
+                    Text(
+                        style: const TextStyle(
+                          color: AppColors.font,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        username),
+                  ],
+                )),
               ),
             ],
           ),

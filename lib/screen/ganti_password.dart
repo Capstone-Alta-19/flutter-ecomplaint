@@ -34,7 +34,9 @@ class _GantiPasswordState extends State<GantiPassword> {
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.pop(context);
+          },
           child: const ImageIcon(
               size: 50,
               AssetImage(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../config/colors.dart';
+import '../config/app_color.dart';
 
 class SegmentTitle extends StatelessWidget {
   final String title;
@@ -19,7 +19,7 @@ class SegmentTitle extends StatelessWidget {
                 Navigator.pop(context);
               }),
           SizedBox(
-            width: 300,
+            //width: 300,
             child: Text(
                 textAlign: TextAlign.right,
                 style: const TextStyle(

@@ -30,26 +30,25 @@ class ProfileCard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: SizedBox(
-                    width: 206,
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                            style: const TextStyle(
-                              color: AppColors.font,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                            ),
-                            name),
-                        Text(
-                            style: const TextStyle(
-                              color: AppColors.font,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            username),
-                      ],
-                    )),
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                        style: const TextStyle(
+                          color: AppColors.font,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                        ),
+                        name),
+                    Text(
+                        style: const TextStyle(
+                          color: AppColors.font,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        username),
+                  ],
+                )),
               ),
             ],
           ),

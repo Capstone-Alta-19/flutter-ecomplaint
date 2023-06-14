@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecomplaint/config/colors.dart';
-import 'package:flutter_ecomplaint/widget/custom_card.dart';
-import 'package:flutter_ecomplaint/widget/interaction_card.dart';
-import 'package:flutter_ecomplaint/widget/isi_laporan_item.dart';
-import 'package:flutter_ecomplaint/widget/profile_card.dart';
-import 'package:flutter_ecomplaint/widget/segment_title.dart';
-import 'package:flutter_ecomplaint/widget/selengkapnya_button.dart';
+import 'package:complainz/config/app_color.dart';
+import 'package:complainz/widget/custom_card.dart';
+import 'package:complainz/widget/interaction_card.dart';
+import 'package:complainz/widget/isi_laporan_item.dart';
+import 'package:complainz/widget/profile_card.dart';
+import 'package:complainz/widget/segment_title.dart';
+import 'package:complainz/widget/selengkapnya_button.dart';
 
 List<String> list = <String>['Urutkan Berdasarkan', 'Terbaru', 'Terlama'];
 
@@ -43,15 +43,22 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                     direction: Axis.horizontal,
                     children: [
                       Container(
-                        decoration: BoxDecoration(border: Border.all(width: 1, color: AppColors.primary), borderRadius: BorderRadius.circular(8)),
+                        decoration: BoxDecoration(
+                            border:
+                                Border.all(width: 1, color: AppColors.primary),
+                            borderRadius: BorderRadius.circular(8)),
                         width: 184,
                         height: 32,
                         child: Center(
                           child: DropdownButton<String>(
                             value: dropdownValue,
-                            icon: const Icon(color: AppColors.primary, Icons.expand_more),
+                            icon: const Icon(
+                                color: AppColors.primary, Icons.expand_more),
                             elevation: 16,
-                            style: const TextStyle(color: AppColors.font, fontSize: 14, fontWeight: FontWeight.w500),
+                            style: const TextStyle(
+                                color: AppColors.font,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500),
                             // underline: Container(
                             //   height: 2,
                             //   color: AppColors.primary,
@@ -62,7 +69,8 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                                 dropdownValue = value!;
                               });
                             },
-                            items: list.map<DropdownMenuItem<String>>((String value) {
+                            items: list
+                                .map<DropdownMenuItem<String>>((String value) {
                               return DropdownMenuItem<String>(
                                 value: value,
                                 child: Text(value),
@@ -126,11 +134,16 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                     ),
                     child: Column(
                       children: [
-                        const ProfileCard(avatar: "assets/logo/PP.png", name: "Jane Cooper", username: "@nina_real", tanggal: "12/05/2023"),
+                        const ProfileCard(
+                            avatar: "assets/logo/PP.png",
+                            name: "Jane Cooper",
+                            username: "@nina_real",
+                            tanggal: "12/05/2023"),
                         const SizedBox(height: 8),
                         const IsiLaporanItem(
                           laporan: "Dosen Matakuliah salah memasukan nilai",
-                          tanggapan: "Terimakasih telah menyuarakan melalui Complainz. Tim terkait sudah melakukan penyelidikan pada Dosen yang Bersangkutan",
+                          tanggapan:
+                              "Terimakasih telah menyuarakan melalui Complainz. Tim terkait sudah melakukan penyelidikan pada Dosen yang Bersangkutan",
                         ),
                         const SizedBox(height: 8),
                         SelengkapnyaButton(onPressed: () {}),

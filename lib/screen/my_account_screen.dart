@@ -1,4 +1,5 @@
 import 'package:complainz/config/app_color.dart';
+import 'package:complainz/screen/ganti_password.dart';
 import 'package:complainz/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:molten_navigationbar_flutter/molten_navigationbar_flutter.dart';
@@ -11,8 +12,6 @@ class MyAccount extends StatefulWidget {
 }
 
 class _MyAccountState extends State<MyAccount> {
-  int _selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -187,19 +186,28 @@ class _MyAccountState extends State<MyAccount> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         //Padding(padding: EdgeInsets.only(top: 28)),
-                        Row(
-                          children: const [
-                            Padding(padding: EdgeInsets.only(left: 26)),
-                            ImageIcon(AssetImage('assets/icons/Pin_Icon.png')),
-                            Padding(padding: EdgeInsets.only(left: 30)),
-                            Text(
-                              'Complain Tersimpan',
-                              style: TextStyle(
-                                  color: AppColors.primary,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700),
-                            )
-                          ],
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => GantiPassword()));
+                          },
+                          child: Row(
+                            children: const [
+                              Padding(padding: EdgeInsets.only(left: 26)),
+                              ImageIcon(
+                                  AssetImage('assets/icons/Pin_Icon.png')),
+                              Padding(padding: EdgeInsets.only(left: 30)),
+                              Text(
+                                'Complain Tersimpan',
+                                style: TextStyle(
+                                    color: AppColors.primary,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700),
+                              )
+                            ],
+                          ),
                         ),
                         const SizedBox(height: 36),
                         Image.asset('assets/icons/Divider.png'),
@@ -210,7 +218,7 @@ class _MyAccountState extends State<MyAccount> {
                             ImageIcon(AssetImage('assets/icons/Date_icon.png')),
                             Padding(padding: EdgeInsets.only(left: 30)),
                             Text(
-                              'Complain Tersimpan',
+                              'Riwayat Laporan Saya',
                               style: TextStyle(
                                   color: AppColors.primary,
                                   fontSize: 16,
@@ -228,7 +236,7 @@ class _MyAccountState extends State<MyAccount> {
                                 AssetImage('assets/icons/Profile_icon.png')),
                             Padding(padding: EdgeInsets.only(left: 30)),
                             Text(
-                              'Complain Tersimpan',
+                              'Ubah Profile',
                               style: TextStyle(
                                   color: AppColors.primary,
                                   fontSize: 16,
@@ -245,7 +253,7 @@ class _MyAccountState extends State<MyAccount> {
                             ImageIcon(AssetImage('assets/icons/Lock_icon.png')),
                             Padding(padding: EdgeInsets.only(left: 30)),
                             Text(
-                              'Complain Tersimpan',
+                              'Ganti Password',
                               style: TextStyle(
                                   color: AppColors.primary,
                                   fontSize: 16,
@@ -302,44 +310,6 @@ class _MyAccountState extends State<MyAccount> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: MoltenBottomNavigationBar(
-        borderRaduis: const BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
-        ),
-        barHeight: 80,
-        domeCircleSize: 36,
-        domeWidth: 100,
-        domeHeight: 10,
-        domeCircleColor: AppColors.secondary100,
-        barColor: AppColors.secondary100,
-        borderColor: Colors.black12,
-        borderSize: 2,
-        selectedIndex: _selectedIndex,
-        onTabChange: (clickedIndex) {
-          setState(() {
-            _selectedIndex = clickedIndex;
-          });
-        },
-        tabs: [
-          MoltenTab(
-            selectedColor: AppColors.primary,
-            icon: Image.asset('assets/icons/Home.png'),
-          ),
-          MoltenTab(
-            selectedColor: AppColors.primary,
-            icon: Image.asset('assets/icons/Chat_alt_add.png'),
-          ),
-          MoltenTab(
-            selectedColor: AppColors.primary,
-            icon: Image.asset('assets/icons/Shield.png'),
-          ),
-          MoltenTab(
-            selectedColor: AppColors.primary,
-            icon: Image.asset('assets/icons/User.png'),
-          ),
-        ],
       ),
     );
   }

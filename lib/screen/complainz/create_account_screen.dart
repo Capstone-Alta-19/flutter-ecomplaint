@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
@@ -21,7 +20,7 @@ class _CreateAccountState extends State<CreateAccount> {
                 Text(
                   'Atur Tampilan \n Akun',
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
+                  style: TextStyle(
                     color: const Color(0XFF3C486B),
                     fontSize: 40,
                     fontWeight: FontWeight.w700,
@@ -31,7 +30,7 @@ class _CreateAccountState extends State<CreateAccount> {
                 Text(
                   'Anda bisa melakukannya nanti',
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
+                  style: TextStyle(
                     color: const Color(0XFF3C486B),
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
@@ -74,7 +73,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         decoration: InputDecoration(
                           border: const OutlineInputBorder(),
                           labelText: 'Nama Lengkap',
-                          hintStyle: GoogleFonts.roboto(
+                          hintStyle: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                             color: const Color(0XFF3C486B),
@@ -86,7 +85,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         decoration: InputDecoration(
                           border: const OutlineInputBorder(),
                           labelText: 'Username',
-                          hintStyle: GoogleFonts.roboto(
+                          hintStyle: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                             color: const Color(0XFF3C486B),
@@ -99,7 +98,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         decoration: InputDecoration(
                           border: const OutlineInputBorder(),
                           labelText: 'Email Kampus',
-                          hintStyle: GoogleFonts.roboto(
+                          hintStyle: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                             color: const Color(0XFF3C486B),
@@ -112,7 +111,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         decoration: InputDecoration(
                           border: const OutlineInputBorder(),
                           labelText: 'Nomor WhatsApp',
-                          hintStyle: GoogleFonts.roboto(
+                          hintStyle: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                             color: const Color(0XFF3C486B),
@@ -122,7 +121,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       const SizedBox(height: 20),
                       Text(
                         'Lewati',
-                        style: GoogleFonts.poppins(
+                        style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
                           color: const Color(0XFF3C486B),
@@ -133,7 +132,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         onPressed: () {},
                         child: Text(
                           'Daftar',
-                          style: GoogleFonts.poppins(
+                          style: TextStyle(
                             color: Colors.white,
                             fontSize: 14,
                             fontWeight: FontWeight.w700,

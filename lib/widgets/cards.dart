@@ -1,6 +1,5 @@
 import 'package:complainz/config/app_color.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Cards extends StatelessWidget {
   final int flex1;
@@ -49,7 +48,7 @@ class Cards extends StatelessWidget {
                 //padding: const EdgeInsets.only(left: 24, right: 10),
                 child: Text(
                   cardText,
-                  style: GoogleFonts.poppins(
+                  style: TextStyle(
                     color: AppColors.primary,
                     fontSize: 32,
                     fontWeight: FontWeight.w600,
