@@ -1,10 +1,10 @@
 import 'package:complainz/config/app_color.dart';
-import 'package:complainz/widgets/isi_laporan_item.dart';
+import 'package:complainz/widget/isi_laporan_item_komen.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/custom_card.dart';
-import '../widgets/isi_komentar_item.dart';
-import '../widgets/profile_card.dart';
+import '../../widget/custom_card.dart';
+import '../../widget/isi_komentar_item.dart';
+import '../../widget/profile_card_komen.dart';
 
 class KomentarScreen extends StatefulWidget {
   const KomentarScreen({super.key});
@@ -63,7 +63,7 @@ class _KomentarScreenState extends State<KomentarScreen> {
                                   right: 20,
                                   top: 20.5,
                                 ),
-                                child: ProfileCard(
+                                child: ProfileCardKomen(
                                   avatar: 'assets/images/Profile.png',
                                   name: 'Jane Cooper',
                                   username: '@nina_real',
@@ -71,7 +71,7 @@ class _KomentarScreenState extends State<KomentarScreen> {
                                 ),
                               ),
                               SizedBox(height: 8),
-                              IsiLaporanItem(
+                              IsiLaporanItemKomen(
                                 laporan: "Dosen Matakuliah salah memasukan nilai",
                                 tanggapan: "Terimakasih telah menyuarakan melalui Complainz. Tim terkait sudah melakukan penyelidikan pada Dosen yang Bersangkutan",
                               ),
@@ -96,7 +96,7 @@ class _KomentarScreenState extends State<KomentarScreen> {
                             ),
                             child: Column(
                               children: const [
-                                ProfileCard(
+                                ProfileCardKomen(
                                   avatar: 'assets/images/Profile.png',
                                   name: 'Albert Flores',
                                   username: '2h',
@@ -128,7 +128,7 @@ class _KomentarScreenState extends State<KomentarScreen> {
                             ),
                             child: Column(
                               children: const [
-                                ProfileCard(
+                                ProfileCardKomen(
                                   avatar: 'assets/images/Profile.png',
                                   name: 'Savannah Nguyen',
                                   username: '2h',

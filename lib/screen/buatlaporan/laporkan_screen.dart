@@ -1,6 +1,6 @@
 import 'package:complainz/config/app_color.dart';
-import 'package:complainz/screen/pengaduan_screen.dart';
-import 'package:complainz/widgets/cards.dart';
+import 'package:complainz/screen/buatlaporan/pengaduan_screen.dart';
+import 'package:complainz/widget/cards.dart';
 import 'package:flutter/material.dart';
 import 'package:molten_navigationbar_flutter/molten_navigationbar_flutter.dart';
 import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
@@ -42,10 +42,7 @@ class _LaporkanPageState extends State<LaporkanPage> {
                 padding: const EdgeInsets.only(left: 16, right: 16),
                 child: Cards(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const PengaduanPage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const PengaduanPage()));
                   },
                   assets: Image.asset(
                     'assets/images/pengaduan.png',
@@ -62,10 +59,7 @@ class _LaporkanPageState extends State<LaporkanPage> {
                 padding: const EdgeInsets.only(left: 16, right: 16),
                 child: CustomCards(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const PengaduanPage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const PengaduanPage()));
                   },
                   flexText: 2,
                   flexImage: 1,

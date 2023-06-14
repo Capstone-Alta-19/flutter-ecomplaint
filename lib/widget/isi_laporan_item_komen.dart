@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../config/app_color.dart';
 
-class IsiLaporanItem extends StatelessWidget {
+class IsiLaporanItemKomen extends StatelessWidget {
   final String laporan;
   final String? tanggapan;
-  const IsiLaporanItem({super.key, required this.laporan, required this.tanggapan});
+  const IsiLaporanItemKomen({super.key, required this.laporan, required this.tanggapan});
 
   @override
   Widget build(BuildContext context) {

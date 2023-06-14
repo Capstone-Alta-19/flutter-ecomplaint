@@ -10,7 +10,7 @@ class IsiLaporanItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(color: AppColors.secondary100, borderRadius: BorderRadius.all(Radius.circular(30))),
+      decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(30))),
       child: Column(
         children: [
           Container(

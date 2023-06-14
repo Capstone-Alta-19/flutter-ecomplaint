@@ -19,7 +19,7 @@ class SegmentTitle extends StatelessWidget {
                 Navigator.pop(context);
               }),
           SizedBox(
-            width: 300,
+            // width: 300,
             child: Text(
                 textAlign: TextAlign.right,
                 style: const TextStyle(

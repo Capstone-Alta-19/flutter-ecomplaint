@@ -1,10 +1,11 @@
-import 'package:complainz/screen/komentar_screen.dart';
+import 'package:complainz/screen/laporan/komentar_screen.dart';
+import 'package:complainz/widget/isi_laporan_item.dart';
 import 'package:flutter/material.dart';
 
 import '../../config/app_color.dart';
 import '../../widget/custom_card.dart';
 import '../../widget/interaction_card.dart';
-import '../../widget/isi_laporan_item.dart';
+
 import '../../widget/profile_card.dart';
 import '../../widget/segment_title.dart';
 import '../../widget/selengkapnya_button.dart';

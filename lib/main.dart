@@ -1,3 +1,7 @@
+import 'package:complainz/screen/berita/berita_terkini_page.dart';
+import 'package:complainz/screen/home_page.dart';
+import 'package:complainz/screen/laporan/komentar_screen.dart';
+import 'package:complainz/screen/login/login_page.dart';
 import 'package:complainz/screen/splash_screen_page.dart';
 import 'package:flutter/material.dart';
 import 'config/app_color.dart';
@@ -45,7 +49,7 @@ class MyAppState extends State<MyApp> {
             )),
         /* home: const HomeScreen(
           key: ValueKey('Home Screen'), title: 'Flutter Demo Home Page'), */
-        home: SplashScreen()
+        home: Homepage()
         /* routes: {
         "/add_post": (context) => AddPostScreen(),
       }, */

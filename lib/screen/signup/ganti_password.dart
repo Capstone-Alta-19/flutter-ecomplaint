@@ -1,5 +1,5 @@
 import 'package:complainz/config/app_color.dart';
-import 'package:complainz/widgets/buttons.dart';
+import 'package:complainz/widget/buttons.dart';
 import 'package:flutter/material.dart';
 
 class GantiPassword extends StatefulWidget {
@@ -83,9 +83,7 @@ class _GantiPasswordState extends State<GantiPassword> {
                               });
                             },
                             child: Icon(
-                              _obsecureText
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
+                              _obsecureText ? Icons.visibility : Icons.visibility_off,
                             ),
                           )),
                     ),
@@ -99,8 +97,7 @@ class _GantiPasswordState extends State<GantiPassword> {
                       decoration: InputDecoration(
                         border: const OutlineInputBorder(),
                         labelText: 'Masukkan Kembali Password',
-                        errorText:
-                            _passwordMatch ? null : 'Password tidak cocok',
+                        errorText: _passwordMatch ? null : 'Password tidak cocok',
                         hintStyle: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w400,
