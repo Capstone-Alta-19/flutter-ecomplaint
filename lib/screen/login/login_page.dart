@@ -1,5 +1,6 @@
+import 'package:complainz/screen/register_screen.dart';
 import 'package:flutter/material.dart';
-
+import 'package:intl/intl.dart';
 import '../../config/app_color.dart';
 import '../../model/auth.dart';
 import '../../widget/account_question_button.dart';
@@ -23,6 +24,10 @@ class _LoginPageState extends State<LoginPage> {
   void initState() {
     super.initState();
     _passwordVisible = false;
+
+    String date = "2023-06-11T23:22:13.944+07:00";
+    String formattedDate = DateFormat('dd/MM/yyyy').format(DateTime.parse(date));
+    print(formattedDate);
   }
 
   void _checkFormStatus() {
@@ -34,25 +39,27 @@ class _LoginPageState extends State<LoginPage> {
 
   void _submitForm() async {
     await login(usernameEmailController.text, passwordController.text).then((value) {
-      print(value);
-
-      Navigator.of(context).push(
-        PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) {
-              return const Homepage();
-            },
-            transitionDuration: const Duration(milliseconds: 300),
-            transitionsBuilder: (context, animation, secondaryAnimation, child) {
-              final tween = Tween(
-                begin: const Offset(2, 0),
-                end: Offset.zero,
-              );
-              return SlideTransition(
-                position: animation.drive(tween),
-                child: child,
-              );
-            }),
-      );
+      if (value == LoginStatus.success) {
+        Navigator.of(context).push(
+          PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) {
+                return const Homepage();
+              },
+              transitionDuration: const Duration(milliseconds: 300),
+              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                final tween = Tween(
+                  begin: const Offset(2, 0),
+                  end: Offset.zero,
+                );
+                return SlideTransition(
+                  position: animation.drive(tween),
+                  child: child,
+                );
+              }),
+        );
+      } else {
+        print(value);
+      }
     });
   }
 
@@ -168,7 +175,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.of(context).push(
                         PageRouteBuilder(
                             pageBuilder: (context, animation, secondaryAnimation) {
-                              return const BeritaLaporanPage();
+                              return const RegisterPage();
                             },
                             transitionDuration: const Duration(milliseconds: 300),
                             transitionsBuilder: (context, animation, secondaryAnimation, child) {

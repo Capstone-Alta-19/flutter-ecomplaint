@@ -1,9 +1,9 @@
 import 'package:complainz/screen/register_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../config/app_color.dart';
-import '../widget/account_question_button.dart';
-import 'login/login_page.dart';
+import '../../config/app_color.dart';
+import '../../widget/account_question_button.dart';
+import 'login_page.dart';
 
 class LoginregisterPage extends StatelessWidget {
   const LoginregisterPage({Key? key}) : super(key: key);

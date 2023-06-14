@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../config/app_color.dart';
-import '../widgets/buttons.dart';
+import '../../config/app_color.dart';
+import '../../widget/buttons.dart';
 
 class LaporanRahasia extends StatefulWidget {
   const LaporanRahasia({super.key});

@@ -1,5 +1,5 @@
 import 'package:complainz/config/app_color.dart';
-import 'package:complainz/widgets/buttons.dart';
+import 'package:complainz/widget/buttons.dart';
 import 'package:flutter/material.dart';
 
 class LaporanTerbuka extends StatefulWidget {
@@ -62,14 +62,7 @@ class _LaporanTerbukaState extends State<LaporanTerbuka> {
                   InkWell(
                       onTap: () {},
                       child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            boxShadow: const [
-                              BoxShadow(
-                                  blurRadius: 8,
-                                  blurStyle: BlurStyle.outer,
-                                  color: Color.fromRGBO(0, 0, 0, 0.25))
-                            ]),
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), boxShadow: const [BoxShadow(blurRadius: 8, blurStyle: BlurStyle.outer, color: Color.fromRGBO(0, 0, 0, 0.25))]),
                         child: Image.asset(
                           'assets/icons/Instagram.png',
                           width: 48.18,
@@ -78,44 +71,20 @@ class _LaporanTerbukaState extends State<LaporanTerbuka> {
                   InkWell(
                       onTap: () {},
                       child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            boxShadow: const [
-                              BoxShadow(
-                                  blurRadius: 8,
-                                  blurStyle: BlurStyle.outer,
-                                  color: Color.fromRGBO(0, 0, 0, 0.25))
-                            ]),
-                        child: Image.asset('assets/icons/Facebook.png',
-                            width: 48.18),
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), boxShadow: const [BoxShadow(blurRadius: 8, blurStyle: BlurStyle.outer, color: Color.fromRGBO(0, 0, 0, 0.25))]),
+                        child: Image.asset('assets/icons/Facebook.png', width: 48.18),
                       )),
                   InkWell(
                       onTap: () {},
                       child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            boxShadow: const [
-                              BoxShadow(
-                                  blurRadius: 8,
-                                  blurStyle: BlurStyle.outer,
-                                  color: Color.fromRGBO(0, 0, 0, 0.25))
-                            ]),
-                        child: Image.asset('assets/icons/Whatsapp.png',
-                            width: 48.18),
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), boxShadow: const [BoxShadow(blurRadius: 8, blurStyle: BlurStyle.outer, color: Color.fromRGBO(0, 0, 0, 0.25))]),
+                        child: Image.asset('assets/icons/Whatsapp.png', width: 48.18),
                       )),
                   InkWell(
                       onTap: () {},
                       child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            boxShadow: const [
-                              BoxShadow(
-                                  blurRadius: 8,
-                                  blurStyle: BlurStyle.outer,
-                                  color: Color.fromRGBO(0, 0, 0, 0.30))
-                            ]),
-                        child: Image.asset('assets/icons/Twitter.png',
-                            width: 48.18),
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), boxShadow: const [BoxShadow(blurRadius: 8, blurStyle: BlurStyle.outer, color: Color.fromRGBO(0, 0, 0, 0.30))]),
+                        child: Image.asset('assets/icons/Twitter.png', width: 48.18),
                       )),
                 ],
               ),

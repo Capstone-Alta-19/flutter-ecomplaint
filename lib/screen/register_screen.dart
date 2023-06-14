@@ -1,10 +1,12 @@
 import 'package:complainz/config/app_color.dart';
 import 'package:complainz/model/api/register_api.dart';
 import 'package:complainz/screen/complainz/create_account_screen.dart';
-import 'package:complainz/widgets/buttons.dart';
+import 'package:complainz/widget/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:provider/provider.dart';
+
+import 'login/login_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -266,7 +268,23 @@ class _RegisterPageState extends State<RegisterPage> {
                                   ),
                                   GestureDetector(
                                     onTap: () {
-                                      //Get.to(() => const RegisterPage());
+                                      Navigator.of(context).push(
+                                        PageRouteBuilder(
+                                            pageBuilder: (context, animation, secondaryAnimation) {
+                                              return const LoginPage();
+                                            },
+                                            transitionDuration: const Duration(milliseconds: 300),
+                                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                              final tween = Tween(
+                                                begin: const Offset(2, 0),
+                                                end: Offset.zero,
+                                              );
+                                              return SlideTransition(
+                                                position: animation.drive(tween),
+                                                child: child,
+                                              );
+                                            }),
+                                      );
                                     },
                                     child: const Text(
                                       'Masuk',

@@ -2,18 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../config/app_color.dart';
 
-class ProfileCard extends StatelessWidget {
+class ProfileCardKomen extends StatelessWidget {
   final String avatar;
   final String username;
   final String name;
   final String tanggal;
 
-  const ProfileCard(
-      {super.key,
-      required this.avatar,
-      required this.username,
-      required this.name,
-      required this.tanggal});
+  const ProfileCardKomen({super.key, required this.avatar, required this.username, required this.name, required this.tanggal});
 
   @override
   Widget build(BuildContext context) {
