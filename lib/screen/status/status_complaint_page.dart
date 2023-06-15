@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../../config/app_color.dart';
 import '../../widget/segment_title_without_back.dart';
+import 'detail_status_complaint.dart';
 
 class StatusComplaint extends StatefulWidget {
   const StatusComplaint({super.key});

@@ -1,5 +1,6 @@
-import 'package:complainz/screen/cobaan.dart';
 import 'package:flutter/material.dart';
+
+import '../home_page.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
@@ -18,21 +19,21 @@ class _CreateAccountState extends State<CreateAccount> {
             padding: const EdgeInsets.only(top: 81.0),
             child: Column(
               children: [
-                Text(
+                const Text(
                   'Atur Tampilan \n Akun',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: const Color(0XFF3C486B),
+                    color: Color(0XFF3C486B),
                     fontSize: 40,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 const SizedBox(height: 10),
-                Text(
+                const Text(
                   'Anda bisa melakukannya nanti',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: const Color(0XFF3C486B),
+                    color: Color(0XFF3C486B),
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
                   ),
@@ -41,7 +42,7 @@ class _CreateAccountState extends State<CreateAccount> {
                 Stack(
                   alignment: Alignment.center,
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 80,
                       //backgroundImage: AssetImage('assets/avatar.png'),
                     ),
@@ -53,7 +54,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         children: [
                           CircleAvatar(
                             child: IconButton(
-                              icon: Icon(Icons.edit),
+                              icon: const Icon(Icons.edit),
                               onPressed: () {
                                 // Aksi yang dijalankan ketika tombol diklik
                                 print('Tombol Panggilan Diklik');
@@ -71,51 +72,51 @@ class _CreateAccountState extends State<CreateAccount> {
                   child: Column(
                     children: [
                       TextFormField(
-                        decoration: InputDecoration(
-                          border: const OutlineInputBorder(),
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
                           labelText: 'Nama Lengkap',
                           hintStyle: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
-                            color: const Color(0XFF3C486B),
+                            color: Color(0XFF3C486B),
                           ),
                         ),
                       ),
                       const SizedBox(height: 15),
                       TextFormField(
-                        decoration: InputDecoration(
-                          border: const OutlineInputBorder(),
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
                           labelText: 'Username',
                           hintStyle: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
-                            color: const Color(0XFF3C486B),
+                            color: Color(0XFF3C486B),
                           ),
                         ),
                       ),
                       const SizedBox(height: 15),
                       TextFormField(
                         keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          border: const OutlineInputBorder(),
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
                           labelText: 'Email Kampus',
                           hintStyle: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
-                            color: const Color(0XFF3C486B),
+                            color: Color(0XFF3C486B),
                           ),
                         ),
                       ),
                       const SizedBox(height: 15),
                       TextFormField(
                         keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          border: const OutlineInputBorder(),
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
                           labelText: 'Nomor WhatsApp',
                           hintStyle: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
-                            color: const Color(0XFF3C486B),
+                            color: Color(0XFF3C486B),
                           ),
                         ),
                       ),
@@ -126,7 +127,7 @@ class _CreateAccountState extends State<CreateAccount> {
                             PageRouteBuilder(
                                 pageBuilder:
                                     (context, animation, secondaryAnimation) {
-                                  return HomePage();
+                                  return const Homepage();
                                 },
                                 transitionDuration:
                                     const Duration(milliseconds: 300),
@@ -143,19 +144,19 @@ class _CreateAccountState extends State<CreateAccount> {
                                 }),
                           );
                         },
-                        child: Text(
+                        child: const Text(
                           'Lewati',
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
-                            color: const Color(0XFF3C486B),
+                            color: Color(0XFF3C486B),
                           ),
                         ),
                       ),
                       const SizedBox(height: 22),
                       ElevatedButton(
                         onPressed: () {},
-                        child: Text(
+                        child: const Text(
                           'Daftar',
                           style: TextStyle(
                             color: Colors.white,

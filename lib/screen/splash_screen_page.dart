@@ -1,15 +1,8 @@
-import 'package:complainz/screen/cobaan.dart';
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:complainz/config/app_color.dart';
-import 'package:complainz/screen/loginregister_page.dart';
-=======
-
->>>>>>> b1302cb54e85eca400b2ac004ace06b01a1d88c0
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../config/app_color.dart';
+import 'home_page.dart';
 import 'login/loginregister_page.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -40,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
             //splash screen won't show on back button press
             //navigation to Home page.
             builder: (context) {
-          return HomePage();
+          return Homepage();
         }));
       }
     });

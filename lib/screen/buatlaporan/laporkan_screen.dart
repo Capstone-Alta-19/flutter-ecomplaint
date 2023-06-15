@@ -1,19 +1,7 @@
 import 'package:complainz/config/app_color.dart';
-import 'package:complainz/screen/bottom_navbar.dart';
-import 'package:complainz/Provider/bottom_navbar_provider.dart';
-import 'package:complainz/screen/home_page.dart';
-import 'package:complainz/screen/login/login_page.dart';
-import 'package:complainz/screen/my_account_screen.dart';
-import 'package:complainz/screen/pengaduan_screen.dart';
-import 'package:complainz/screen/status/status_complaint_page.dart';
-import 'package:complainz/widgets/cards.dart';
 import 'package:complainz/screen/buatlaporan/pengaduan_screen.dart';
 import 'package:complainz/widget/cards.dart';
 import 'package:flutter/material.dart';
-import 'package:molten_navigationbar_flutter/molten_navigationbar_flutter.dart';
-import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
-import 'package:circular_bottom_navigation/tab_item.dart';
-import 'package:provider/provider.dart';
 
 class LaporkanPage extends StatefulWidget {
   const LaporkanPage({super.key});
@@ -96,76 +84,6 @@ class _LaporkanPageState extends State<LaporkanPage> {
           ],
         ),
       )),
-      /* bottomNavigationBar: MoltenBottomNavigationBar(
-        borderRaduis: const BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
-        ),
-        barHeight: 80,
-        domeCircleSize: 36,
-        domeWidth: 100,
-        domeHeight: 10,
-        domeCircleColor: AppColors.secondary100,
-        barColor: AppColors.secondary100,
-        borderColor: Colors.black12,
-        borderSize: 2,
-        selectedIndex: _selectedIndex,
-        onTabChange: (clickedIndex) {
-          setState(() {
-            _selectedIndex = clickedIndex;
-          });
-        },
-        tabs: [
-          MoltenTab(
-            selectedColor: AppColors.primary,
-            icon: Image.asset('assets/icons/Home.png'),
-          ),
-          MoltenTab(
-            selectedColor: AppColors.primary,
-            icon: Image.asset('assets/icons/Chat_alt_add.png'),
-          ),
-          MoltenTab(
-            selectedColor: AppColors.primary,
-            icon: Image.asset('assets/icons/Shield.png'),
-          ),
-          MoltenTab(
-            selectedColor: AppColors.primary,
-            icon: Image.asset('assets/icons/User.png'),
-          ),
-        ],
-      ), */ //extendBody: screens[currentScreenIndex],
-
-      /* bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.circular(30),
-        child: NavigationBar(
-          onDestinationSelected: (int index) {
-            print('Selected $index');
-          },
-          selectedIndex: 0,
-          destinations: const <NavigationDestination>[
-            NavigationDestination(
-              //selectedIcon: Icon(Icons.person),
-              icon: Icon(Icons.home),
-              label: '',
-            ),
-            NavigationDestination(
-              //selectedIcon: Icon(Icons.engineering),
-              icon: Icon(Icons.add_comment_rounded),
-              label: '',
-            ),
-            NavigationDestination(
-              //selectedIcon: Icon(Icons.bookmark),
-              icon: Icon(Icons.verified_user_outlined),
-              label: '',
-            ),
-            NavigationDestination(
-              //selectedIcon: Icon(Icons.bookmark),
-              icon: Icon(Icons.account_box_outlined),
-              label: '',
-            ),
-          ],
-        ),
-      ), */
     );
   }
 }

@@ -1,7 +1,7 @@
-import 'package:complainz/screen/komentar_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
 import '../config/app_color.dart';
+import '../screen/laporan/komentar_screen.dart';
 
 class InteractionCard extends StatelessWidget {
   const InteractionCard({super.key});

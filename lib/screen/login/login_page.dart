@@ -26,7 +26,8 @@ class _LoginPageState extends State<LoginPage> {
     _passwordVisible = false;
 
     String date = "2023-06-11T23:22:13.944+07:00";
-    String formattedDate = DateFormat('dd/MM/yyyy').format(DateTime.parse(date));
+    String formattedDate =
+        DateFormat('dd/MM/yyyy').format(DateTime.parse(date));
     print(formattedDate);
   }
 
@@ -38,7 +39,8 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _submitForm() async {
-    await login(usernameEmailController.text, passwordController.text).then((value) {
+    await login(usernameEmailController.text, passwordController.text)
+        .then((value) {
       if (value == LoginStatus.success) {
         Navigator.of(context).push(
           PageRouteBuilder(
@@ -46,7 +48,8 @@ class _LoginPageState extends State<LoginPage> {
                 return const Homepage();
               },
               transitionDuration: const Duration(milliseconds: 300),
-              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
                 final tween = Tween(
                   begin: const Offset(2, 0),
                   end: Offset.zero,
@@ -216,14 +219,9 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () {
                       Navigator.of(context).push(
                         PageRouteBuilder(
-<<<<<<< HEAD
                             pageBuilder:
                                 (context, animation, secondaryAnimation) {
-                              return const BeritaLaporanPage();
-=======
-                            pageBuilder: (context, animation, secondaryAnimation) {
                               return const RegisterPage();
->>>>>>> b1302cb54e85eca400b2ac004ace06b01a1d88c0
                             },
                             transitionDuration:
                                 const Duration(milliseconds: 300),

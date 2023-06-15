@@ -1,12 +1,10 @@
 import 'package:complainz/config/app_color.dart';
-<<<<<<< HEAD
-import 'package:complainz/screen/ganti_password.dart';
-import 'package:complainz/widgets/buttons.dart';
-=======
+import 'package:complainz/screen/ganti_profile_screen.dart';
 import 'package:complainz/widget/buttons.dart';
->>>>>>> b1302cb54e85eca400b2ac004ace06b01a1d88c0
 import 'package:flutter/material.dart';
 import 'package:molten_navigationbar_flutter/molten_navigationbar_flutter.dart';
+
+import 'signup/ganti_password.dart';
 
 class MyAccount extends StatefulWidget {
   const MyAccount({super.key});
@@ -44,7 +42,10 @@ class _MyAccountState extends State<MyAccount> {
               children: [
                 const Text(
                   'John Doe',
-                  style: TextStyle(color: AppColors.primary, fontSize: 40, fontWeight: FontWeight.w700),
+                  style: TextStyle(
+                      color: AppColors.primary,
+                      fontSize: 40,
+                      fontWeight: FontWeight.w700),
                 ),
                 const SizedBox(height: 8),
                 Container(
@@ -192,7 +193,8 @@ class _MyAccountState extends State<MyAccount> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => GantiPassword()));
+                                    builder: (context) =>
+                                        const GantiPassword()));
                           },
                           child: Row(
                             children: const [
@@ -213,53 +215,76 @@ class _MyAccountState extends State<MyAccount> {
                         const SizedBox(height: 36),
                         Image.asset('assets/icons/Divider.png'),
                         const SizedBox(height: 36),
-                        Row(
-                          children: const [
-                            Padding(padding: EdgeInsets.only(left: 26)),
-                            ImageIcon(AssetImage('assets/icons/Date_icon.png')),
-                            Padding(padding: EdgeInsets.only(left: 30)),
-                            Text(
-                              'Riwayat Laporan Saya',
-                              style: TextStyle(
-                                  color: AppColors.primary,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                          ],
+                        InkWell(
+                          onTap: () {},
+                          child: Row(
+                            children: const [
+                              Padding(padding: EdgeInsets.only(left: 26)),
+                              ImageIcon(
+                                  AssetImage('assets/icons/Date_icon.png')),
+                              Padding(padding: EdgeInsets.only(left: 30)),
+                              Text(
+                                'Riwayat Laporan Saya',
+                                style: TextStyle(
+                                    color: AppColors.primary,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                            ],
+                          ),
                         ),
                         const SizedBox(height: 36),
                         Image.asset('assets/icons/Divider.png'),
                         const SizedBox(height: 36),
-                        Row(
-                          children: const [
-                            Padding(padding: EdgeInsets.only(left: 26)),
-                            ImageIcon(AssetImage('assets/icons/Profile_icon.png')),
-                            Padding(padding: EdgeInsets.only(left: 30)),
-                            Text(
-                              'Ubah Profile',
-                              style: TextStyle(
-                                  color: AppColors.primary,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                          ],
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const GantiProfile()));
+                          },
+                          child: Row(
+                            children: const [
+                              Padding(padding: EdgeInsets.only(left: 26)),
+                              ImageIcon(
+                                  AssetImage('assets/icons/Profile_icon.png')),
+                              Padding(padding: EdgeInsets.only(left: 30)),
+                              Text(
+                                'Ubah Profile',
+                                style: TextStyle(
+                                    color: AppColors.primary,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                            ],
+                          ),
                         ),
                         const SizedBox(height: 36),
                         Image.asset('assets/icons/Divider.png'),
                         const SizedBox(height: 36),
-                        Row(
-                          children: const [
-                            Padding(padding: EdgeInsets.only(left: 26)),
-                            ImageIcon(AssetImage('assets/icons/Lock_icon.png')),
-                            Padding(padding: EdgeInsets.only(left: 30)),
-                            Text(
-                              'Ganti Password',
-                              style: TextStyle(
-                                  color: AppColors.primary,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                          ],
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => GantiPassword()));
+                          },
+                          child: Row(
+                            children: const [
+                              Padding(padding: EdgeInsets.only(left: 26)),
+                              ImageIcon(
+                                  AssetImage('assets/icons/Lock_icon.png')),
+                              Padding(padding: EdgeInsets.only(left: 30)),
+                              Text(
+                                'Ganti Password',
+                                style: TextStyle(
+                                    color: AppColors.primary,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -283,7 +308,10 @@ class _MyAccountState extends State<MyAccount> {
                         Padding(padding: EdgeInsets.only(left: 30)),
                         Text(
                           'Tentang Kami',
-                          style: TextStyle(color: AppColors.primary, fontSize: 20, fontWeight: FontWeight.w700),
+                          style: TextStyle(
+                              color: AppColors.primary,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700),
                         ),
                       ],
                     ),
