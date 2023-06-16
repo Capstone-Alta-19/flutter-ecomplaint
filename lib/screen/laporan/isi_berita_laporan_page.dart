@@ -6,7 +6,7 @@ import '../../widget/isi_laporan_item.dart';
 import '../../widget/profile_card.dart';
 import '../../widget/segment_title.dart';
 import '../../widget/selengkapnya_button.dart';
-import 'komentar_screen.dart';
+import 'komentar_page.dart';
 
 List<String> list = <String>['Urutkan Berdasarkan', 'Terbaru', 'Terlama'];
 
@@ -44,22 +44,15 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                     direction: Axis.horizontal,
                     children: [
                       Container(
-                        decoration: BoxDecoration(
-                            border:
-                                Border.all(width: 1, color: AppColors.primary),
-                            borderRadius: BorderRadius.circular(8)),
+                        decoration: BoxDecoration(border: Border.all(width: 1, color: AppColors.primary), borderRadius: BorderRadius.circular(8)),
                         width: 184,
                         height: 32,
                         child: Center(
                           child: DropdownButton<String>(
                             value: dropdownValue,
-                            icon: const Icon(
-                                color: AppColors.primary, Icons.expand_more),
+                            icon: const Icon(color: AppColors.primary, Icons.expand_more),
                             elevation: 16,
-                            style: const TextStyle(
-                                color: AppColors.font,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500),
+                            style: const TextStyle(color: AppColors.font, fontSize: 14, fontWeight: FontWeight.w500),
                             // underline: Container(
                             //   height: 2,
                             //   color: AppColors.primary,
@@ -70,8 +63,7 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                                 dropdownValue = value!;
                               });
                             },
-                            items: list
-                                .map<DropdownMenuItem<String>>((String value) {
+                            items: list.map<DropdownMenuItem<String>>((String value) {
                               return DropdownMenuItem<String>(
                                 value: value,
                                 child: Text(value),
@@ -113,33 +105,31 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                                 ),
                                 const SizedBox(height: 8),
                                 const IsiLaporanItem(
-                                  laporan:
-                                      "Dosen Matakuliah salah memasukan nilai",
+                                  laporan: "Dosen Matakuliah salah memasukan nilai",
                                   tanggapan: "lalalalalal",
                                 ),
                                 const SizedBox(height: 8),
-                                SelengkapnyaButton(onPressed: () {
-                                  Navigator.of(context).push(
-                                    PageRouteBuilder(
-                                        pageBuilder: (context, animation,
-                                            secondaryAnimation) {
-                                          return const KomentarScreen();
-                                        },
-                                        transitionDuration:
-                                            const Duration(milliseconds: 300),
-                                        transitionsBuilder: (context, animation,
-                                            secondaryAnimation, child) {
-                                          final tween = Tween(
-                                            begin: const Offset(2, 0),
-                                            end: Offset.zero,
-                                          );
-                                          return SlideTransition(
-                                            position: animation.drive(tween),
-                                            child: child,
-                                          );
-                                        }),
-                                  );
-                                }),
+                                SelengkapnyaButton(
+                                    title: "Selengkapnya",
+                                    onPressed: () {
+                                      Navigator.of(context).push(
+                                        PageRouteBuilder(
+                                            pageBuilder: (context, animation, secondaryAnimation) {
+                                              return const KomentarPage();
+                                            },
+                                            transitionDuration: const Duration(milliseconds: 300),
+                                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                              final tween = Tween(
+                                                begin: const Offset(2, 0),
+                                                end: Offset.zero,
+                                              );
+                                              return SlideTransition(
+                                                position: animation.drive(tween),
+                                                child: child,
+                                              );
+                                            }),
+                                      );
+                                    }),
                               ],
                             ),
                           )),

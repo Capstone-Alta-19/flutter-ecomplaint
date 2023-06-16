@@ -1,3 +1,4 @@
+import 'package:complainz/widget/segment_title.dart';
 import 'package:flutter/material.dart';
 import '../../config/app_color.dart';
 import '../../widget/segment_title_without_back.dart';
@@ -24,7 +25,7 @@ class _StatusComplaintState extends State<StatusComplaint> {
           child: Center(
             child: Column(
               children: [
-                const SegmentTitleWithoutBack(title: "Status Complaint"),
+                const SegmentTitleTwoLine(title: "Status Complaint"),
                 const SizedBox(height: 30),
                 const Text(
                     style: TextStyle(
@@ -67,28 +68,21 @@ class ComplaintDiterima extends StatelessWidget {
           children: [
             InkWell(
               onTap: onPressed,
-              child: Image.asset(
-                  width: 322, height: 100, "assets/logo/Complain Diterima.png"),
+              child: Image.asset(width: 322, height: 100, "assets/logo/Complain Diterima.png"),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 5.0),
               child: Image.asset("assets/logo/Stepper Line.png"),
             ),
             InkWell(
-              child: Image.asset(
-                  width: 322,
-                  height: 100,
-                  "assets/logo/Complain Diproses (1).png"),
+              child: Image.asset(width: 322, height: 100, "assets/logo/Complain Diproses (1).png"),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 5.0),
               child: Image.asset("assets/logo/Stepper Line (1).png"),
             ),
             InkWell(
-              child: Image.asset(
-                  width: 322,
-                  height: 100,
-                  "assets/logo/Complain Dijawab (1).png"),
+              child: Image.asset(width: 322, height: 100, "assets/logo/Complain Dijawab (1).png"),
             ),
           ],
         ));
@@ -107,8 +101,7 @@ class ComplaintDiproses extends StatelessWidget {
           children: [
             InkWell(
               onTap: onPressed,
-              child: Image.asset(
-                  width: 322, height: 100, "assets/logo/Complain Diterima.png"),
+              child: Image.asset(width: 322, height: 100, "assets/logo/Complain Diterima.png"),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 5.0),
@@ -116,18 +109,14 @@ class ComplaintDiproses extends StatelessWidget {
             ),
             InkWell(
               onTap: onPressed,
-              child: Image.asset(
-                  width: 322, height: 100, "assets/logo/Complain Diproses.png"),
+              child: Image.asset(width: 322, height: 100, "assets/logo/Complain Diproses.png"),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 5.0),
               child: Image.asset("assets/logo/Stepper Line.png"),
             ),
             InkWell(
-              child: Image.asset(
-                  width: 322,
-                  height: 100,
-                  "assets/logo/Complain Dijawab (1).png"),
+              child: Image.asset(width: 322, height: 100, "assets/logo/Complain Dijawab (1).png"),
             ),
           ],
         ));
@@ -145,16 +134,14 @@ class ComplaintDijawab extends StatelessWidget {
         child: Column(
           children: [
             InkWell(
-              child: Image.asset(
-                  width: 322, height: 100, "assets/logo/Complain Diterima.png"),
+              child: Image.asset(width: 322, height: 100, "assets/logo/Complain Diterima.png"),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 5.0),
               child: Image.asset("assets/logo/Stepper Line (2).png"),
             ),
             InkWell(
-              child: Image.asset(
-                  width: 322, height: 100, "assets/logo/Complain Diproses.png"),
+              child: Image.asset(width: 322, height: 100, "assets/logo/Complain Diproses.png"),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 5.0),
@@ -162,8 +149,7 @@ class ComplaintDijawab extends StatelessWidget {
             ),
             InkWell(
               onTap: onPressed,
-              child: Image.asset(
-                  width: 322, height: 100, "assets/logo/Complain Dijawab.png"),
+              child: Image.asset(width: 322, height: 100, "assets/logo/Complain Dijawab.png"),
             ),
           ],
         ));

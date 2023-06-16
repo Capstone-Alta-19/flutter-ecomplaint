@@ -1,3 +1,4 @@
+import 'package:complainz/screen/status/edit_status_complaint_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../config/app_color.dart';
@@ -11,8 +12,7 @@ class DetailStatusComplaint extends StatefulWidget {
   final status statusComplaint;
   final idComplaint;
 
-  DetailStatusComplaint(
-      {super.key, required this.statusComplaint, required this.idComplaint});
+  DetailStatusComplaint({super.key, required this.statusComplaint, required this.idComplaint});
 
   @override
   State<DetailStatusComplaint> createState() => _DetailStatusComplaintState();
@@ -44,37 +44,28 @@ class _DetailStatusComplaintState extends State<DetailStatusComplaint> {
               FilledButton(
                   style: const ButtonStyle(
                     minimumSize: MaterialStatePropertyAll(Size(358, 40)),
-                    backgroundColor:
-                        MaterialStatePropertyAll(AppColors.primary),
+                    backgroundColor: MaterialStatePropertyAll(AppColors.primary),
                   ),
                   onPressed: () {
-                    showDialog(
-                        barrierDismissible: false,
-                        barrierColor: null,
-                        context: context,
-                        builder: (BuildContext context) => CustomDialog(
-                              onPressed: () {
-                                Navigator.pop(context);
-                                showDialog(
-                                    barrierColor: null,
-                                    context: context,
-                                    builder: (BuildContext context) =>
-                                        const CustomAlertDialog(
-                                          title: "Laporan Terhapus",
-                                          icon: "assets/icons/Trash.png",
-                                        ));
-                              },
-                              confirm: "Ya, Hapus",
-                              icon: "assets/icons/Trash.png",
-                              title: "Kamu Yakin Untuk Mencabut Laporan?",
-                            ));
+                    Navigator.of(context).push(
+                      PageRouteBuilder(
+                          pageBuilder: (context, animation, secondaryAnimation) {
+                            return const EditStatusComplaint();
+                          },
+                          transitionDuration: const Duration(milliseconds: 300),
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                            final tween = Tween(
+                              begin: const Offset(2, 0),
+                              end: Offset.zero,
+                            );
+                            return SlideTransition(
+                              position: animation.drive(tween),
+                              child: child,
+                            );
+                          }),
+                    );
                   },
-                  child: const Text(
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.secondary100),
-                      "Edit laporan")),
+                  child: const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: AppColors.secondary100), "Edit laporan")),
             ],
           )),
         ),

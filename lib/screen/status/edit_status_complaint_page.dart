@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../config/app_color.dart';
+import '../../widget/custom_alert_dialog.dart';
+import '../../widget/custom_dialog.dart';
 import '../../widget/dashed_divider.dart';
 import '../../widget/segment_title.dart';
 
@@ -21,8 +23,7 @@ class _EditStatusComplaintState extends State<EditStatusComplaint> {
       body: SingleChildScrollView(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             const SegmentTitle(title: "Detail Status"),
             const SizedBox(height: 30),
             Padding(
@@ -80,20 +81,30 @@ class _EditStatusComplaintState extends State<EditStatusComplaint> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                SizedBox(
-                                    width: 185,
-                                    child: Text(
-                                        style: const TextStyle(
-                                            color: AppColors.primary,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w500),
-                                        maxLines: 1,
-                                        textAlign: TextAlign.left,
-                                        "${index + 1}. Mata Kuliah Banyak Tugas")),
+                                SizedBox(width: 185, child: Text(style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.w500), maxLines: 1, textAlign: TextAlign.left, "${index + 1}. Mata Kuliah Banyak Tugas")),
                                 IconButton(
-                                    icon: const ImageIcon(
-                                        AssetImage("assets/icons/Trash.png")),
-                                    onPressed: () {})
+                                    icon: const ImageIcon(AssetImage("assets/icons/Trash.png")),
+                                    onPressed: () {
+                                      showDialog(
+                                          barrierDismissible: false,
+                                          barrierColor: null,
+                                          context: context,
+                                          builder: (BuildContext context) => CustomDialog(
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                  showDialog(
+                                                      barrierColor: null,
+                                                      context: context,
+                                                      builder: (BuildContext context) => const CustomAlertDialog(
+                                                            title: "Laporan Terhapus",
+                                                            icon: "assets/icons/Trash.png",
+                                                          ));
+                                                },
+                                                confirm: "Ya, Hapus",
+                                                icon: "assets/icons/Trash.png",
+                                                title: "Kamu Yakin Untuk Mencabut Laporan?",
+                                              ));
+                                    })
                               ],
                             ),
                           );

@@ -1,3 +1,4 @@
+import 'package:complainz/screen/splash_screen_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'config/app_color.dart';
@@ -16,10 +17,15 @@ import 'Provider/bottom_navbar_provider.dart';
 } */
 
 void main() {
-  runApp(MyApp());
+  Provider(
+    create: (context) => BottomNavigationBarProvider(),
+  );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
 
   @override
@@ -48,7 +54,7 @@ class MyAppState extends State<MyApp> {
                 )),
             /* home: const HomeScreen(
           key: ValueKey('Home Screen'), title: 'Flutter Demo Home Page'), */
-            home: BottomNavigationBrWidget()
+            home: const SplashScreen()
             /* routes: {
         "/add_post": (context) => AddPostScreen(),
       }, */

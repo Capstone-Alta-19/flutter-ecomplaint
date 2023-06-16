@@ -1,10 +1,12 @@
 import 'package:complainz/config/app_color.dart';
-import 'package:complainz/screen/ganti_profile_screen.dart';
+import 'package:complainz/screen/ganti_profile_page.dart';
+import 'package:complainz/screen/komplain_tersimpan.dart';
+import 'package:complainz/screen/login/loginregister_page.dart';
+import 'package:complainz/screen/status/riwayat_laporan_page.dart';
 import 'package:complainz/widget/buttons.dart';
 import 'package:flutter/material.dart';
-import 'package:molten_navigationbar_flutter/molten_navigationbar_flutter.dart';
-
-import 'signup/ganti_password.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'register/ganti_password.dart';
 
 class MyAccount extends StatefulWidget {
   const MyAccount({super.key});
@@ -42,10 +44,7 @@ class _MyAccountState extends State<MyAccount> {
               children: [
                 const Text(
                   'John Doe',
-                  style: TextStyle(
-                      color: AppColors.primary,
-                      fontSize: 40,
-                      fontWeight: FontWeight.w700),
+                  style: TextStyle(color: AppColors.primary, fontSize: 40, fontWeight: FontWeight.w700),
                 ),
                 const SizedBox(height: 8),
                 Container(
@@ -190,24 +189,16 @@ class _MyAccountState extends State<MyAccount> {
                         //Padding(padding: EdgeInsets.only(top: 28)),
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const GantiPassword()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const GantiPassword()));
                           },
                           child: Row(
                             children: const [
                               Padding(padding: EdgeInsets.only(left: 26)),
-                              ImageIcon(
-                                  AssetImage('assets/icons/Pin_Icon.png')),
+                              ImageIcon(AssetImage('assets/icons/Pin_Icon.png')),
                               Padding(padding: EdgeInsets.only(left: 30)),
                               Text(
                                 'Complain Tersimpan',
-                                style: TextStyle(
-                                    color: AppColors.primary,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700),
+                                style: TextStyle(color: AppColors.primary, fontSize: 16, fontWeight: FontWeight.w700),
                               )
                             ],
                           ),
@@ -216,19 +207,33 @@ class _MyAccountState extends State<MyAccount> {
                         Image.asset('assets/icons/Divider.png'),
                         const SizedBox(height: 36),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).push(
+                              PageRouteBuilder(
+                                  pageBuilder: (context, animation, secondaryAnimation) {
+                                    return const RiwayatLaporanPageFromAccount();
+                                  },
+                                  transitionDuration: const Duration(milliseconds: 300),
+                                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                    final tween = Tween(
+                                      begin: const Offset(2, 0),
+                                      end: Offset.zero,
+                                    );
+                                    return SlideTransition(
+                                      position: animation.drive(tween),
+                                      child: child,
+                                    );
+                                  }),
+                            );
+                          },
                           child: Row(
                             children: const [
                               Padding(padding: EdgeInsets.only(left: 26)),
-                              ImageIcon(
-                                  AssetImage('assets/icons/Date_icon.png')),
+                              ImageIcon(AssetImage('assets/icons/Date_icon.png')),
                               Padding(padding: EdgeInsets.only(left: 30)),
                               Text(
                                 'Riwayat Laporan Saya',
-                                style: TextStyle(
-                                    color: AppColors.primary,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700),
+                                style: TextStyle(color: AppColors.primary, fontSize: 16, fontWeight: FontWeight.w700),
                               ),
                             ],
                           ),
@@ -238,24 +243,16 @@ class _MyAccountState extends State<MyAccount> {
                         const SizedBox(height: 36),
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const GantiProfile()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => KomplainTersimpan()));
                           },
                           child: Row(
                             children: const [
                               Padding(padding: EdgeInsets.only(left: 26)),
-                              ImageIcon(
-                                  AssetImage('assets/icons/Profile_icon.png')),
+                              ImageIcon(AssetImage('assets/icons/Profile_icon.png')),
                               Padding(padding: EdgeInsets.only(left: 30)),
                               Text(
                                 'Ubah Profile',
-                                style: TextStyle(
-                                    color: AppColors.primary,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700),
+                                style: TextStyle(color: AppColors.primary, fontSize: 16, fontWeight: FontWeight.w700),
                               ),
                             ],
                           ),
@@ -265,23 +262,16 @@ class _MyAccountState extends State<MyAccount> {
                         const SizedBox(height: 36),
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => GantiPassword()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const GantiPassword()));
                           },
                           child: Row(
                             children: const [
                               Padding(padding: EdgeInsets.only(left: 26)),
-                              ImageIcon(
-                                  AssetImage('assets/icons/Lock_icon.png')),
+                              ImageIcon(AssetImage('assets/icons/Lock_icon.png')),
                               Padding(padding: EdgeInsets.only(left: 30)),
                               Text(
                                 'Ganti Password',
-                                style: TextStyle(
-                                    color: AppColors.primary,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700),
+                                style: TextStyle(color: AppColors.primary, fontSize: 16, fontWeight: FontWeight.w700),
                               ),
                             ],
                           ),
@@ -308,10 +298,7 @@ class _MyAccountState extends State<MyAccount> {
                         Padding(padding: EdgeInsets.only(left: 30)),
                         Text(
                           'Tentang Kami',
-                          style: TextStyle(
-                              color: AppColors.primary,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700),
+                          style: TextStyle(color: AppColors.primary, fontSize: 20, fontWeight: FontWeight.w700),
                         ),
                       ],
                     ),
@@ -320,10 +307,13 @@ class _MyAccountState extends State<MyAccount> {
                 const SizedBox(height: 100),
                 Column(
                   children: [
-                    Padding(padding: EdgeInsets.only(left: 12, right: 12)),
+                    const Padding(padding: EdgeInsets.only(left: 12, right: 12)),
                     ButtonLogout(
                       btnText: 'Logout',
-                      onPressed: () {},
+                      onPressed: () async {
+                        SharedPreferences preferences = await SharedPreferences.getInstance();
+                        await preferences.remove('token').then((value) => Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginregisterPage())));
+                      },
                     ),
                     ButtonDelete(
                       btnText: 'Hapus Akun',

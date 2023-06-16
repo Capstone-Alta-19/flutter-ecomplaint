@@ -1,54 +1,33 @@
 import 'package:complainz/config/app_color.dart';
 import 'package:complainz/widget/isi_laporan_item_komen.dart';
+import 'package:complainz/widget/segment_title.dart';
 import 'package:flutter/material.dart';
 
 import '../../widget/custom_card.dart';
 import '../../widget/isi_komentar_item.dart';
 import '../../widget/profile_card_komen.dart';
 
-class KomentarScreen extends StatefulWidget {
-  const KomentarScreen({super.key});
+class KomentarPage extends StatefulWidget {
+  const KomentarPage({super.key});
 
   @override
-  State<KomentarScreen> createState() => _KomentarScreenState();
+  State<KomentarPage> createState() => _KomentarPageState();
 }
 
-class _KomentarScreenState extends State<KomentarScreen> {
+class _KomentarPageState extends State<KomentarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: const ImageIcon(
-              size: 50,
-              AssetImage('assets/icons/BACK.png'),
-            ),
-          ),
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(0),
+          child: AppBar(),
         ),
         body: SingleChildScrollView(
           child: Container(
               width: MediaQuery.of(context).size.width,
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
-                      Padding(
-                        padding: EdgeInsets.only(right: 16),
-                        child: Text(
-                          'Komentar',
-                          style: TextStyle(
-                            color: AppColors.primary,
-                            fontSize: 40,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  SegmentTitle(title: "Komentar"),
                   SizedBox(height: 33),
                   Column(
                     children: [

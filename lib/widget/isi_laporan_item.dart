@@ -4,14 +4,12 @@ import '../config/app_color.dart';
 class IsiLaporanItem extends StatelessWidget {
   final String laporan;
   final String? tanggapan;
-  const IsiLaporanItem(
-      {super.key, required this.laporan, required this.tanggapan});
+  const IsiLaporanItem({super.key, required this.laporan, required this.tanggapan});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(30))),
+      decoration: const BoxDecoration(color: AppColors.secondary100, borderRadius: BorderRadius.all(Radius.circular(30))),
       child: Column(
         children: [
           Container(
@@ -28,18 +26,8 @@ class IsiLaporanItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.font),
-                      "Laporan"),
-                  Text(
-                      style: const TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.font),
-                      laporan),
+                  const Text(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.font), "Laporan"),
+                  Text(style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.font), laporan),
                   // "Dosen Matakuliah salah memasukan nilai"
                 ],
               ),
@@ -61,18 +49,12 @@ class IsiLaporanItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     const Text(
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.secondary100),
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.secondary100),
                       textAlign: TextAlign.right,
                       "Tindak Lanjut",
                     ),
                     Text(
-                      style: const TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.secondary100),
+                      style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.secondary100),
                       maxLines: 2,
                       textAlign: TextAlign.right,
                       tanggapan!,

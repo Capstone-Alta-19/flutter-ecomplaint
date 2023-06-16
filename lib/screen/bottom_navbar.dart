@@ -1,3 +1,4 @@
+import 'package:complainz/screen/status/riwayat_laporan_page.dart';
 import 'package:flutter/material.dart';
 import 'package:molten_navigationbar_flutter/molten_navigationbar_flutter.dart';
 import 'package:provider/provider.dart';
@@ -5,24 +6,18 @@ import '../config/app_color.dart';
 import '../Provider/bottom_navbar_provider.dart';
 import 'buatlaporan/laporkan_screen.dart';
 import 'home_page.dart';
-import 'my_account_screen.dart';
+import 'my_account_page.dart';
 import 'status/status_complaint_page.dart';
 
 class BottomNavigationBrWidget extends StatelessWidget {
   int _selectedIndex = 0;
 
-  final List<Widget> pages = <Widget>[
-    const Homepage(),
-    const LaporkanPage(),
-    const StatusComplaint(),
-    const MyAccount()
-  ];
+  final List<Widget> pages = <Widget>[const Homepage(), const LaporkanPage(), const RiwayatLaporanPage(), const MyAccount()];
   BottomNavigationBrWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final bottomNavigationBarProvider =
-        Provider.of<BottomNavigationBarProvider>(context);
+    final bottomNavigationBarProvider = Provider.of<BottomNavigationBarProvider>(context);
     return Scaffold(
       body: pages[bottomNavigationBarProvider.currentIndex],
       bottomNavigationBar: MoltenBottomNavigationBar(
@@ -39,8 +34,7 @@ class BottomNavigationBrWidget extends StatelessWidget {
         borderColor: Colors.black12,
         borderSize: 2,
         selectedIndex: bottomNavigationBarProvider.currentIndex,
-        onTabChange: (int index) =>
-            bottomNavigationBarProvider.currentIndex = index,
+        onTabChange: (int index) => bottomNavigationBarProvider.currentIndex = index,
         tabs: [
           MoltenTab(
             selectedColor: AppColors.primary,

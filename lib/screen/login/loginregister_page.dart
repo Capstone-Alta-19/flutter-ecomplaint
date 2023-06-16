@@ -1,4 +1,4 @@
-import 'package:complainz/screen/register_screen.dart';
+import 'package:complainz/screen/register/register_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../config/app_color.dart';
@@ -17,15 +17,11 @@ class LoginregisterPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                  width: 307,
-                  height: 133,
-                  'assets/logo/hd-logo-mulai-complaint.png'),
+              Image.asset(width: 307, height: 133, 'assets/logo/hd-logo-mulai-complaint.png'),
               const Padding(padding: EdgeInsets.only(top: 62.28)),
               FilledButton(
                 style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(AppColors.btnenable),
+                  backgroundColor: MaterialStateProperty.all(AppColors.btnenable),
                   fixedSize: const MaterialStatePropertyAll(Size(357, 40)),
                 ),
                 onPressed: () {
@@ -35,8 +31,7 @@ class LoginregisterPage extends StatelessWidget {
                           return const RegisterPage();
                         },
                         transitionDuration: const Duration(milliseconds: 300),
-                        transitionsBuilder:
-                            (context, animation, secondaryAnimation, child) {
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
                           final tween = Tween(
                             begin: const Offset(2, 0),
                             end: Offset.zero,
@@ -48,12 +43,7 @@ class LoginregisterPage extends StatelessWidget {
                         }),
                   );
                 },
-                child: const Text(
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.secondary100),
-                    "Buat Akun Baru"),
+                child: const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.secondary100), "Buat Akun Baru"),
               ),
               AccountQuestionButton(
                 textColor: AppColors.font,
@@ -66,8 +56,7 @@ class LoginregisterPage extends StatelessWidget {
                           return const LoginPage();
                         },
                         transitionDuration: const Duration(milliseconds: 300),
-                        transitionsBuilder:
-                            (context, animation, secondaryAnimation, child) {
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
                           final tween = Tween(
                             begin: const Offset(2, 0),
                             end: Offset.zero,

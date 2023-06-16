@@ -1,4 +1,5 @@
 import 'package:complainz/config/app_color.dart';
+import 'package:complainz/widget/segment_title.dart';
 import 'package:complainz/widget/textarea.dart';
 import 'package:flutter/material.dart';
 import 'package:chips_choice_null_safety/chips_choice_null_safety.dart';
@@ -20,34 +21,14 @@ class _PengaduanPageState extends State<PengaduanPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: InkWell(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: const ImageIcon(
-              size: 50,
-              AssetImage(
-                'assets/icons/BACK.png',
-              )),
-        ),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(0),
+        child: AppBar(),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
-              children: const [
-                Padding(padding: EdgeInsets.only(left: 137.42)),
-                Text(
-                  'Pengaduan',
-                  style: TextStyle(
-                    color: AppColors.primary,
-                    fontSize: 40,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ],
-            ),
+            const SegmentTitle(title: 'Pengaduan'),
             const SizedBox(height: 30),
             Column(children: [
               Row(
@@ -197,7 +178,7 @@ class _PengaduanPageState extends State<PengaduanPage> {
                   padding: const EdgeInsets.only(left: 16, right: 16),
                   child: FilledButton.tonal(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       'Daftar',
                       style: TextStyle(color: Colors.white),
                     ),
@@ -230,44 +211,18 @@ class _AspirasiPageState extends State<AspirasiPage> {
   int tag = 1;
   List<String> tags = [];
 
-  List<String> options = [
-    'Dosen dan Staff Akademik',
-    'Sarana dan Prasarana',
-    'Organisasi Mahasiswa',
-    'Mahasiswa',
-    'Lainnya'
-  ];
+  List<String> options = ['Dosen dan Staff Akademik', 'Sarana dan Prasarana', 'Organisasi Mahasiswa', 'Mahasiswa', 'Lainnya'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: InkWell(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: const ImageIcon(
-              size: 50,
-              AssetImage(
-                'assets/icons/BACK.png',
-              )),
-        ),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(0),
+        child: AppBar(),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
-              children: const [
-                Padding(padding: EdgeInsets.only(left: 200.54)),
-                Text(
-                  'Aspirasi',
-                  style: TextStyle(
-                    color: AppColors.primary,
-                    fontSize: 40,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ],
-            ),
+            const SegmentTitle(title: "Aspirasi"),
             const SizedBox(height: 30),
             Column(children: [
               Row(
@@ -290,16 +245,11 @@ class _AspirasiPageState extends State<AspirasiPage> {
               minLine: 6,
               typeKeyboard: TextInputType.multiline,
               hinText: 'Ketik disini',
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
               positionBottom: 0,
               positionLeft: 1,
               globalColor: AppColors.primary,
-              borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(0),
-                  topRight: Radius.circular(30),
-                  bottomLeft: Radius.circular(30),
-                  bottomRight: Radius.circular(30)),
+              borderRadius: const BorderRadius.only(topLeft: Radius.circular(0), topRight: Radius.circular(30), bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
               icons1: InkWell(
                 onTap: () {},
                 child: Image.asset('assets/icons/Img_box.png', width: 20.4),

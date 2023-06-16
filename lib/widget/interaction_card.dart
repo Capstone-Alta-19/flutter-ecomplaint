@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
 import '../config/app_color.dart';
-import '../screen/laporan/komentar_screen.dart';
+import '../screen/laporan/komentar_page.dart';
 
 class InteractionCard extends StatelessWidget {
   const InteractionCard({super.key});
@@ -22,8 +22,7 @@ class InteractionCard extends StatelessWidget {
                     children: [
                       LikeButton(
                         size: 23,
-                        circleColor: const CircleColor(
-                            start: Colors.redAccent, end: Colors.redAccent),
+                        circleColor: const CircleColor(start: Colors.redAccent, end: Colors.redAccent),
                         bubblesColor: const BubblesColor(
                           dotPrimaryColor: Colors.redAccent,
                           dotSecondaryColor: Colors.redAccent,
@@ -39,21 +38,14 @@ class InteractionCard extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 7.0, right: 9.0),
                         child: InkWell(
-                          child: const ImageIcon(
-                              size: 24,
-                              AssetImage("assets/icons/Chat-alt.png")),
+                          child: const ImageIcon(size: 24, AssetImage("assets/icons/Chat-alt.png")),
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const KomentarScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const KomentarPage()));
                           },
                         ),
                       ),
                       InkWell(
-                        child: const ImageIcon(
-                            size: 24, AssetImage("assets/icons/Out.png")),
+                        child: const ImageIcon(size: 24, AssetImage("assets/icons/Out.png")),
                         onTap: () {},
                       ),
                     ],
@@ -61,8 +53,7 @@ class InteractionCard extends StatelessWidget {
                 ),
                 LikeButton(
                   size: 24,
-                  circleColor: const CircleColor(
-                      start: AppColors.primary, end: AppColors.primary),
+                  circleColor: const CircleColor(start: AppColors.primary, end: AppColors.primary),
                   bubblesColor: const BubblesColor(
                     dotPrimaryColor: AppColors.primary,
                     dotSecondaryColor: AppColors.primary,
@@ -70,9 +61,7 @@ class InteractionCard extends StatelessWidget {
                   likeBuilder: (bool isBookmark) {
                     return ImageIcon(
                       size: 24,
-                      AssetImage(isBookmark
-                          ? "assets/icons/Pin.png"
-                          : "assets/icons/Pin.png"),
+                      AssetImage(isBookmark ? "assets/icons/Pin.png" : "assets/icons/Pin.png"),
                     );
                   },
                 ),
@@ -81,18 +70,8 @@ class InteractionCard extends StatelessWidget {
             const SizedBox(height: 12),
             RichText(
               text: const TextSpan(children: [
-                TextSpan(
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.font),
-                    text: "200 "),
-                TextSpan(
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.font),
-                    text: "Likes"),
+                TextSpan(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.font), text: "200 "),
+                TextSpan(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.font), text: "Likes"),
               ]),
             )
           ],

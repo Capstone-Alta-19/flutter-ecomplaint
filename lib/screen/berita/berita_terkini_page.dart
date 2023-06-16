@@ -1,3 +1,4 @@
+import 'package:complainz/screen/berita/detail_berita_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../config/app_color.dart';
@@ -44,8 +45,7 @@ class _BeritaTerkiniPageState extends State<BeritaTerkiniPage> {
                         width: double.infinity,
                         child: Stack(
                           children: [
-                            Image.asset(
-                                fit: BoxFit.cover, "assets/images/Gambar.png"),
+                            Image.asset(fit: BoxFit.cover, "assets/images/Gambar.png"),
                             Positioned(
                               width: MediaQuery.of(context).size.width - 30,
                               bottom: 0,
@@ -57,38 +57,22 @@ class _BeritaTerkiniPageState extends State<BeritaTerkiniPage> {
                                 child: Padding(
                                   padding: const EdgeInsets.all(18.0),
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      const Text(
-                                          style: TextStyle(
-                                              fontSize: 24,
-                                              fontWeight: FontWeight.w600,
-                                              color: AppColors.primary),
-                                          "Pemasangan AC Baru gedung G"),
+                                      const Text(style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600, color: AppColors.primary), "Pemasangan AC Baru gedung G"),
                                       const SizedBox(
                                         height: 8,
                                       ),
                                       IntrinsicHeight(
                                         child: Row(
                                           children: const [
-                                            Text(
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: AppColors.primary),
-                                                "Sarana dan Prasarana"),
+                                            Text(style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: AppColors.primary), "Sarana dan Prasarana"),
                                             VerticalDivider(
                                               width: 16,
                                               color: AppColors.primary,
                                               thickness: 1,
                                             ),
-                                            Text(
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: AppColors.primary),
-                                                "2 menit yang lalu"),
+                                            Text(style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: AppColors.primary), "2 menit yang lalu"),
                                           ],
                                         ),
                                       )
@@ -103,23 +87,36 @@ class _BeritaTerkiniPageState extends State<BeritaTerkiniPage> {
                       const SizedBox(
                         height: 18,
                       ),
-                      Container(
-                          alignment: Alignment.centerLeft,
-                          child: const Text(
-                              style: TextStyle(
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.w600,
-                                  color: AppColors.primary),
-                              "Terbaru")),
+                      Container(alignment: Alignment.centerLeft, child: const Text(style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600, color: AppColors.primary), "Terbaru")),
                       const SizedBox(
                         height: 18,
                       ),
                       ListView.builder(
                         itemCount: 2,
                         shrinkWrap: true,
-                        physics: const ScrollPhysics(),
+                        physics: ScrollPhysics(),
                         itemBuilder: (context, index) {
-                          return const BeritaItem();
+                          return BeritaItem(
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                PageRouteBuilder(
+                                    pageBuilder: (context, animation, secondaryAnimation) {
+                                      return const DetailBerita();
+                                    },
+                                    transitionDuration: const Duration(milliseconds: 300),
+                                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                      final tween = Tween(
+                                        begin: const Offset(2, 0),
+                                        end: Offset.zero,
+                                      );
+                                      return SlideTransition(
+                                        position: animation.drive(tween),
+                                        child: child,
+                                      );
+                                    }),
+                              );
+                            },
+                          );
                         },
                       )
                     ],
@@ -135,7 +132,8 @@ class _BeritaTerkiniPageState extends State<BeritaTerkiniPage> {
 }
 
 class BeritaItem extends StatelessWidget {
-  const BeritaItem({super.key});
+  final void Function() onPressed;
+  const BeritaItem({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -159,38 +157,18 @@ class BeritaItem extends StatelessWidget {
                       ),
                       width: 96,
                       height: 96,
-                      child: Image.asset(
-                          fit: BoxFit.cover, "assets/images/Gambar.png")),
+                      child: Image.asset(fit: BoxFit.cover, "assets/images/Gambar.png")),
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       child: Expanded(
                         child: Column(
                           children: [
-                            Container(
-                                alignment: Alignment.centerLeft,
-                                child: const Text(
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w700,
-                                        color: AppColors.primary),
-                                    "Pemasangan AC Baru gedung G")),
-                            Container(
-                                alignment: Alignment.centerLeft,
-                                child: const Text(
-                                    style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w500,
-                                        color: AppColors.primary),
-                                    "2 menit berlalu")),
+                            Container(alignment: Alignment.centerLeft, child: const Text(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.primary), "Pemasangan AC Baru gedung G")),
+                            Container(alignment: Alignment.centerLeft, child: const Text(style: TextStyle(fontSize: 10, fontWeight: FontWeight.w500, color: AppColors.primary), "2 menit berlalu")),
                             Container(
                               alignment: Alignment.bottomRight,
-                              child: const Text(
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w700,
-                                      color: AppColors.primary),
-                                  "Selengkapnya"),
+                              child: InkWell(onTap: onPressed, child: const Text(style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.primary), "Selengkapnya")),
                             ),
                           ],
                         ),

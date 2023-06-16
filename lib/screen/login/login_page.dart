@@ -1,11 +1,10 @@
-import 'package:complainz/screen/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../config/app_color.dart';
 import '../../model/auth.dart';
 import '../../widget/account_question_button.dart';
 import '../home_page.dart';
-import '../laporan/berita_laporan_page.dart';
+import '../register/register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -26,8 +25,7 @@ class _LoginPageState extends State<LoginPage> {
     _passwordVisible = false;
 
     String date = "2023-06-11T23:22:13.944+07:00";
-    String formattedDate =
-        DateFormat('dd/MM/yyyy').format(DateTime.parse(date));
+    String formattedDate = DateFormat('dd/MM/yyyy').format(DateTime.parse(date));
     print(formattedDate);
   }
 
@@ -39,17 +37,16 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _submitForm() async {
-    await login(usernameEmailController.text, passwordController.text)
-        .then((value) {
+    await login(usernameEmailController.text, passwordController.text).then((value) {
       if (value == LoginStatus.success) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: const Text("Login Berhasil")));
         Navigator.of(context).push(
           PageRouteBuilder(
               pageBuilder: (context, animation, secondaryAnimation) {
                 return const Homepage();
               },
               transitionDuration: const Duration(milliseconds: 300),
-              transitionsBuilder:
-                  (context, animation, secondaryAnimation, child) {
+              transitionsBuilder: (context, animation, secondaryAnimation, child) {
                 final tween = Tween(
                   begin: const Offset(2, 0),
                   end: Offset.zero,
@@ -61,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
               }),
         );
       } else {
-        print(value);
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: const Text("Username atau password salah")));
       }
     });
   }
@@ -121,25 +118,12 @@ class _LoginPageState extends State<LoginPage> {
                     onChanged: (value) {
                       _checkFormStatus();
                     },
-                    style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.font),
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.font),
                     decoration: const InputDecoration(
-                      labelStyle: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.font),
-                      hintStyle: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.font),
-                      enabledBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(width: 1, color: AppColors.primary)),
-                      focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(width: 1, color: AppColors.primary)),
+                      labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.font),
+                      hintStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.font),
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
                       labelText: 'Username/Email ',
                     ),
                   ),
@@ -157,61 +141,32 @@ class _LoginPageState extends State<LoginPage> {
                     onChanged: (value) {
                       _checkFormStatus();
                     },
-                    style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.font),
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.font),
                     obscureText: _passwordVisible,
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
-                        icon: Icon(_passwordVisible
-                            ? Icons.visibility_outlined
-                            : Icons.visibility_off_outlined),
+                        icon: Icon(_passwordVisible ? Icons.visibility_outlined : Icons.visibility_off_outlined),
                         onPressed: () {
                           setState(() {
                             _passwordVisible = !_passwordVisible;
                           });
                         },
                       ),
-                      labelStyle: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.font),
-                      hintStyle: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.font),
-                      enabledBorder: const OutlineInputBorder(
-                          borderSide:
-                              BorderSide(width: 1, color: AppColors.primary)),
-                      focusedBorder: const OutlineInputBorder(
-                          borderSide:
-                              BorderSide(width: 1, color: AppColors.primary)),
+                      labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.font),
+                      hintStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.font),
+                      enabledBorder: const OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
+                      focusedBorder: const OutlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.primary)),
                       labelText: 'Password',
                     ),
                   ),
                 ),
                 FilledButton.tonal(
                   style: ButtonStyle(
-                    backgroundColor: _isFormFilled
-                        ? MaterialStateProperty.all(AppColors.font)
-                        : null,
+                    backgroundColor: _isFormFilled ? MaterialStateProperty.all(AppColors.font) : null,
                     fixedSize: const MaterialStatePropertyAll(Size(357, 40)),
                   ),
                   onPressed: _isFormFilled ? _submitForm : null,
-                  child: _isFormFilled
-                      ? const Text(
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.secondary100),
-                          "Masuk")
-                      : const Text(
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey),
-                          "Masuk"),
+                  child: _isFormFilled ? const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.secondary100), "Masuk") : const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.grey), "Masuk"),
                 ),
                 AccountQuestionButton(
                     text: "Belum Punya Akun, ",
@@ -219,14 +174,11 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () {
                       Navigator.of(context).push(
                         PageRouteBuilder(
-                            pageBuilder:
-                                (context, animation, secondaryAnimation) {
+                            pageBuilder: (context, animation, secondaryAnimation) {
                               return const RegisterPage();
                             },
-                            transitionDuration:
-                                const Duration(milliseconds: 300),
-                            transitionsBuilder: (context, animation,
-                                secondaryAnimation, child) {
+                            transitionDuration: const Duration(milliseconds: 300),
+                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
                               final tween = Tween(
                                 begin: const Offset(2, 0),
                                 end: Offset.zero,
