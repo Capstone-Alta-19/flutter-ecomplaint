@@ -1,196 +1,147 @@
-import 'package:complainz/screen/laporan/isi_berita_laporan_page.dart';
 import 'package:flutter/material.dart';
-
-import '../../widget/long_laporan_item.dart';
+import '../../config/app_color.dart';
+import '../../widget/custom_card.dart';
+import '../../widget/interaction_card.dart';
+import '../../widget/isi_laporan_item.dart';
+import '../../widget/profile_card.dart';
 import '../../widget/segment_title.dart';
+import '../../widget/selengkapnya_button.dart';
+import 'laporan/komentar_page.dart';
+
+List<String> list = <String>['Urutkan Berdasarkan', 'Terbaru', 'Terlama'];
 
 class KomplainTersimpan extends StatefulWidget {
-  const KomplainTersimpan({Key? key}) : super(key: key);
+  const KomplainTersimpan({super.key});
 
   @override
   State<KomplainTersimpan> createState() => _KomplainTersimpanState();
 }
 
 class _KomplainTersimpanState extends State<KomplainTersimpan> {
+  String dropdownValue = list.first;
   @override
   Widget build(BuildContext context) {
-    GlobalKey segmenTitle = GlobalKey();
-    GlobalKey laporanItemSarana = GlobalKey();
-    GlobalKey laporanItemDosen = GlobalKey();
-    GlobalKey laporanItemKuliah = GlobalKey();
-    GlobalKey laporanItemOrmawa = GlobalKey();
-    GlobalKey laporanItemMahasiswa = GlobalKey();
-    GlobalKey laporanItemLainnya = GlobalKey();
-
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(0),
         child: AppBar(),
       ),
-      body: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: Center(
-          child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: Center(
             child: Column(
               children: [
-                SegmentTitleTwoLine(
-                  key: segmenTitle,
-                  title: "Komplain Tersimpan",
-                ),
+                const SegmentTitleTwoLine(title: "Laporan Tersimpan"),
                 const SizedBox(
                   height: 87.0,
                 ),
-                LongLaporanItem(
-                  key: laporanItemDosen,
-                  gambar: "assets/logo/gambar-dosen.png",
-                  title: "Dosen dan Staff Akademik",
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) {
-                            return const IsiBeritaLaporanPage();
-                          },
-                          transitionDuration: const Duration(milliseconds: 300),
-                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                            final tween = Tween(
-                              begin: const Offset(2, 0),
-                              end: Offset.zero,
-                            );
-                            return SlideTransition(
-                              position: animation.drive(tween),
-                              child: child,
-                            );
-                          }),
+
+                Padding(
+                  padding: const EdgeInsets.only(right: 16.0),
+                  child: Flex(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    direction: Axis.horizontal,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(border: Border.all(width: 1, color: AppColors.primary), borderRadius: BorderRadius.circular(8)),
+                        width: 184,
+                        height: 32,
+                        child: Center(
+                          child: DropdownButton<String>(
+                            value: dropdownValue,
+                            icon: const Icon(color: AppColors.primary, Icons.expand_more),
+                            elevation: 16,
+                            style: const TextStyle(color: AppColors.font, fontSize: 14, fontWeight: FontWeight.w500),
+                            // underline: Container(
+                            //   height: 2,
+                            //   color: AppColors.primary,
+                            // ),
+                            onChanged: (String? value) {
+                              // This is called when the user selects an item.
+                              setState(() {
+                                dropdownValue = value!;
+                              });
+                            },
+                            items: list.map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 26.0,
+                ),
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: const ScrollPhysics(),
+                  itemCount: 2,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 16, right: 16),
+                          child: CustomCard(
+                              child: Padding(
+                            padding: const EdgeInsets.only(
+                              left: 16.5,
+                              right: 10.5,
+                              top: 20.5,
+                              bottom: 12.5,
+                            ),
+                            child: Column(
+                              children: [
+                                const ProfileCard(
+                                  avatar: "assets/logo/PP.png",
+                                  name: "Jane Cooper",
+                                  username: "@nina_real",
+                                  tanggal: "12/05/2023",
+                                ),
+                                const SizedBox(height: 8),
+                                const IsiLaporanItem(
+                                  laporan: "Dosen Matakuliah salah memasukan nilai",
+                                  tanggapan: "lalalalalal",
+                                ),
+                                const SizedBox(height: 8),
+                                SelengkapnyaButton(
+                                    title: "Selengkapnya",
+                                    onPressed: () {
+                                      Navigator.of(context).push(
+                                        PageRouteBuilder(
+                                            pageBuilder: (context, animation, secondaryAnimation) {
+                                              return const KomentarPage();
+                                            },
+                                            transitionDuration: const Duration(milliseconds: 300),
+                                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                              final tween = Tween(
+                                                begin: const Offset(2, 0),
+                                                end: Offset.zero,
+                                              );
+                                              return SlideTransition(
+                                                position: animation.drive(tween),
+                                                child: child,
+                                              );
+                                            }),
+                                      );
+                                    }),
+                              ],
+                            ),
+                          )),
+                        ),
+                        const SizedBox(height: 13.0),
+                        const InteractionCard(),
+                        const SizedBox(height: 22.5),
+                      ],
                     );
                   },
-                ),
-                const SizedBox(height: 24),
-                LongLaporanItem(
-                  key: laporanItemSarana,
-                  gambar: "assets/logo/gambar-sarana-prasarana.png",
-                  title: "Sarana dan Prasarana",
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) {
-                            return const IsiBeritaLaporanPage();
-                          },
-                          transitionDuration: const Duration(milliseconds: 300),
-                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                            final tween = Tween(
-                              begin: const Offset(2, 0),
-                              end: Offset.zero,
-                            );
-                            return SlideTransition(
-                              position: animation.drive(tween),
-                              child: child,
-                            );
-                          }),
-                    );
-                  },
-                ),
-                const SizedBox(height: 24),
-                LongLaporanItem(
-                  key: laporanItemKuliah,
-                  gambar: "assets/logo/gambar-sistem-perkuliahan.png",
-                  title: "Sistem Perkuliahan",
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) {
-                            return const IsiBeritaLaporanPage();
-                          },
-                          transitionDuration: const Duration(milliseconds: 300),
-                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                            final tween = Tween(
-                              begin: const Offset(2, 0),
-                              end: Offset.zero,
-                            );
-                            return SlideTransition(
-                              position: animation.drive(tween),
-                              child: child,
-                            );
-                          }),
-                    );
-                  },
-                ),
-                const SizedBox(height: 24),
-                LongLaporanItem(
-                  key: laporanItemOrmawa,
-                  gambar: "assets/logo/gambar-ormawa.png",
-                  title: "Organisasi Mahasiswa",
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) {
-                            return const IsiBeritaLaporanPage();
-                          },
-                          transitionDuration: const Duration(milliseconds: 300),
-                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                            final tween = Tween(
-                              begin: const Offset(2, 0),
-                              end: Offset.zero,
-                            );
-                            return SlideTransition(
-                              position: animation.drive(tween),
-                              child: child,
-                            );
-                          }),
-                    );
-                  },
-                ),
-                const SizedBox(height: 24),
-                LongLaporanItem(
-                  key: laporanItemMahasiswa,
-                  gambar: "assets/logo/gambar-sesam-mahasiswa.png",
-                  title: "Sesama Mahasiswa",
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) {
-                            return const IsiBeritaLaporanPage();
-                          },
-                          transitionDuration: const Duration(milliseconds: 300),
-                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                            final tween = Tween(
-                              begin: const Offset(2, 0),
-                              end: Offset.zero,
-                            );
-                            return SlideTransition(
-                              position: animation.drive(tween),
-                              child: child,
-                            );
-                          }),
-                    );
-                  },
-                ),
-                const SizedBox(height: 24),
-                LongLaporanItem(
-                  key: laporanItemLainnya,
-                  gambar: "assets/logo/gambar-lainnya.png",
-                  title: "Lainnya",
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) {
-                            return const IsiBeritaLaporanPage();
-                          },
-                          transitionDuration: const Duration(milliseconds: 300),
-                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                            final tween = Tween(
-                              begin: const Offset(2, 0),
-                              end: Offset.zero,
-                            );
-                            return SlideTransition(
-                              position: animation.drive(tween),
-                              child: child,
-                            );
-                          }),
-                    );
-                  },
-                ),
-                const SizedBox(height: 24),
+                )
+                //Isi berita laporan
               ],
             ),
           ),

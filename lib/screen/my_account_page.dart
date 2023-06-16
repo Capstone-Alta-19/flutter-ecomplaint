@@ -189,7 +189,7 @@ class _MyAccountState extends State<MyAccount> {
                         //Padding(padding: EdgeInsets.only(top: 28)),
                         InkWell(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => const GantiPassword()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const KomplainTersimpan()));
                           },
                           child: Row(
                             children: const [
@@ -243,7 +243,7 @@ class _MyAccountState extends State<MyAccount> {
                         const SizedBox(height: 36),
                         InkWell(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => KomplainTersimpan()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => GantiProfile()));
                           },
                           child: Row(
                             children: const [
