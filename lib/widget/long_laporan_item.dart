@@ -7,12 +7,7 @@ class LongLaporanItem extends StatelessWidget {
   final String gambar;
   final String title;
   final void Function() onPressed;
-  const LongLaporanItem(
-      {Key? key,
-      required this.gambar,
-      required this.title,
-      required this.onPressed})
-      : super(key: key);
+  const LongLaporanItem({Key? key, required this.gambar, required this.title, required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,17 +20,18 @@ class LongLaporanItem extends StatelessWidget {
           child: Row(
             children: [
               Image.asset(width: 94, height: 124, gambar),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(22, 0, 0, 0),
-                child: SizedBox(
-                  width: 198,
-                  child: Text(
-                      style: const TextStyle(
-                        color: AppColors.font,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      title),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(22, 0, 45, 0),
+                  child: SizedBox(
+                    child: Text(
+                        style: const TextStyle(
+                          color: AppColors.font,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        title),
+                  ),
                 ),
               ),
             ],

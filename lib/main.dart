@@ -1,4 +1,6 @@
 import 'package:complainz/screen/berita/berita_terkini_page.dart';
+import 'package:complainz/screen/laporan/berita_laporan_page.dart';
+import 'package:complainz/screen/laporan/isi_berita_laporan_page.dart';
 import 'package:complainz/screen/splash_screen_page.dart';
 import 'package:complainz/screen/status/riwayat_laporan_page.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +55,7 @@ class MyAppState extends State<MyApp> {
                 )),
             /* home: const HomeScreen(
           key: ValueKey('Home Screen'), title: 'Flutter Demo Home Page'), */
-            home: SplashScreen()
+            home: BeritaLaporanPage()
             /* routes: {
         "/add_post": (context) => AddPostScreen(),
       }, */
