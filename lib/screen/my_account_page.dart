@@ -312,7 +312,7 @@ class _MyAccountState extends State<MyAccount> {
                       btnText: 'Logout',
                       onPressed: () async {
                         SharedPreferences preferences = await SharedPreferences.getInstance();
-                        await preferences.remove('token').then((value) => Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginregisterPage())));
+                        await preferences.remove('token').then((value) => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginregisterPage())));
                       },
                     ),
                     ButtonDelete(

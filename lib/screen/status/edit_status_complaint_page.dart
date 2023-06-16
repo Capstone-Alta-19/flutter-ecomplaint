@@ -77,36 +77,34 @@ class _EditStatusComplaintState extends State<EditStatusComplaint> {
                         physics: const ScrollPhysics(),
                         itemCount: 2,
                         itemBuilder: (context, index) {
-                          return Expanded(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                SizedBox(width: 185, child: Text(style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.w500), maxLines: 1, textAlign: TextAlign.left, "${index + 1}. Mata Kuliah Banyak Tugas")),
-                                IconButton(
-                                    icon: const ImageIcon(AssetImage("assets/icons/Trash.png")),
-                                    onPressed: () {
-                                      showDialog(
-                                          barrierDismissible: false,
-                                          barrierColor: null,
-                                          context: context,
-                                          builder: (BuildContext context) => CustomDialog(
-                                                onPressed: () {
-                                                  Navigator.pop(context);
-                                                  showDialog(
-                                                      barrierColor: null,
-                                                      context: context,
-                                                      builder: (BuildContext context) => const CustomAlertDialog(
-                                                            title: "Laporan Terhapus",
-                                                            icon: "assets/icons/Trash.png",
-                                                          ));
-                                                },
-                                                confirm: "Ya, Hapus",
-                                                icon: "assets/icons/Trash.png",
-                                                title: "Kamu Yakin Untuk Mencabut Laporan?",
-                                              ));
-                                    })
-                              ],
-                            ),
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(child: SizedBox(width: 185, child: Text(style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.w500), maxLines: 1, textAlign: TextAlign.left, "${index + 1}. Mata Kuliah Banyak Tugas"))),
+                              IconButton(
+                                  icon: const ImageIcon(AssetImage("assets/icons/Trash.png")),
+                                  onPressed: () {
+                                    showDialog(
+                                        barrierDismissible: false,
+                                        barrierColor: null,
+                                        context: context,
+                                        builder: (BuildContext context) => CustomDialog(
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                                showDialog(
+                                                    barrierColor: null,
+                                                    context: context,
+                                                    builder: (BuildContext context) => const CustomAlertDialog(
+                                                          title: "Laporan Terhapus",
+                                                          icon: "assets/icons/Trash.png",
+                                                        ));
+                                              },
+                                              confirm: "Ya, Hapus",
+                                              icon: "assets/icons/Trash.png",
+                                              title: "Kamu Yakin Untuk Mencabut Laporan?",
+                                            ));
+                                  })
+                            ],
                           );
                         },
                       )

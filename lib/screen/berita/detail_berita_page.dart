@@ -135,20 +135,18 @@ class DetailBeritaItem extends StatelessWidget {
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Expanded(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Container(alignment: Alignment.centerLeft, child: const Text(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.primary), "Pemasangan AC Baru gedung G")),
-                            SizedBox(
-                              height: 13,
-                            ),
-                            Container(
-                              alignment: Alignment.centerLeft,
-                              child: InkWell(onTap: onPressed, child: const Text(style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.primary), "Selengkapnya", maxLines: 3)),
-                            ),
-                          ],
-                        ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(alignment: Alignment.centerLeft, child: const Text(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.primary), "Pemasangan AC Baru gedung G")),
+                          SizedBox(
+                            height: 13,
+                          ),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            child: InkWell(onTap: onPressed, child: const Text(style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.primary), "Selengkapnya", maxLines: 3)),
+                          ),
+                        ],
                       ),
                     ),
                   ),

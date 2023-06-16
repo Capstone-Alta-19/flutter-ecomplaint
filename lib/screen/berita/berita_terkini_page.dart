@@ -139,47 +139,43 @@ class BeritaItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        InkWell(
-          onTap: () {},
-          child: CustomCard(
-              child: SizedBox(
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Flex(
-                direction: Axis.horizontal,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Container(
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      width: 96,
-                      height: 96,
-                      child: Image.asset(fit: BoxFit.cover, "assets/images/Gambar.png")),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Expanded(
-                        child: Column(
-                          children: [
-                            Container(alignment: Alignment.centerLeft, child: const Text(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.primary), "Pemasangan AC Baru gedung G")),
-                            Container(alignment: Alignment.centerLeft, child: const Text(style: TextStyle(fontSize: 10, fontWeight: FontWeight.w500, color: AppColors.primary), "2 menit berlalu")),
-                            Container(
-                              alignment: Alignment.bottomRight,
-                              child: InkWell(onTap: onPressed, child: const Text(style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.primary), "Selengkapnya")),
-                            ),
-                          ],
+        CustomCard(
+            child: SizedBox(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Flex(
+              direction: Axis.horizontal,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    width: 96,
+                    height: 96,
+                    child: Image.asset(fit: BoxFit.cover, "assets/images/Gambar.png")),
+                Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Column(
+                      children: [
+                        Container(alignment: Alignment.centerLeft, child: const Text(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.primary), "Pemasangan AC Baru gedung G")),
+                        Container(alignment: Alignment.centerLeft, child: const Text(style: TextStyle(fontSize: 10, fontWeight: FontWeight.w500, color: AppColors.primary), "2 menit berlalu")),
+                        Container(
+                          alignment: Alignment.bottomRight,
+                          child: InkWell(onTap: onPressed, child: const Text(style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.primary), "Selengkapnya")),
                         ),
-                      ),
+                      ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          )),
-        ),
+          ),
+        )),
         const SizedBox(
           height: 16,
         )

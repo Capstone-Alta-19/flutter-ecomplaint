@@ -68,49 +68,47 @@ class _RiwayatLaporanPageState extends State<RiwayatLaporanPage> {
                         physics: const ScrollPhysics(),
                         itemCount: 2,
                         itemBuilder: (context, index) {
-                          return Expanded(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                SizedBox(
-                                    width: 185,
-                                    child: Text(
-                                      style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.w500),
-                                      maxLines: 1,
-                                      textAlign: TextAlign.left,
-                                      "${index + 1}. Mata Kuliah Banyak Tugas",
-                                    )),
-                                FilledButton(
-                                    style: const ButtonStyle(
-                                        backgroundColor: MaterialStatePropertyAll(AppColors.primary),
-                                        minimumSize: MaterialStatePropertyAll(
-                                          Size(91, 40),
-                                        )),
-                                    onPressed: () {
-                                      Navigator.of(context).push(
-                                        PageRouteBuilder(
-                                            pageBuilder: (context, animation, secondaryAnimation) {
-                                              return const StatusComplaint();
-                                            },
-                                            transitionDuration: const Duration(milliseconds: 300),
-                                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                              final tween = Tween(
-                                                begin: const Offset(2, 0),
-                                                end: Offset.zero,
-                                              );
-                                              return SlideTransition(
-                                                position: animation.drive(tween),
-                                                child: child,
-                                              );
-                                            }),
-                                      );
-                                    },
-                                    child: const Text(
-                                      style: TextStyle(color: AppColors.secondary100),
-                                      "Detail",
-                                    )),
-                              ],
-                            ),
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.w500),
+                                  maxLines: 1,
+                                  textAlign: TextAlign.left,
+                                  "${index + 1}. Mata Kuliah Banyak Tugasaaaaaaaaaa",
+                                ),
+                              ),
+                              FilledButton(
+                                  style: const ButtonStyle(
+                                      backgroundColor: MaterialStatePropertyAll(AppColors.primary),
+                                      minimumSize: MaterialStatePropertyAll(
+                                        Size(91, 40),
+                                      )),
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                      PageRouteBuilder(
+                                          pageBuilder: (context, animation, secondaryAnimation) {
+                                            return const StatusComplaint();
+                                          },
+                                          transitionDuration: const Duration(milliseconds: 300),
+                                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                            final tween = Tween(
+                                              begin: const Offset(2, 0),
+                                              end: Offset.zero,
+                                            );
+                                            return SlideTransition(
+                                              position: animation.drive(tween),
+                                              child: child,
+                                            );
+                                          }),
+                                    );
+                                  },
+                                  child: const Text(
+                                    style: TextStyle(color: AppColors.secondary100),
+                                    "Detail",
+                                  )),
+                            ],
                           );
                         },
                       )
@@ -188,49 +186,47 @@ class _RiwayatLaporanPageFromAccountState extends State<RiwayatLaporanPageFromAc
                         physics: const ScrollPhysics(),
                         itemCount: 2,
                         itemBuilder: (context, index) {
-                          return Expanded(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                SizedBox(
-                                    width: 185,
-                                    child: Text(
-                                      style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.w500),
-                                      maxLines: 1,
-                                      textAlign: TextAlign.left,
-                                      "${index + 1}. Mata Kuliah Banyak Tugas",
-                                    )),
-                                FilledButton(
-                                    style: const ButtonStyle(
-                                        backgroundColor: MaterialStatePropertyAll(AppColors.primary),
-                                        minimumSize: MaterialStatePropertyAll(
-                                          Size(91, 40),
-                                        )),
-                                    onPressed: () {
-                                      Navigator.of(context).push(
-                                        PageRouteBuilder(
-                                            pageBuilder: (context, animation, secondaryAnimation) {
-                                              return const StatusComplaint();
-                                            },
-                                            transitionDuration: const Duration(milliseconds: 300),
-                                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                              final tween = Tween(
-                                                begin: const Offset(2, 0),
-                                                end: Offset.zero,
-                                              );
-                                              return SlideTransition(
-                                                position: animation.drive(tween),
-                                                child: child,
-                                              );
-                                            }),
-                                      );
-                                    },
-                                    child: const Text(
-                                      style: TextStyle(color: AppColors.secondary100),
-                                      "Detail",
-                                    )),
-                              ],
-                            ),
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.w500),
+                                  maxLines: 1,
+                                  textAlign: TextAlign.left,
+                                  "${index + 1}. Mata Kuliah Banyak Tugas",
+                                ),
+                              ),
+                              FilledButton(
+                                  style: const ButtonStyle(
+                                      backgroundColor: MaterialStatePropertyAll(AppColors.primary),
+                                      minimumSize: MaterialStatePropertyAll(
+                                        Size(91, 40),
+                                      )),
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                      PageRouteBuilder(
+                                          pageBuilder: (context, animation, secondaryAnimation) {
+                                            return const StatusComplaint();
+                                          },
+                                          transitionDuration: const Duration(milliseconds: 300),
+                                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                            final tween = Tween(
+                                              begin: const Offset(2, 0),
+                                              end: Offset.zero,
+                                            );
+                                            return SlideTransition(
+                                              position: animation.drive(tween),
+                                              child: child,
+                                            );
+                                          }),
+                                    );
+                                  },
+                                  child: const Text(
+                                    style: TextStyle(color: AppColors.secondary100),
+                                    "Detail",
+                                  )),
+                            ],
                           );
                         },
                       )
