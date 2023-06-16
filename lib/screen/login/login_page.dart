@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import '../../config/app_color.dart';
 import '../../model/auth.dart';
 import '../../widget/account_question_button.dart';
+import '../bottom_navbar.dart';
 import '../home_page.dart';
 import '../register/register_page.dart';
 
@@ -43,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.of(context).push(
           PageRouteBuilder(
               pageBuilder: (context, animation, secondaryAnimation) {
-                return const Homepage();
+                return BottomNavigationBrWidget();
               },
               transitionDuration: const Duration(milliseconds: 300),
               transitionsBuilder: (context, animation, secondaryAnimation, child) {
