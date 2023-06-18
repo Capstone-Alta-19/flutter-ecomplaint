@@ -115,7 +115,9 @@ class _KomplainTersimpanState extends State<KomplainTersimpan> {
                                       Navigator.of(context).push(
                                         PageRouteBuilder(
                                             pageBuilder: (context, animation, secondaryAnimation) {
-                                              return const KomentarPage();
+                                              return const KomentarPage(
+                                                id: 1,
+                                              );
                                             },
                                             transitionDuration: const Duration(milliseconds: 300),
                                             transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -135,7 +137,16 @@ class _KomplainTersimpanState extends State<KomplainTersimpan> {
                           )),
                         ),
                         const SizedBox(height: 13.0),
-                        const InteractionCard(),
+                        InteractionCard(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => KomentarPage(
+                                          id: 1,
+                                        )));
+                          },
+                        ),
                         const SizedBox(height: 22.5),
                       ],
                     );

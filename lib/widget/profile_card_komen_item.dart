@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
+
 import '../config/app_color.dart';
 
-class ProfileCard extends StatelessWidget {
+class ProfileCardKomenitem extends StatelessWidget {
   final String avatar;
-  final String username;
+  final String waktu;
   final String name;
-  final String tanggal;
+  final String username;
 
-  const ProfileCard({super.key, required this.avatar, required this.username, required this.name, required this.tanggal});
+  const ProfileCardKomenitem({super.key, required this.avatar, required this.waktu, required this.name, required this.username});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 4.0, right: 5.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CircleAvatar(
                 child: Image.asset(width: 40, avatar),
@@ -26,6 +29,7 @@ class ProfileCard extends StatelessWidget {
                 child: SizedBox(
                     child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
                         style: const TextStyle(
@@ -40,19 +44,25 @@ class ProfileCard extends StatelessWidget {
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
                         ),
-                        username),
+                        waktu),
                   ],
                 )),
               ),
             ],
           ),
-          Text(
-              style: const TextStyle(
-                color: AppColors.font,
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-              ),
-              tanggal),
+          Padding(
+            padding: const EdgeInsets.only(top: 2, left: 8),
+            child: Container(
+              alignment: Alignment.bottomCenter,
+              child: Text(
+                  style: const TextStyle(
+                    color: AppColors.font,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  username),
+            ),
+          ),
         ],
       ),
     );

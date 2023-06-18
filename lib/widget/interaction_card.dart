@@ -5,7 +5,8 @@ import '../screen/laporan/komentar_page.dart';
 
 class InteractionCard extends StatelessWidget {
   final jumlahLike;
-  const InteractionCard({super.key, this.jumlahLike});
+  final void Function() onPressed;
+  const InteractionCard({super.key, this.jumlahLike, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +41,7 @@ class InteractionCard extends StatelessWidget {
                         padding: const EdgeInsets.only(left: 7.0, right: 9.0),
                         child: InkWell(
                           child: const ImageIcon(size: 24, AssetImage("assets/icons/Chat-alt.png")),
-                          onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => const KomentarPage()));
-                          },
+                          onTap: onPressed,
                         ),
                       ),
                       InkWell(

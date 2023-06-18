@@ -5,7 +5,8 @@ import '../config/app_color.dart';
 class IsiLaporanItemKomen extends StatelessWidget {
   final String laporan;
   final String? tanggapan;
-  const IsiLaporanItemKomen({super.key, required this.laporan, required this.tanggapan});
+  final String? imageComplaint;
+  const IsiLaporanItemKomen({super.key, required this.laporan, required this.tanggapan, this.imageComplaint});
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +31,17 @@ class IsiLaporanItemKomen extends StatelessWidget {
                   const Text(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.font), "Laporan"),
                   Text(style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.font), laporan),
                   // "Dosen Matakuliah salah memasukan nilai"
+                  if (imageComplaint != null)
+                    Padding(
+                      padding: EdgeInsets.only(top: 8),
+                      child: Container(
+                        clipBehavior: Clip.antiAlias,
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                        height: 63.5,
+                        width: 63.5,
+                        child: Image.network(fit: BoxFit.cover, imageComplaint!),
+                      ),
+                    ),
                 ],
               ),
             ),

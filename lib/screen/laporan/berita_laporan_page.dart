@@ -48,13 +48,13 @@ class _BeritaLaporanPageState extends State<BeritaLaporanPage> {
                   onPressed: () {
                     Navigator.of(context).push(
                       PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) {
-                            return const IsiBeritaLaporanPage();
+                          pageBuilder: (context, animation, secondaryAnimation) {
+                            return const IsiBeritaLaporanPage(
+                              category: "1",
+                            );
                           },
                           transitionDuration: const Duration(milliseconds: 300),
-                          transitionsBuilder:
-                              (context, animation, secondaryAnimation, child) {
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
                             final tween = Tween(
                               begin: const Offset(2, 0),
                               end: Offset.zero,
@@ -75,13 +75,13 @@ class _BeritaLaporanPageState extends State<BeritaLaporanPage> {
                   onPressed: () {
                     Navigator.of(context).push(
                       PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) {
-                            return const IsiBeritaLaporanPage();
+                          pageBuilder: (context, animation, secondaryAnimation) {
+                            return const IsiBeritaLaporanPage(
+                              category: "2",
+                            );
                           },
                           transitionDuration: const Duration(milliseconds: 300),
-                          transitionsBuilder:
-                              (context, animation, secondaryAnimation, child) {
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
                             final tween = Tween(
                               begin: const Offset(2, 0),
                               end: Offset.zero,
@@ -102,13 +102,13 @@ class _BeritaLaporanPageState extends State<BeritaLaporanPage> {
                   onPressed: () {
                     Navigator.of(context).push(
                       PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) {
-                            return const IsiBeritaLaporanPage();
+                          pageBuilder: (context, animation, secondaryAnimation) {
+                            return const IsiBeritaLaporanPage(
+                              category: "3",
+                            );
                           },
                           transitionDuration: const Duration(milliseconds: 300),
-                          transitionsBuilder:
-                              (context, animation, secondaryAnimation, child) {
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
                             final tween = Tween(
                               begin: const Offset(2, 0),
                               end: Offset.zero,
@@ -129,13 +129,13 @@ class _BeritaLaporanPageState extends State<BeritaLaporanPage> {
                   onPressed: () {
                     Navigator.of(context).push(
                       PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) {
-                            return const IsiBeritaLaporanPage();
+                          pageBuilder: (context, animation, secondaryAnimation) {
+                            return const IsiBeritaLaporanPage(
+                              category: "4",
+                            );
                           },
                           transitionDuration: const Duration(milliseconds: 300),
-                          transitionsBuilder:
-                              (context, animation, secondaryAnimation, child) {
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
                             final tween = Tween(
                               begin: const Offset(2, 0),
                               end: Offset.zero,
@@ -156,13 +156,13 @@ class _BeritaLaporanPageState extends State<BeritaLaporanPage> {
                   onPressed: () {
                     Navigator.of(context).push(
                       PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) {
-                            return const IsiBeritaLaporanPage();
+                          pageBuilder: (context, animation, secondaryAnimation) {
+                            return const IsiBeritaLaporanPage(
+                              category: "5",
+                            );
                           },
                           transitionDuration: const Duration(milliseconds: 300),
-                          transitionsBuilder:
-                              (context, animation, secondaryAnimation, child) {
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
                             final tween = Tween(
                               begin: const Offset(2, 0),
                               end: Offset.zero,
@@ -183,13 +183,13 @@ class _BeritaLaporanPageState extends State<BeritaLaporanPage> {
                   onPressed: () {
                     Navigator.of(context).push(
                       PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) {
-                            return const IsiBeritaLaporanPage();
+                          pageBuilder: (context, animation, secondaryAnimation) {
+                            return const IsiBeritaLaporanPage(
+                              category: "6",
+                            );
                           },
                           transitionDuration: const Duration(milliseconds: 300),
-                          transitionsBuilder:
-                              (context, animation, secondaryAnimation, child) {
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
                             final tween = Tween(
                               begin: const Offset(2, 0),
                               end: Offset.zero,

@@ -1,4 +1,5 @@
 import 'package:complainz/Provider/get_complaint_category_provider.dart';
+import 'package:complainz/Provider/get_complaint_id_provider.dart';
 import 'package:complainz/model/auth.dart';
 import 'package:complainz/screen/berita/berita_terkini_page.dart';
 import 'package:complainz/screen/laporan/berita_laporan_page.dart';
@@ -45,6 +46,7 @@ class MyAppState extends State<MyApp> {
         providers: [
           ChangeNotifierProvider<BottomNavigationBarProvider>(create: (_) => BottomNavigationBarProvider()),
           ChangeNotifierProvider<GetComplaintCategoryViewModel>(create: (_) => GetComplaintCategoryViewModel()),
+          ChangeNotifierProvider<GetComplaintIdViewModel>(create: (_) => GetComplaintIdViewModel()),
         ],
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
@@ -61,7 +63,7 @@ class MyAppState extends State<MyApp> {
                 )),
             /* home: const HomeScreen(
           key: ValueKey('Home Screen'), title: 'Flutter Demo Home Page'), */
-            home: IsiBeritaLaporanPage()
+            home: SplashScreen()
             /* routes: {
         "/add_post": (context) => AddPostScreen(),
       }, */

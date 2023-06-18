@@ -53,6 +53,7 @@ dependencies:
   google_fonts: ^4.0.4
   intl: ^0.18.1
   date_format_field: ^0.0.3
+  liquid_pull_to_refresh: ^3.0.1
 
 dev_dependencies:
   flutter_test:

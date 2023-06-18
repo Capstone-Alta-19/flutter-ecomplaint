@@ -134,7 +134,9 @@ class _HomepageState extends State<Homepage> {
                                 Navigator.of(context).push(
                                   PageRouteBuilder(
                                       pageBuilder: (context, animation, secondaryAnimation) {
-                                        return const IsiBeritaLaporanPage();
+                                        return const IsiBeritaLaporanPage(
+                                          category: "1",
+                                        );
                                       },
                                       transitionDuration: const Duration(milliseconds: 300),
                                       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -156,7 +158,9 @@ class _HomepageState extends State<Homepage> {
                                 Navigator.of(context).push(
                                   PageRouteBuilder(
                                       pageBuilder: (context, animation, secondaryAnimation) {
-                                        return const IsiBeritaLaporanPage();
+                                        return const IsiBeritaLaporanPage(
+                                          category: "2",
+                                        );
                                       },
                                       transitionDuration: const Duration(milliseconds: 300),
                                       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -178,7 +182,9 @@ class _HomepageState extends State<Homepage> {
                                 Navigator.of(context).push(
                                   PageRouteBuilder(
                                       pageBuilder: (context, animation, secondaryAnimation) {
-                                        return const IsiBeritaLaporanPage();
+                                        return const IsiBeritaLaporanPage(
+                                          category: "3",
+                                        );
                                       },
                                       transitionDuration: const Duration(milliseconds: 300),
                                       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -200,7 +206,7 @@ class _HomepageState extends State<Homepage> {
                                 Navigator.of(context).push(
                                   PageRouteBuilder(
                                       pageBuilder: (context, animation, secondaryAnimation) {
-                                        return const BeritaLaporanPage();
+                                        return IsiBeritaLaporanPage(category: "4");
                                       },
                                       transitionDuration: const Duration(milliseconds: 300),
                                       transitionsBuilder: (context, animation, secondaryAnimation, child) {

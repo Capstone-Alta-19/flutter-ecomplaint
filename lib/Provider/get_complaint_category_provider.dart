@@ -12,13 +12,13 @@ class GetComplaintCategoryViewModel extends ChangeNotifier {
   String get errorMessage => _errorMessage;
   bool get isLoading => _isLoading;
 
-  Future<void> getResultCompaintCategory() async {
+  Future<void> getResultCompaintCategory({required String category, required sort}) async {
     try {
       _isLoading = true;
       notifyListeners();
 
       GetComplaintCategoryApi api = GetComplaintCategoryApi();
-      _complaintCategory = await api.getComplaintCategory();
+      _complaintCategory = await api.getComplaintCategory(category: category, sort: sort);
       print(complaintCategory);
 
       _isLoading = false;
