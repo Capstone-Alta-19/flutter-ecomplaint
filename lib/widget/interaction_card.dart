@@ -4,7 +4,8 @@ import '../config/app_color.dart';
 import '../screen/laporan/komentar_page.dart';
 
 class InteractionCard extends StatelessWidget {
-  const InteractionCard({super.key});
+  final jumlahLike;
+  const InteractionCard({super.key, this.jumlahLike});
 
   @override
   Widget build(BuildContext context) {
@@ -69,8 +70,8 @@ class InteractionCard extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             RichText(
-              text: const TextSpan(children: [
-                TextSpan(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.font), text: "200 "),
+              text: TextSpan(children: [
+                TextSpan(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.font), text: jumlahLike),
                 TextSpan(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.font), text: "Likes"),
               ]),
             )

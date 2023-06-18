@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:complainz/model/api/coban.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../config/app_color.dart';
@@ -23,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
-    _passwordVisible = false;
+    _passwordVisible = true;
 
     String date = "2023-06-11T23:22:13.944+07:00";
     String formattedDate = DateFormat('dd/MM/yyyy').format(DateTime.parse(date));

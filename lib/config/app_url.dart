@@ -4,4 +4,5 @@ class AppUrl {
   static const String register = "$baseUrl/register/user";
   static const String createComplaint = "$baseUrl/user/complaint";
   static const String getNews = "$baseUrl/news";
+  static const String getComplaintCategory = "$baseUrl/complainz/complaint";
 }

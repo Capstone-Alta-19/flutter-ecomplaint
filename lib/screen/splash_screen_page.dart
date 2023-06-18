@@ -1,5 +1,7 @@
+import 'package:complainz/model/GetComplaintCategoryModel.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../config/app_color.dart';
 import 'bottom_navbar.dart';
@@ -17,6 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   int splashtime = 5;
   @override
   void initState() {
+    super.initState();
     Future.delayed(Duration(seconds: splashtime), () async {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       bool getLoginStatus = prefs.containsKey('token');
@@ -38,8 +41,6 @@ class _SplashScreenState extends State<SplashScreen> {
         }));
       }
     });
-
-    super.initState();
   }
 
   @override

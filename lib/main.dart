@@ -1,6 +1,9 @@
+import 'package:complainz/Provider/get_complaint_category_provider.dart';
+import 'package:complainz/model/auth.dart';
 import 'package:complainz/screen/berita/berita_terkini_page.dart';
 import 'package:complainz/screen/laporan/berita_laporan_page.dart';
 import 'package:complainz/screen/laporan/isi_berita_laporan_page.dart';
+import 'package:complainz/screen/login/login_page.dart';
 import 'package:complainz/screen/splash_screen_page.dart';
 import 'package:complainz/screen/status/riwayat_laporan_page.dart';
 import 'package:flutter/material.dart';
@@ -38,8 +41,11 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<BottomNavigationBarProvider>(
-        create: (_) => BottomNavigationBarProvider(),
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider<BottomNavigationBarProvider>(create: (_) => BottomNavigationBarProvider()),
+          ChangeNotifierProvider<GetComplaintCategoryViewModel>(create: (_) => GetComplaintCategoryViewModel()),
+        ],
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
@@ -55,7 +61,7 @@ class MyAppState extends State<MyApp> {
                 )),
             /* home: const HomeScreen(
           key: ValueKey('Home Screen'), title: 'Flutter Demo Home Page'), */
-            home: BeritaLaporanPage()
+            home: IsiBeritaLaporanPage()
             /* routes: {
         "/add_post": (context) => AddPostScreen(),
       }, */

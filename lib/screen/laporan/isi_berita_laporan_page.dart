@@ -1,4 +1,6 @@
+import 'package:complainz/Provider/get_complaint_category_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../config/app_color.dart';
 import '../../widget/custom_card.dart';
 import '../../widget/interaction_card.dart';
@@ -18,9 +20,18 @@ class IsiBeritaLaporanPage extends StatefulWidget {
 }
 
 class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<GetComplaintCategoryViewModel>(context, listen: false).getResultCompaintCategory();
+    });
+  }
+
   String dropdownValue = list.first;
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<GetComplaintCategoryViewModel>(context);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(0),
@@ -78,69 +89,72 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                 const SizedBox(
                   height: 26.0,
                 ),
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: const ScrollPhysics(),
-                  itemCount: 2,
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 16, right: 16),
-                          child: CustomCard(
-                              child: Padding(
-                            padding: const EdgeInsets.only(
-                              left: 16.5,
-                              right: 10.5,
-                              top: 20.5,
-                              bottom: 12.5,
-                            ),
-                            child: Column(
-                              children: [
-                                const ProfileCard(
-                                  avatar: "assets/logo/PP.png",
-                                  name: "Jane Cooper",
-                                  username: "@nina_real",
-                                  tanggal: "12/05/2023",
-                                ),
-                                const SizedBox(height: 8),
-                                const IsiLaporanItem(
-                                  laporan: "Dosen Matakuliah salah memasukan nilai",
-                                  tanggapan: "lalalalalal",
-                                ),
-                                const SizedBox(height: 8),
-                                SelengkapnyaButton(
-                                    title: "Selengkapnya",
-                                    onPressed: () {
-                                      Navigator.of(context).push(
-                                        PageRouteBuilder(
-                                            pageBuilder: (context, animation, secondaryAnimation) {
-                                              return const KomentarPage();
-                                            },
-                                            transitionDuration: const Duration(milliseconds: 300),
-                                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                              final tween = Tween(
-                                                begin: const Offset(2, 0),
-                                                end: Offset.zero,
-                                              );
-                                              return SlideTransition(
-                                                position: animation.drive(tween),
-                                                child: child,
-                                              );
-                                            }),
-                                      );
-                                    }),
-                              ],
-                            ),
-                          )),
-                        ),
-                        const SizedBox(height: 13.0),
-                        const InteractionCard(),
-                        const SizedBox(height: 22.5),
-                      ],
-                    );
-                  },
-                )
+                if (provider.isLoading == true) Center(child: CircularProgressIndicator()),
+                if (provider.isLoading == false)
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: const ScrollPhysics(),
+                    itemCount: provider.complaintCategory.length,
+                    itemBuilder: (context, index) {
+                      final result = provider.complaintCategory[index];
+                      return Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 16, right: 16),
+                            child: CustomCard(
+                                child: Padding(
+                              padding: const EdgeInsets.only(
+                                left: 16.5,
+                                right: 10.5,
+                                top: 20.5,
+                                bottom: 12.5,
+                              ),
+                              child: Column(
+                                children: [
+                                  ProfileCard(
+                                    avatar: result.photoProfile ?? "assets/logo/PP.png",
+                                    name: result.fullName,
+                                    username: result.username,
+                                    tanggal: result.createdAt,
+                                  ),
+                                  const SizedBox(height: 8),
+                                  IsiLaporanItem(
+                                    laporan: result.description,
+                                    tanggapan: result.feedback,
+                                  ),
+                                  const SizedBox(height: 8),
+                                  SelengkapnyaButton(
+                                      title: "Selengkapnya",
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                          PageRouteBuilder(
+                                              pageBuilder: (context, animation, secondaryAnimation) {
+                                                return const KomentarPage();
+                                              },
+                                              transitionDuration: const Duration(milliseconds: 300),
+                                              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                                final tween = Tween(
+                                                  begin: const Offset(2, 0),
+                                                  end: Offset.zero,
+                                                );
+                                                return SlideTransition(
+                                                  position: animation.drive(tween),
+                                                  child: child,
+                                                );
+                                              }),
+                                        );
+                                      }),
+                                ],
+                              ),
+                            )),
+                          ),
+                          const SizedBox(height: 13.0),
+                          InteractionCard(jumlahLike: "${result.likesCount} "),
+                          const SizedBox(height: 22.5),
+                        ],
+                      );
+                    },
+                  )
                 //Isi berita laporan
               ],
             ),
