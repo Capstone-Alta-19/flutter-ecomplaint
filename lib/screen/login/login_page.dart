@@ -1,13 +1,9 @@
-import 'dart:math';
-
-import 'package:complainz/model/api/coban.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+// import 'package:intl/intl.dart';
 import '../../config/app_color.dart';
 import '../../model/auth.dart';
 import '../../widget/account_question_button.dart';
 import '../bottom_navbar.dart';
-import '../home_page.dart';
 import '../register/register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -28,9 +24,9 @@ class _LoginPageState extends State<LoginPage> {
     super.initState();
     _passwordVisible = true;
 
-    String date = "2023-06-11T23:22:13.944+07:00";
-    String formattedDate = DateFormat('dd/MM/yyyy').format(DateTime.parse(date));
-    print(formattedDate);
+    // String date = "2023-06-11T23:22:13.944+07:00";
+    // String formattedDate = DateFormat('dd/MM/yyyy').format(DateTime.parse(date));
+    // print(formattedDate);
   }
 
   void _checkFormStatus() {
@@ -43,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
   void _submitForm() async {
     await login(usernameEmailController.text, passwordController.text).then((value) {
       if (value == LoginStatus.success) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: const Text("Login Berhasil")));
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Login Berhasil")));
         Navigator.of(context).push(
           PageRouteBuilder(
               pageBuilder: (context, animation, secondaryAnimation) {
@@ -62,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
               }),
         );
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: const Text("Username atau password salah")));
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Username atau password salah")));
       }
     });
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:complainz/config/app_color.dart';
 
 class TextArea extends StatelessWidget {
   final int? maxLine;

@@ -39,7 +39,8 @@ class SegmentTitle extends StatelessWidget {
 
 class SegmentTitleTwoLine extends StatelessWidget {
   final String title;
-  const SegmentTitleTwoLine({Key? key, required this.title}) : super(key: key);
+  final void Function()? onPressed;
+  const SegmentTitleTwoLine({Key? key, required this.title, this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,11 +50,13 @@ class SegmentTitleTwoLine extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          IconButton(
-              icon: const ImageIcon(AssetImage("assets/icons/arrow-back.png")),
-              onPressed: () {
-                Navigator.pop(context);
-              }),
+          if (onPressed != null)
+            IconButton(
+                icon: const ImageIcon(AssetImage("assets/icons/arrow-back.png")),
+                onPressed: () {
+                  Navigator.pop(context);
+                }),
+          if (onPressed == null) IconButton(icon: const ImageIcon(AssetImage("assets/icons/arrow-back.png")), onPressed: onPressed),
           SizedBox(
             width: 260,
             child: Text(

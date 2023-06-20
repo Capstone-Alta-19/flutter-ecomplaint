@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:complainz/model/GetComplaintCategoryModel.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -13,8 +11,8 @@ class GetComplaintCategoryApi {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? getToken = prefs.getString('token');
-      await prefs.containsKey('token');
-      var response = await dio.get("http://178.128.210.192:8080/complaintz/complaint/category/$category",
+      prefs.containsKey('token');
+      var response = await dio.get("${AppUrl.baseUrl}/complaintz/complaint/category/$category",
           queryParameters: {
             "sort": sort,
           },
@@ -27,11 +25,12 @@ class GetComplaintCategoryApi {
         List<GetComplaintCategoryModel> complaint = List<GetComplaintCategoryModel>.from(response.data["complaints"].map((e) => GetComplaintCategoryModel.fromJson(e))).toList();
         // GetComplaintCategoryModel complaintCategory = getComplaintCategoryModelFromJson(response.data);
         // List<GetComplaintCategoryModel> complaintCategory = List<GetComplaintCategoryModel>.from(response.data['complaintCategory'].map(e)) => GetComplaintCategoryModel.fromJson(model);
-
+        print(complaint);
         return complaint;
-      } else
+      } else {
         throw "Error";
-    } on DioException catch (e) {
+      }
+    } on DioException {
       throw "Error";
     }
   }

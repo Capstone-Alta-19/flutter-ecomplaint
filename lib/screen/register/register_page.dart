@@ -4,7 +4,6 @@ import 'package:complainz/screen/complainz/create_account_screen.dart';
 import 'package:complainz/widget/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
-import 'package:provider/provider.dart';
 
 import '../login/login_page.dart';
 

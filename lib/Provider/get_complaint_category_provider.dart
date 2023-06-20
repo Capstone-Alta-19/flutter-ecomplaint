@@ -19,7 +19,6 @@ class GetComplaintCategoryViewModel extends ChangeNotifier {
 
       GetComplaintCategoryApi api = GetComplaintCategoryApi();
       _complaintCategory = await api.getComplaintCategory(category: category, sort: sort);
-      print(complaintCategory);
 
       _isLoading = false;
       notifyListeners();

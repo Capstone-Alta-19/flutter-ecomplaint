@@ -33,7 +33,7 @@ class IsiLaporanItemKomen extends StatelessWidget {
                   // "Dosen Matakuliah salah memasukan nilai"
                   if (imageComplaint != null)
                     Padding(
-                      padding: EdgeInsets.only(top: 8),
+                      padding: const EdgeInsets.only(top: 8),
                       child: Container(
                         clipBehavior: Clip.antiAlias,
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),

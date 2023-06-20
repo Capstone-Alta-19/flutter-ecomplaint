@@ -94,7 +94,7 @@ class _BeritaTerkiniPageState extends State<BeritaTerkiniPage> {
                       ListView.builder(
                         itemCount: 2,
                         shrinkWrap: true,
-                        physics: ScrollPhysics(),
+                        physics: const ScrollPhysics(),
                         itemBuilder: (context, index) {
                           return BeritaItem(
                             onPressed: () {

@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../Provider/get_complaint_status_provider.dart';
 import '../../config/app_color.dart';
 import '../../widget/custom_alert_dialog.dart';
 import '../../widget/custom_dialog.dart';
 import '../../widget/dashed_divider.dart';
 import '../../widget/segment_title.dart';
 
+enum Type { pending, proccess, resolve }
+
 class EditStatusComplaint extends StatefulWidget {
-  const EditStatusComplaint({super.key});
+  final Type status;
+  const EditStatusComplaint({super.key, required this.status});
 
   @override
   State<EditStatusComplaint> createState() => _EditStatusComplaintState();
@@ -14,7 +19,28 @@ class EditStatusComplaint extends StatefulWidget {
 
 class _EditStatusComplaintState extends State<EditStatusComplaint> {
   @override
+  void initState() {
+    super.initState();
+    if (widget.status == Type.pending) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Provider.of<GetComplaintStatusViewModel>(context, listen: false).getResultCompaintStatus(status: "Pending");
+      });
+    }
+    if (widget.status == Type.proccess) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Provider.of<GetComplaintStatusViewModel>(context, listen: false).getResultCompaintStatus(status: "Proccess");
+      });
+    }
+    if (widget.status == Type.resolve) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Provider.of<GetComplaintStatusViewModel>(context, listen: false).getResultCompaintStatus(status: "Resolved");
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<GetComplaintStatusViewModel>(context);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(0),
@@ -72,42 +98,49 @@ class _EditStatusComplaintState extends State<EditStatusComplaint> {
                       const SizedBox(
                         height: 36.5,
                       ),
-                      ListView.builder(
-                        shrinkWrap: true,
-                        physics: const ScrollPhysics(),
-                        itemCount: 2,
-                        itemBuilder: (context, index) {
-                          return Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(child: SizedBox(width: 185, child: Text(style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.w500), maxLines: 1, textAlign: TextAlign.left, "${index + 1}. Mata Kuliah Banyak Tugas"))),
-                              IconButton(
-                                  icon: const ImageIcon(AssetImage("assets/icons/Trash.png")),
-                                  onPressed: () {
-                                    showDialog(
-                                        barrierDismissible: false,
-                                        barrierColor: null,
-                                        context: context,
-                                        builder: (BuildContext context) => CustomDialog(
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                                showDialog(
-                                                    barrierColor: null,
-                                                    context: context,
-                                                    builder: (BuildContext context) => const CustomAlertDialog(
-                                                          title: "Laporan Terhapus",
-                                                          icon: "assets/icons/Trash.png",
-                                                        ));
-                                              },
-                                              confirm: "Ya, Hapus",
-                                              icon: "assets/icons/Trash.png",
-                                              title: "Kamu Yakin Untuk Mencabut Laporan?",
-                                            ));
-                                  })
-                            ],
-                          );
-                        },
-                      )
+                      if (provider.isLoading) const SizedBox(height: 500, child: Center(child: CircularProgressIndicator())),
+                      if (!provider.isLoading)
+                        ListView.builder(
+                          shrinkWrap: true,
+                          physics: const ScrollPhysics(),
+                          itemCount: provider.complaintStatus.length,
+                          itemBuilder: (context, index) {
+                            final result = provider.complaintStatus[index];
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                    child: SizedBox(
+                                  width: 185,
+                                  child: Text(style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.w500), maxLines: 1, textAlign: TextAlign.left, "${index + 1}. ${result.description}"),
+                                )),
+                                IconButton(
+                                    icon: const ImageIcon(AssetImage("assets/icons/Trash.png")),
+                                    onPressed: () {
+                                      showDialog(
+                                          barrierDismissible: false,
+                                          barrierColor: null,
+                                          context: context,
+                                          builder: (BuildContext context) => CustomDialog(
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                  showDialog(
+                                                      barrierColor: null,
+                                                      context: context,
+                                                      builder: (BuildContext context) => const CustomAlertDialog(
+                                                            title: "Laporan Terhapus",
+                                                            icon: "assets/icons/Trash.png",
+                                                          ));
+                                                },
+                                                confirm: "Ya, Hapus",
+                                                icon: "assets/icons/Trash.png",
+                                                title: "Kamu Yakin Untuk Mencabut Laporan?",
+                                              ));
+                                    })
+                              ],
+                            );
+                          },
+                        )
                     ]),
                   ),
                 ),

@@ -1,5 +1,4 @@
 import 'package:complainz/Provider/get_complaint_category_provider.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:provider/provider.dart';
@@ -50,6 +49,7 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
         onRefresh: () async {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             Provider.of<GetComplaintCategoryViewModel>(context, listen: false).getResultCompaintCategory(category: widget.category, sort: "desc");
+            dropdownValue = list.first;
           });
         },
         child: SingleChildScrollView(
@@ -89,19 +89,25 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                                   dropdownValue = value!;
 
                                   if (dropdownValue == 'Urutkan Berdasarkan') {
-                                    WidgetsBinding.instance.addPostFrameCallback((_) {
-                                      Provider.of<GetComplaintCategoryViewModel>(context, listen: false).getResultCompaintCategory(category: widget.category, sort: "desc");
+                                    setState(() {
+                                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                                        Provider.of<GetComplaintCategoryViewModel>(context, listen: false).getResultCompaintCategory(category: widget.category, sort: "desc");
+                                      });
                                     });
                                   }
                                   if (dropdownValue == 'Terbaru') {
-                                    WidgetsBinding.instance.addPostFrameCallback((_) {
-                                      Provider.of<GetComplaintCategoryViewModel>(context, listen: false).getResultCompaintCategory(category: widget.category, sort: "desc");
+                                    setState(() {
+                                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                                        Provider.of<GetComplaintCategoryViewModel>(context, listen: false).getResultCompaintCategory(category: widget.category, sort: "desc");
+                                      });
                                     });
                                   }
 
                                   if (dropdownValue == 'Terlama') {
-                                    WidgetsBinding.instance.addPostFrameCallback((_) {
-                                      Provider.of<GetComplaintCategoryViewModel>(context, listen: false).getResultCompaintCategory(category: widget.category, sort: "asc");
+                                    setState(() {
+                                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                                        Provider.of<GetComplaintCategoryViewModel>(context, listen: false).getResultCompaintCategory(category: widget.category, sort: "asc");
+                                      });
                                     });
                                   }
                                 });
@@ -121,9 +127,9 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                   const SizedBox(
                     height: 26.0,
                   ),
-                  if (provider.isLoading == true) SizedBox(height: 500, child: Center(child: CircularProgressIndicator())),
+                  if (provider.isLoading == true) const SizedBox(height: 500, child: Center(child: CircularProgressIndicator())),
                   if (provider.isLoading == false && provider.complaintCategory.isEmpty)
-                    Container(
+                    const SizedBox(
                       height: 500,
                       child: Center(
                         child: Text(style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: AppColors.primary), "Laporan Kosong"),
@@ -196,7 +202,7 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => KomentarPage(
-                                              id: 1,
+                                              id: result.id,
                                             )));
                               },
                             ),

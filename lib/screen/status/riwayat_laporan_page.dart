@@ -1,6 +1,8 @@
+import 'package:complainz/Provider/get_complaint_status_provider.dart';
 import 'package:complainz/screen/status/status_complaint_page.dart';
 import 'package:complainz/widget/segment_title_without_back.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../config/app_color.dart';
 import '../../widget/dashed_divider.dart';
@@ -15,7 +17,16 @@ class RiwayatLaporanPage extends StatefulWidget {
 
 class _RiwayatLaporanPageState extends State<RiwayatLaporanPage> {
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<GetComplaintStatusViewModel>(context, listen: false).getResultCompaintStatus(status: "All");
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<GetComplaintStatusViewModel>(context);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(0),
@@ -63,55 +74,58 @@ class _RiwayatLaporanPageState extends State<RiwayatLaporanPage> {
                       const SizedBox(
                         height: 36.5,
                       ),
-                      ListView.builder(
-                        shrinkWrap: true,
-                        physics: const ScrollPhysics(),
-                        itemCount: 2,
-                        itemBuilder: (context, index) {
-                          return Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.w500),
-                                  maxLines: 1,
-                                  textAlign: TextAlign.left,
-                                  "${index + 1}. Mata Kuliah Banyak Tugasaaaaaaaaaa",
+                      if (provider.isLoading == true) const SizedBox(height: 500, child: Center(child: CircularProgressIndicator())),
+                      if (provider.isLoading == false)
+                        ListView.builder(
+                          shrinkWrap: true,
+                          physics: const ScrollPhysics(),
+                          itemCount: provider.complaintStatus.length,
+                          itemBuilder: (context, index) {
+                            final result = provider.complaintStatus[index];
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.w500),
+                                    maxLines: 1,
+                                    textAlign: TextAlign.left,
+                                    "${index + 1}. ${result.description}",
+                                  ),
                                 ),
-                              ),
-                              FilledButton(
-                                  style: const ButtonStyle(
-                                      backgroundColor: MaterialStatePropertyAll(AppColors.primary),
-                                      minimumSize: MaterialStatePropertyAll(
-                                        Size(91, 40),
-                                      )),
-                                  onPressed: () {
-                                    Navigator.of(context).push(
-                                      PageRouteBuilder(
-                                          pageBuilder: (context, animation, secondaryAnimation) {
-                                            return const StatusComplaint();
-                                          },
-                                          transitionDuration: const Duration(milliseconds: 300),
-                                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                            final tween = Tween(
-                                              begin: const Offset(2, 0),
-                                              end: Offset.zero,
-                                            );
-                                            return SlideTransition(
-                                              position: animation.drive(tween),
-                                              child: child,
-                                            );
-                                          }),
-                                    );
-                                  },
-                                  child: const Text(
-                                    style: TextStyle(color: AppColors.secondary100),
-                                    "Detail",
-                                  )),
-                            ],
-                          );
-                        },
-                      )
+                                FilledButton(
+                                    style: const ButtonStyle(
+                                        backgroundColor: MaterialStatePropertyAll(AppColors.primary),
+                                        minimumSize: MaterialStatePropertyAll(
+                                          Size(91, 40),
+                                        )),
+                                    onPressed: () {
+                                      Navigator.of(context).push(
+                                        PageRouteBuilder(
+                                            pageBuilder: (context, animation, secondaryAnimation) {
+                                              return StatusComplaint(status: result.status);
+                                            },
+                                            transitionDuration: const Duration(milliseconds: 300),
+                                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                              final tween = Tween(
+                                                begin: const Offset(2, 0),
+                                                end: Offset.zero,
+                                              );
+                                              return SlideTransition(
+                                                position: animation.drive(tween),
+                                                child: child,
+                                              );
+                                            }),
+                                      );
+                                    },
+                                    child: const Text(
+                                      style: TextStyle(color: AppColors.secondary100),
+                                      "Detail",
+                                    )),
+                              ],
+                            );
+                          },
+                        )
                     ]),
                   ),
                 ),
@@ -133,7 +147,16 @@ class RiwayatLaporanPageFromAccount extends StatefulWidget {
 
 class _RiwayatLaporanPageFromAccountState extends State<RiwayatLaporanPageFromAccount> {
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<GetComplaintStatusViewModel>(context, listen: false).getResultCompaintStatus(status: "All");
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<GetComplaintStatusViewModel>(context);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(0),
@@ -181,55 +204,60 @@ class _RiwayatLaporanPageFromAccountState extends State<RiwayatLaporanPageFromAc
                       const SizedBox(
                         height: 36.5,
                       ),
-                      ListView.builder(
-                        shrinkWrap: true,
-                        physics: const ScrollPhysics(),
-                        itemCount: 2,
-                        itemBuilder: (context, index) {
-                          return Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.w500),
-                                  maxLines: 1,
-                                  textAlign: TextAlign.left,
-                                  "${index + 1}. Mata Kuliah Banyak Tugas",
+                      if (provider.isLoading == true) const SizedBox(height: 500, child: Center(child: CircularProgressIndicator())),
+                      if (provider.isLoading == false)
+                        ListView.builder(
+                          shrinkWrap: true,
+                          physics: const ScrollPhysics(),
+                          itemCount: provider.complaintStatus.length,
+                          itemBuilder: (context, index) {
+                            final result = provider.complaintStatus[index];
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.w500),
+                                    maxLines: 1,
+                                    textAlign: TextAlign.left,
+                                    "${index + 1}. ${result.description}",
+                                  ),
                                 ),
-                              ),
-                              FilledButton(
-                                  style: const ButtonStyle(
-                                      backgroundColor: MaterialStatePropertyAll(AppColors.primary),
-                                      minimumSize: MaterialStatePropertyAll(
-                                        Size(91, 40),
-                                      )),
-                                  onPressed: () {
-                                    Navigator.of(context).push(
-                                      PageRouteBuilder(
-                                          pageBuilder: (context, animation, secondaryAnimation) {
-                                            return const StatusComplaint();
-                                          },
-                                          transitionDuration: const Duration(milliseconds: 300),
-                                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                            final tween = Tween(
-                                              begin: const Offset(2, 0),
-                                              end: Offset.zero,
-                                            );
-                                            return SlideTransition(
-                                              position: animation.drive(tween),
-                                              child: child,
-                                            );
-                                          }),
-                                    );
-                                  },
-                                  child: const Text(
-                                    style: TextStyle(color: AppColors.secondary100),
-                                    "Detail",
-                                  )),
-                            ],
-                          );
-                        },
-                      )
+                                FilledButton(
+                                    style: const ButtonStyle(
+                                        backgroundColor: MaterialStatePropertyAll(AppColors.primary),
+                                        minimumSize: MaterialStatePropertyAll(
+                                          Size(91, 40),
+                                        )),
+                                    onPressed: () {
+                                      Navigator.of(context).push(
+                                        PageRouteBuilder(
+                                            pageBuilder: (context, animation, secondaryAnimation) {
+                                              return StatusComplaint(
+                                                status: result.status,
+                                              );
+                                            },
+                                            transitionDuration: const Duration(milliseconds: 300),
+                                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                              final tween = Tween(
+                                                begin: const Offset(2, 0),
+                                                end: Offset.zero,
+                                              );
+                                              return SlideTransition(
+                                                position: animation.drive(tween),
+                                                child: child,
+                                              );
+                                            }),
+                                      );
+                                    },
+                                    child: const Text(
+                                      style: TextStyle(color: AppColors.secondary100),
+                                      "Detail",
+                                    )),
+                              ],
+                            );
+                          },
+                        )
                     ]),
                   ),
                 ),

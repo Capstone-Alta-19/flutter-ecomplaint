@@ -31,7 +31,7 @@ class IsiLaporanItem extends StatelessWidget {
                   Text(style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.font), laporan),
                   if (imageComplaint != null)
                     Padding(
-                      padding: EdgeInsets.only(top: 8),
+                      padding: const EdgeInsets.only(top: 8),
                       child: Container(
                         clipBehavior: Clip.antiAlias,
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),

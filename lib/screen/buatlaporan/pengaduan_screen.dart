@@ -178,13 +178,13 @@ class _PengaduanPageState extends State<PengaduanPage> {
                   padding: const EdgeInsets.only(left: 16, right: 16),
                   child: FilledButton.tonal(
                     onPressed: () {},
-                    child: const Text(
-                      'Daftar',
-                      style: TextStyle(color: Colors.white),
-                    ),
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(358, 40),
                       backgroundColor: AppColors.primary,
+                    ),
+                    child: const Text(
+                      'Daftar',
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
@@ -372,13 +372,13 @@ class _AspirasiPageState extends State<AspirasiPage> {
                   padding: const EdgeInsets.only(left: 16, right: 16),
                   child: FilledButton.tonal(
                     onPressed: () {},
-                    child: Text(
-                      'Daftar',
-                      style: TextStyle(color: Colors.white),
-                    ),
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(358, 40),
                       backgroundColor: AppColors.primary,
+                    ),
+                    child: const Text(
+                      'Daftar',
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),

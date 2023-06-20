@@ -7,7 +7,6 @@ import '../Provider/bottom_navbar_provider.dart';
 import 'buatlaporan/laporkan_screen.dart';
 import 'home_page.dart';
 import 'my_account_page.dart';
-import 'status/status_complaint_page.dart';
 
 class BottomNavigationBrWidget extends StatelessWidget {
   int _selectedIndex = 0;

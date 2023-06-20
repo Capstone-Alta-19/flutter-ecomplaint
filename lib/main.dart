@@ -1,16 +1,10 @@
 import 'package:complainz/Provider/get_complaint_category_provider.dart';
 import 'package:complainz/Provider/get_complaint_id_provider.dart';
-import 'package:complainz/model/auth.dart';
-import 'package:complainz/screen/berita/berita_terkini_page.dart';
-import 'package:complainz/screen/laporan/berita_laporan_page.dart';
-import 'package:complainz/screen/laporan/isi_berita_laporan_page.dart';
-import 'package:complainz/screen/login/login_page.dart';
+import 'package:complainz/Provider/get_complaint_status_provider.dart';
 import 'package:complainz/screen/splash_screen_page.dart';
-import 'package:complainz/screen/status/riwayat_laporan_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'config/app_color.dart';
-import 'screen/bottom_navbar.dart';
 import 'Provider/bottom_navbar_provider.dart';
 
 /* Future<void> main() async {
@@ -25,7 +19,7 @@ import 'Provider/bottom_navbar_provider.dart';
 } */
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -47,27 +41,28 @@ class MyAppState extends State<MyApp> {
           ChangeNotifierProvider<BottomNavigationBarProvider>(create: (_) => BottomNavigationBarProvider()),
           ChangeNotifierProvider<GetComplaintCategoryViewModel>(create: (_) => GetComplaintCategoryViewModel()),
           ChangeNotifierProvider<GetComplaintIdViewModel>(create: (_) => GetComplaintIdViewModel()),
+          ChangeNotifierProvider<GetComplaintStatusViewModel>(create: (_) => GetComplaintStatusViewModel()),
         ],
         child: MaterialApp(
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-                useMaterial3: true,
-                fontFamily: 'Poppins',
-                colorScheme: ColorScheme.fromSeed(
-                  background: AppColors.secondary100,
-                  seedColor: const Color(0xff3C486B),
-                ),
-                appBarTheme: const AppBarTheme(
-                  backgroundColor: AppColors.secondary100,
-                  surfaceTintColor: Colors.transparent,
-                )),
-            /* home: const HomeScreen(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+              useMaterial3: true,
+              fontFamily: 'Poppins',
+              colorScheme: ColorScheme.fromSeed(
+                background: AppColors.secondary100,
+                seedColor: const Color(0xff3C486B),
+              ),
+              appBarTheme: const AppBarTheme(
+                backgroundColor: AppColors.secondary100,
+                surfaceTintColor: Colors.transparent,
+              )),
+          /* home: const HomeScreen(
           key: ValueKey('Home Screen'), title: 'Flutter Demo Home Page'), */
-            home: SplashScreen()
-            /* routes: {
+          home: const SplashScreen(),
+          /* routes: {
         "/add_post": (context) => AddPostScreen(),
       }, */
-            ));
+        ));
   }
 }
 

@@ -53,7 +53,7 @@ class _LaporanTerbukaState extends State<LaporanTerbuka> {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.only(left: 66.11, right: 66.11),
               child: Row(

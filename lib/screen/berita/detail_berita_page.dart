@@ -20,7 +20,7 @@ class DetailBerita extends StatelessWidget {
               child: Column(
                 children: [
                   const SegmentTitle(title: ""),
-                  SizedBox(
+                  const SizedBox(
                     height: 43.5,
                   ),
                   const Center(
@@ -63,13 +63,13 @@ class DetailBerita extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 15, bottom: 28),
-                    child: Container(alignment: Alignment.centerLeft, child: Text(style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600, color: AppColors.font), "Baca Juga")),
+                    padding: const EdgeInsets.only(left: 15, bottom: 28),
+                    child: Container(alignment: Alignment.centerLeft, child: const Text(style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600, color: AppColors.font), "Baca Juga")),
                   ),
                   SizedBox(
                     height: 150,
                     child: ListView.separated(
-                      separatorBuilder: (context, index) => SizedBox(
+                      separatorBuilder: (context, index) => const SizedBox(
                         width: 8,
                       ),
                       scrollDirection: Axis.horizontal,
@@ -139,7 +139,7 @@ class DetailBeritaItem extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Container(alignment: Alignment.centerLeft, child: const Text(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.primary), "Pemasangan AC Baru gedung G")),
-                          SizedBox(
+                          const SizedBox(
                             height: 13,
                           ),
                           Container(

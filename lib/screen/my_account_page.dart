@@ -243,7 +243,7 @@ class _MyAccountState extends State<MyAccount> {
                         const SizedBox(height: 36),
                         InkWell(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => GantiProfile()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const GantiProfile()));
                           },
                           child: Row(
                             children: const [

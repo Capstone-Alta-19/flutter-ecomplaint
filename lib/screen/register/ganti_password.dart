@@ -110,7 +110,7 @@ class _GantiPasswordState extends State<GantiPassword> {
                   ],
                 ),
               ),
-              SizedBox(height: 380),
+              const SizedBox(height: 380),
               ButtonPrimary(
                 btnText: 'Simpan',
                 onPressed: () {},

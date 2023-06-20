@@ -1,5 +1,4 @@
 import 'package:complainz/Provider/get_complaint_id_provider.dart';
-import 'package:complainz/config/app_color.dart';
 import 'package:complainz/widget/isi_laporan_item_komen.dart';
 import 'package:complainz/widget/profile_card_komen_item.dart';
 import 'package:complainz/widget/segment_title.dart';
@@ -35,21 +34,15 @@ class _KomentarPageState extends State<KomentarPage> {
           child: AppBar(),
         ),
         body: SingleChildScrollView(
-          child: Container(
+          child: SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Column(
                 children: [
-                  SegmentTitle(title: "Komentar"),
-                  SizedBox(height: 33),
-                  if (provider.isLoading == true) SizedBox(height: 500, child: Center(child: CircularProgressIndicator())),
-                  // if (provider.isLoading == false && p)
-                  //   Container(
-                  //     height: 500,
-                  //     child: Center(
-                  //       child: Text(style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: AppColors.primary), "Laporan Kosong"),
-                  //     ),
-                  //   ),
-                  if (provider.isLoading == false)
+                  const SegmentTitle(title: "Komentar"),
+                  const SizedBox(height: 33),
+                  if (provider.isLoading == true) const SizedBox(height: 500, child: Center(child: CircularProgressIndicator())),
+                  if (provider.isLoading == false && provider.complaintId == null) const SizedBox(child: Text("Null")),
+                  if (provider.isLoading == false && provider.complaintId != null)
                     Column(
                       children: [
                         Padding(
@@ -58,7 +51,7 @@ class _KomentarPageState extends State<KomentarPage> {
                             child: Column(
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.only(
+                                  padding: const EdgeInsets.only(
                                     left: 16.5,
                                     right: 20,
                                     top: 20.5,
@@ -70,7 +63,7 @@ class _KomentarPageState extends State<KomentarPage> {
                                     tanggal: provider.complaintId!.createdAt,
                                   ),
                                 ),
-                                SizedBox(height: 8),
+                                const SizedBox(height: 8),
                                 IsiLaporanItemKomen(
                                   imageComplaint: provider.complaintId!.photoUrl,
                                   laporan: provider.complaintId!.description,
@@ -102,7 +95,7 @@ class _KomentarPageState extends State<KomentarPage> {
                                           username: '@ ${resultComment.username}',
                                           waktu: resultComment.createdAt,
                                         ),
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         IsiKomentarItem(
                                           laporan: resultComment.description,
                                         ),
@@ -113,7 +106,7 @@ class _KomentarPageState extends State<KomentarPage> {
                               );
                             },
                             shrinkWrap: true,
-                            physics: ScrollPhysics(),
+                            physics: const ScrollPhysics(),
                             separatorBuilder: (context, index) => const SizedBox(height: 16),
                             itemCount: provider.complaintId!.comments.length),
                         const SizedBox(height: 30),
@@ -123,7 +116,7 @@ class _KomentarPageState extends State<KomentarPage> {
               )),
         ),
         bottomNavigationBar: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.yellow, // Warna kuning
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(16.0),
@@ -132,7 +125,7 @@ class _KomentarPageState extends State<KomentarPage> {
           ),
           child: Row(
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(8),
                 child: CircleAvatar(
                   child: Icon(Icons.person),
@@ -140,9 +133,9 @@ class _KomentarPageState extends State<KomentarPage> {
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: 'Tambahkan Komentar...',
                       border: OutlineInputBorder(),
                     ),
@@ -150,10 +143,10 @@ class _KomentarPageState extends State<KomentarPage> {
                 ),
               ),
               Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: InkWell(
                     onTap: () {},
-                    child: ImageIcon(AssetImage('assets/icons/ButtonComment.png')),
+                    child: const ImageIcon(AssetImage('assets/icons/ButtonComment.png')),
                   )),
             ],
           ),

@@ -3,6 +3,7 @@ import 'package:complainz/screen/berita/berita_terkini_page.dart';
 import 'package:complainz/widget/selengkapnya_button.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../config/app_color.dart';
 import '../widget/custom_card.dart';
@@ -31,6 +32,12 @@ class _HomepageState extends State<Homepage> {
       child: Image.asset('assets/logo/banner3.png'),
     ),
   ];
+  final Uri liveChat = Uri.parse('https://flutter.dev');
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(liveChat)) {
+      throw Exception('Could not launch $liveChat');
+    }
+  }
 
   int carouselIndex = 0;
 
@@ -206,7 +213,7 @@ class _HomepageState extends State<Homepage> {
                                 Navigator.of(context).push(
                                   PageRouteBuilder(
                                       pageBuilder: (context, animation, secondaryAnimation) {
-                                        return IsiBeritaLaporanPage(category: "4");
+                                        return const IsiBeritaLaporanPage(category: "4");
                                       },
                                       transitionDuration: const Duration(milliseconds: 300),
                                       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -257,7 +264,18 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
           ),
-          Positioned(right: 8, height: MediaQuery.of(context).size.height + 30, child: InkWell(child: Container(height: 90, width: 85, decoration: const BoxDecoration(shape: BoxShape.circle), child: Image.asset("assets/icons/Chat-live-button.png")))),
+          Positioned(
+            right: 8,
+            height: MediaQuery.of(context).size.height + 30,
+            child: Container(
+              height: 90,
+              width: 85,
+              decoration: const BoxDecoration(shape: BoxShape.circle),
+              child: Image.asset(
+                "assets/icons/Chat-live-button.png",
+              ),
+            ),
+          ),
         ],
       ),
     );

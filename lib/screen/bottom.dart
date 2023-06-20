@@ -17,9 +17,11 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   State createState() => _State();
 }
@@ -27,7 +29,7 @@ class MyApp extends StatefulWidget {
 class _State extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
         /* initialRoute: "/",
       routes: {
         "/": (_) => HelloConvexAppBar(),
@@ -40,18 +42,20 @@ class _State extends State<MyApp> {
 }
 
 class HelloConvexAppBar extends StatelessWidget {
+  const HelloConvexAppBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Hello ConvexAppBar')),
+      appBar: AppBar(title: const Text('Hello ConvexAppBar')),
       body: Center(
           child: TextButton(
-        child: Text('Click to show full example'),
+        child: const Text('Click to show full example'),
         onPressed: () => Navigator.of(context).pushNamed('/bar'),
       )),
       bottomNavigationBar: ConvexAppBar(
         style: TabStyle.reactCircle,
-        items: [
+        items: const [
           TabItem(icon: Icons.list),
           TabItem(icon: Icons.calendar_today),
           TabItem(icon: Icons.assessment),

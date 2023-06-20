@@ -35,15 +35,12 @@ class _GantiProfileState extends State<GantiProfile> {
           padding: EdgeInsets.only(left: 85, right: 16),
           child: Text(
             'Ganti Profile',
-            style: TextStyle(
-                color: AppColors.primary,
-                fontSize: 32,
-                fontWeight: FontWeight.w600),
+            style: TextStyle(color: AppColors.primary, fontSize: 32, fontWeight: FontWeight.w600),
           ),
         ),
       ),
       body: SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width,
           child: Column(
             children: [
@@ -62,8 +59,7 @@ class _GantiProfileState extends State<GantiProfile> {
                     onTap: () {},
                     child: Padding(
                       padding: const EdgeInsets.only(left: 200, top: 140),
-                      child: Image.asset('assets/icons/ButtonKamera.png',
-                          width: 55.71),
+                      child: Image.asset('assets/icons/ButtonKamera.png', width: 55.71),
                     ),
                   ),
                   Container(
@@ -104,8 +100,7 @@ class _GantiProfileState extends State<GantiProfile> {
                               Padding(padding: EdgeInsets.only(left: 15)),
                               Text(
                                 'Name',
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
+                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                               ),
                               Text(
                                 '*',
@@ -132,8 +127,7 @@ class _GantiProfileState extends State<GantiProfile> {
                               Padding(padding: EdgeInsets.only(left: 15)),
                               Text(
                                 'No. Whatsapp',
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
+                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                               ),
                               Text(
                                 '*',
@@ -161,8 +155,7 @@ class _GantiProfileState extends State<GantiProfile> {
                               Padding(padding: EdgeInsets.only(left: 15)),
                               Text(
                                 'Tanggal Lahir',
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
+                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                               ),
                               Text(
                                 '*',
@@ -174,8 +167,7 @@ class _GantiProfileState extends State<GantiProfile> {
                           Column(
                             children: [
                               Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 16, right: 30),
+                                padding: const EdgeInsets.only(left: 16, right: 30),
                                 child: DateFormatField(
                                   type: DateFormatType.type4,
                                   decoration: const InputDecoration(

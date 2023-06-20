@@ -1,4 +1,3 @@
-import 'package:complainz/model/auth_token.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

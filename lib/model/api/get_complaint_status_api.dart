@@ -1,31 +1,30 @@
-import 'package:complainz/model/get_complaint_id_model.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../config/app_url.dart';
+import '../get_complaint_status_model.dart';
 
-class GetComplaintIdApi {
+class GetComplaintStatusApi {
   Dio dio = Dio();
 
-  Future<GetComplaintIdModel> getComplaintId({required int id}) async {
+  Future<List<GetComplaintStatus>> getComplaitStatus({required String status}) async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      String? getToken = prefs.getString('token');
       prefs.containsKey('token');
-      var response = await dio.get("${AppUrl.baseUrl}/complaintz/complaint/$id",
+      var response = await dio.get("${AppUrl.baseUrl}/complaintz/complaint?status=$status",
           options: Options(headers: {
-            'Authorization': 'Bearer $getToken',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJyb2xlIjoiVVNFUiIsInVzZXJJZCI6MX0.sKjg0jYpSn0NcsCR5cSrLmdfr5fxnKsuGq5zD9TxpZc',
             'Content-type': 'application/json; charset=UTF-8',
           }));
 
 //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJyb2xlIjoiVVNFUiIsInVzZXJJZCI6MX0.sKjg0jYpSn0NcsCR5cSrLmdfr5fxnKsuGq5zD9TxpZc
       if (response.statusCode == 200) {
         // List<GetComplaintCategoryModel> complaint = List<GetComplaintCategoryModel>.from(response.data["complaints"].map((e) => GetComplaintCategoryModel.fromJson(e))).toList();
-        GetComplaintIdModel complainId = GetComplaintIdModel.fromJson(response.data["complaint"]);
 
+        List<GetComplaintStatus> complaintStatus = List<GetComplaintStatus>.from(response.data["complaints"].map((e) => GetComplaintStatus.fromJson(e))).toList();
         // List<GetComplaintCategoryModel> complaintCategory = List<GetComplaintCategoryModel>.from(response.data['complaintCategory'].map(e)) => GetComplaintCategoryModel.fromJson(model);
-        print(complainId);
-        return complainId;
+        print(complaintStatus);
+        return complaintStatus;
       } else {
         throw Exception('Error');
       }
