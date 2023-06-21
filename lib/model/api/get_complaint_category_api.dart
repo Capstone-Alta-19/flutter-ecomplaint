@@ -12,7 +12,7 @@ class GetComplaintCategoryApi {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? getToken = prefs.getString('token');
       prefs.containsKey('token');
-      var response = await dio.get("${AppUrl.baseUrl}/complaintz/complaint/category/$category",
+      var response = await dio.get("${AppUrl.getComplaintCategory}/$category",
           queryParameters: {
             "sort": sort,
           },

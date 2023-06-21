@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import '../../config/app_color.dart';
-import '../../widget/custom_card.dart';
-import '../../widget/interaction_card.dart';
-import '../../widget/isi_laporan_item.dart';
-import '../../widget/profile_card.dart';
-import '../../widget/segment_title.dart';
-import '../../widget/selengkapnya_button.dart';
-import 'laporan/komentar_page.dart';
+import '../../../config/app_color.dart';
+import '../../../widget/custom_card.dart';
+import '../../../widget/interaction_card.dart';
+import '../../../widget/isi_laporan_item.dart';
+import '../../../widget/profile_card.dart';
+import '../../../widget/segment_title.dart';
+import '../../../widget/selengkapnya_button.dart';
+import '../laporan/komentar_page.dart';
 
 List<String> list = <String>['Urutkan Berdasarkan', 'Terbaru', 'Terlama'];
 

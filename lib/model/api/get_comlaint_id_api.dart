@@ -12,7 +12,7 @@ class GetComplaintIdApi {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? getToken = prefs.getString('token');
       prefs.containsKey('token');
-      var response = await dio.get("${AppUrl.baseUrl}/complaintz/complaint/$id",
+      var response = await dio.get("${AppUrl.getComplaintId}/$id",
           options: Options(headers: {
             'Authorization': 'Bearer $getToken',
             'Content-type': 'application/json; charset=UTF-8',

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'config/app_color.dart';
+import '../../config/app_color.dart';
 
 class OtpPage extends StatefulWidget {
   const OtpPage({super.key});

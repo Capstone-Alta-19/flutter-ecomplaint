@@ -1,12 +1,12 @@
 import 'package:complainz/config/app_color.dart';
-import 'package:complainz/screen/ganti_profile_page.dart';
-import 'package:complainz/screen/komplain_tersimpan.dart';
+import 'package:complainz/screen/myAccount/ganti_profile_page.dart';
+import 'package:complainz/screen/myAccount/komplain_tersimpan.dart';
 import 'package:complainz/screen/login/loginregister_page.dart';
 import 'package:complainz/screen/status/riwayat_laporan_page.dart';
 import 'package:complainz/widget/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'register/ganti_password.dart';
+import '../register/ganti_password.dart';
 
 class MyAccount extends StatefulWidget {
   const MyAccount({super.key});

@@ -1,12 +1,8 @@
-// To parse this JSON data, do
-//
-//     final getAllNewsModel = getAllNewsModelFromJson(jsonString);
-
 import 'dart:convert';
 
-List<GetAllNewsModel> getAllNewsModelFromJson(String str) => List<GetAllNewsModel>.from(json.decode(str).map((x) => GetAllNewsModel.fromJson(x)));
+GetAllNewsModel getAllNewsModelFromJson(String str) => GetAllNewsModel.fromJson(json.decode(str));
 
-String getAllNewsModelToJson(List<GetAllNewsModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String getAllNewsModelToJson(GetAllNewsModel data) => json.encode(data.toJson());
 
 class GetAllNewsModel {
   int id;
