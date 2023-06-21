@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecomplaint/config/colors.dart';
+
+import '../../config/app_color.dart';
 
 class AboutUsPage extends StatelessWidget {
   const AboutUsPage({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class AboutUsPage extends StatelessWidget {
               Navigator.of(context).pop();
             },
           ),
-          title: Text(
+          title: const Text(
             'Tentang Kami',
             style: TextStyle(
               color: AppColors.font,
@@ -47,7 +48,7 @@ class AboutUsPage extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Text(
-                    'Complainz adalah sebuah aplikasi yang dirancang untuk memudahkan mahasiswa dalam memberikan laporan dan aspirasi terkait dengan keadaan di kampus. Dengan menggunakan aplikasi ini, pengguna dapat dengan mudah membuat laporan terkait masalah kampus seperti fasilitas yang rusak, kurangnya fasilitas, perilaku tidak etis dari staf atau dosen, atau hal-hal lainnya yang mempengaruhi kualitas hidup mahasiswa di kampus.  Aplikasi Complainz juga menyediakan fitur untuk memberikan aspirasi atau saran terkait dengan pembangunan kampus dan program-program yang diadakan di kampus. Mahasiswa dapat memberikan masukan terkait dengan hal-hal yang dianggap perlu diperbaiki atau diadakan di kampus. Dalam aplikasi ini, setiap laporan atau aspirasi akan disimpan secara rapih dan dilengkapi dengan data waktu dan lokasi yang terdeteksi oleh perangkat pengguna. Hal ini akan memudahkan pihak kampus dalam mengidentifikasi dan menyelesaikan masalah yang dilaporkan oleh mahasiswa. Complainz juga memiliki fitur untuk melacak status laporan atau aspirasi yang telah diajukan oleh pengguna. Dengan demikian, pengguna dapat mengetahui apakah laporan atau aspirasinya',
+                    'Complainz adalah sebuah aplikasi yang dirancang untuk memudahkan mahasiswa dalam memberikan laporan dan aspirasi terkait dengan keadaan di kampus. Dengan menggunakan aplikasi ini, pengguna dapat dengan mudah membuat laporan terkait masalah kampus seperti fasilitas yang rusak, kurangnya fasilitas, perilaku tidak etis dari staf atau dosen, atau hal-hal lainnya yang mempengaruhi kualitas hidup mahasiswa di kampus. Aplikasi Complainz juga menyediakan fitur untuk memberikan aspirasi atau saran terkait dengan pembangunan kampus dan program-program yang diadakan di kampus. Mahasiswa dapat memberikan masukan terkait dengan hal-hal yang dianggap perlu diperbaiki atau diadakan di kampus. Dalam aplikasi ini, setiap laporan atau aspirasi akan disimpan secara rapih dan dilengkapi dengan data waktu dan lokasi yang terdeteksi oleh perangkat pengguna. Hal ini akan memudahkan pihak kampus dalam mengidentifikasi dan menyelesaikan masalah yang dilaporkan oleh mahasiswa. Complainz juga memiliki fitur untuk melacak status laporan atau aspirasi yang telah diajukan oleh pengguna. Dengan demikian, pengguna dapat mengetahui apakah laporan atau aspirasinya',
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 12,
