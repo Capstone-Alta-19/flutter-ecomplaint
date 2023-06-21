@@ -74,8 +74,13 @@ class _RiwayatLaporanPageState extends State<RiwayatLaporanPage> {
                       const SizedBox(
                         height: 36.5,
                       ),
+                      if (provider.isLoading == false && provider.complaintStatus.isEmpty)
+                        const SizedBox(
+                          height: 50,
+                          child: Center(child: Text("Data Kosong")),
+                        ),
                       if (provider.isLoading == true) const SizedBox(height: 500, child: Center(child: CircularProgressIndicator())),
-                      if (provider.isLoading == false)
+                      if (provider.isLoading == false && provider.complaintStatus.isNotEmpty)
                         ListView.builder(
                           shrinkWrap: true,
                           physics: const ScrollPhysics(),

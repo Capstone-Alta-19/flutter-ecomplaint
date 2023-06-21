@@ -50,13 +50,13 @@ class SegmentTitleTwoLine extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (onPressed != null)
+          if (onPressed == null)
             IconButton(
                 icon: const ImageIcon(AssetImage("assets/icons/arrow-back.png")),
                 onPressed: () {
                   Navigator.pop(context);
                 }),
-          if (onPressed == null) IconButton(icon: const ImageIcon(AssetImage("assets/icons/arrow-back.png")), onPressed: onPressed),
+          if (onPressed != null) IconButton(icon: const ImageIcon(AssetImage("assets/icons/arrow-back.png")), onPressed: onPressed),
           SizedBox(
             width: 260,
             child: Text(

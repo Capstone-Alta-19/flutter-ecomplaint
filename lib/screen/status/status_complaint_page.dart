@@ -1,5 +1,7 @@
 import 'package:complainz/widget/segment_title.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../Provider/get_complaint_status_provider.dart';
 import '../../config/app_color.dart';
 import 'detail_status_complaint.dart';
 
@@ -29,7 +31,11 @@ class _StatusComplaintState extends State<StatusComplaint> {
                     title: "Status Complaint",
                     onPressed: () {
                       Navigator.pop(context);
-                      setState(() {});
+                      setState(() {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          Provider.of<GetComplaintStatusViewModel>(context, listen: false).getResultCompaintStatus(status: "All");
+                        });
+                      });
                     }),
                 const SizedBox(height: 30),
                 const Text(

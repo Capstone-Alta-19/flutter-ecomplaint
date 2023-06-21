@@ -4,6 +4,7 @@ import 'package:complainz/Provider/get_complaint_status_provider.dart';
 import 'package:complainz/screen/splash_screen_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'Provider/delete_complaint_id_provider.dart';
 import 'config/app_color.dart';
 import 'Provider/bottom_navbar_provider.dart';
 
@@ -42,6 +43,7 @@ class MyAppState extends State<MyApp> {
           ChangeNotifierProvider<GetComplaintCategoryViewModel>(create: (_) => GetComplaintCategoryViewModel()),
           ChangeNotifierProvider<GetComplaintIdViewModel>(create: (_) => GetComplaintIdViewModel()),
           ChangeNotifierProvider<GetComplaintStatusViewModel>(create: (_) => GetComplaintStatusViewModel()),
+          ChangeNotifierProvider<DeleteComplaintIdViewModel>(create: (_) => DeleteComplaintIdViewModel()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
