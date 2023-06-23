@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'Provider/delete_complaint_id_provider.dart';
 import 'Provider/get_news_id_provider.dart';
+import 'Provider/login_provider.dart';
 import 'config/app_color.dart';
 import 'Provider/bottom_navbar_provider.dart';
 
@@ -35,6 +36,7 @@ class MyAppState extends State<MyApp> {
           ChangeNotifierProvider<DeleteComplaintIdViewModel>(create: (_) => DeleteComplaintIdViewModel()),
           ChangeNotifierProvider<GetAllNewsViewModel>(create: (_) => GetAllNewsViewModel()),
           ChangeNotifierProvider<GetNewsIdViewModel>(create: (_) => GetNewsIdViewModel()),
+          ChangeNotifierProvider<LoginViewModel>(create: (_) => LoginViewModel()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

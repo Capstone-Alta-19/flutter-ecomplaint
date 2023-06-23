@@ -1,38 +1,40 @@
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../config/app_url.dart';
+import '../../config/app_url.dart';
 
 enum LoginStatus { success, failed }
 
-Dio dio = Dio();
+class LoginApi {
+  Dio dio = Dio();
 
-Future<LoginStatus> login(
-  String usernameEmail,
-  String password,
-) async {
-  dynamic data = {
-    "username_or_email": usernameEmail,
-    "password": password,
-  };
-  try {
-    var response = await dio.post(AppUrl.login,
-        data: data,
-        options: Options(headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        }));
-    if (response.statusCode == 200) {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.setString('token', response.data['user']['token']);
-      return LoginStatus.success;
-    } else {
+  Future<LoginStatus> login({
+    required String usernameEmail,
+    required String password,
+  }) async {
+    dynamic data = {
+      "username_or_email": usernameEmail,
+      "password": password,
+    };
+    try {
+      var response = await dio.post(AppUrl.login,
+          data: data,
+          options: Options(headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          }));
+      if (response.statusCode == 200) {
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        print(response.data);
+        await prefs.setString('token', response.data['user']['token']);
+        return LoginStatus.success;
+      } else {
+        return LoginStatus.failed;
+      }
+    } on DioException {
       return LoginStatus.failed;
     }
-  } on DioException {
-    return LoginStatus.failed;
   }
 }
- 
 
 // import 'package:dio/dio.dart';
 // import 'package:flutter_ecomplaint/config/app_url.dart';

@@ -1,7 +1,9 @@
+import 'package:complainz/Provider/login_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 // import 'package:intl/intl.dart';
 import '../../config/app_color.dart';
-import '../../model/auth.dart';
+import '../../model/api/login.dart';
 import '../../widget/account_question_button.dart';
 import '../bottom_navbar.dart';
 import '../register/register_page.dart';
@@ -30,15 +32,34 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _checkFormStatus() {
-    setState(() {
-      _isFormFilled = usernameEmailController.text.isNotEmpty;
-      _isFormFilled = passwordController.text.isNotEmpty;
-    });
+    if (usernameEmailController.text.isNotEmpty && passwordController.text.isNotEmpty) {
+      setState(() {
+        _isFormFilled = true;
+      });
+    } else {
+      setState(() {
+        _isFormFilled = false;
+      });
+    }
   }
 
   void _submitForm() async {
-    await login(usernameEmailController.text, passwordController.text).then((value) {
-      if (value == LoginStatus.success) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<LoginViewModel>(context, listen: false).loginResultApi(username: usernameEmailController.text, password: passwordController.text);
+      LoginViewModel provider = Provider.of<LoginViewModel>(context, listen: false);
+      if (provider.isLoading) {
+        setState(() {
+          _isFormFilled = false;
+        });
+      }
+      if (!provider.isLogin) {
+        setState(() {
+          _isFormFilled = true;
+        });
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Username atau password salah")));
+      }
+
+      if (provider.isLogin) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Login Berhasil")));
         Navigator.of(context).push(
           PageRouteBuilder(
@@ -57,8 +78,6 @@ class _LoginPageState extends State<LoginPage> {
                 );
               }),
         );
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Username atau password salah")));
       }
     });
   }
