@@ -1,7 +1,10 @@
+import 'dart:typed_data';
+
 import 'package:complainz/Provider/get_complaint_category_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:provider/provider.dart';
+import 'package:video_thumbnail/video_thumbnail.dart';
 import '../../config/app_color.dart';
 import '../../widget/custom_card.dart';
 import '../../widget/interaction_card.dart';
@@ -30,11 +33,21 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
     });
   }
 
+  Future<Uint8List> getVideoThumbnail(String videoUrl) async {
+    final thumbnail = await VideoThumbnail.thumbnailData(
+      video: videoUrl,
+      imageFormat: ImageFormat.PNG,
+      quality: 100,
+    );
+    return thumbnail!;
+  }
+
   String dropdownValue = list.first;
 
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<GetComplaintCategoryViewModel>(context);
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(0),
@@ -164,6 +177,7 @@ class _IsiBeritaLaporanPageState extends State<IsiBeritaLaporanPage> {
                                     ),
                                     const SizedBox(height: 8),
                                     IsiLaporanItem(
+                                      video: result.videoUrl,
                                       imageComplaint: result.photoUrl,
                                       laporan: result.description,
                                       tanggapan: result.feedback,

@@ -488,6 +488,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "video_thumbnail",
+      "rootUri": "file:///C:/Users/Aditia%20Surya%20Putra/AppData/Local/Pub/Cache/hosted/pub.dev/video_thumbnail-0.5.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
       "name": "widget_event",
       "rootUri": "file:///C:/Users/Aditia%20Surya%20Putra/AppData/Local/Pub/Cache/hosted/pub.dev/widget_event-1.2.5",
       "packageUri": "lib/",
@@ -512,7 +518,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-06-21T20:10:52.511684Z",
+  "generated": "2023-06-23T16:00:22.917141Z",
   "generator": "pub",
   "generatorVersion": "2.19.2"
 }

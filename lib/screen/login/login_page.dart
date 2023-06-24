@@ -25,10 +25,6 @@ class _LoginPageState extends State<LoginPage> {
   void initState() {
     super.initState();
     _passwordVisible = true;
-
-    // String date = "2023-06-11T23:22:13.944+07:00";
-    // String formattedDate = DateFormat('dd/MM/yyyy').format(DateTime.parse(date));
-    // print(formattedDate);
   }
 
   void _checkFormStatus() {

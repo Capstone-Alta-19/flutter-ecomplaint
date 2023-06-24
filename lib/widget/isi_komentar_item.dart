@@ -10,12 +10,6 @@ class IsiKomentarItem extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          /*  decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(30),
-              topRight: Radius.circular(30),
-            ),
-          ), */
           width: double.maxFinite,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
