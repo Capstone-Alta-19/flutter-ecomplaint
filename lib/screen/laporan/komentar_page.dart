@@ -28,17 +28,6 @@ class _KomentarPageState extends State<KomentarPage> {
     });
   }
 
-  Future<Uint8List> fecthVideoThumbnail() async {
-    final Uint8List thumnail = await VideoThumbnail.thumbnailFile(
-      video: "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4",
-      thumbnailPath: "assets/thumbnai",
-      imageFormat: ImageFormat.PNG,
-      quality: 75,
-    );
-    Uint8List video = thumnail;
-    return thumnail!;
-  }
-
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<GetComplaintIdViewModel>(context);
@@ -82,7 +71,6 @@ class _KomentarPageState extends State<KomentarPage> {
                                   imageComplaint: provider.complaintId!.photoUrl,
                                   laporan: provider.complaintId!.description,
                                   tanggapan: provider.complaintId!.feedback,
-                                  video: fecthVideoThumbnail().toString(),
                                 ),
                               ],
                             ),
