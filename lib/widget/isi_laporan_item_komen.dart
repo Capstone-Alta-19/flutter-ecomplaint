@@ -1,8 +1,15 @@
+import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:complainz/screen/laporan/video_player.dart';
+import 'package:complainz/screen/login/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:video_player/video_player.dart';
+import 'package:video_thumbnail/video_thumbnail.dart';
 
 import '../config/app_color.dart';
+import '../screen/laporan/webview.dart';
 
 class IsiLaporanItemKomen extends StatelessWidget {
   final String laporan;
@@ -10,6 +17,21 @@ class IsiLaporanItemKomen extends StatelessWidget {
   final String? imageComplaint;
   final String? video;
   const IsiLaporanItemKomen({super.key, required this.laporan, required this.tanggapan, this.imageComplaint, this.video});
+
+  Future<String?> generateThumbnail() async {
+    if (video == null) return null;
+
+    final thumbnailPath = await VideoThumbnail.thumbnailFile(
+      video: "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4",
+      thumbnailPath: (await getTemporaryDirectory()).path,
+      imageFormat: ImageFormat.JPEG,
+      maxHeight: 64,
+      maxWidth: 64,
+      quality: 100,
+    );
+
+    return thumbnailPath;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,12 +72,40 @@ class IsiLaporanItemKomen extends StatelessWidget {
                             ),
                           if (video != null)
                             Container(
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                              height: 63.5,
-                              width: 63.5,
-                              child: Image.memory(fit: BoxFit.cover, video! as Uint8List),
-                            ),
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                                height: 63.5,
+                                width: 63.5,
+                                child: FutureBuilder(
+                                  future: generateThumbnail(),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.connectionState == ConnectionState.waiting) {
+                                      return CircularProgressIndicator();
+                                    } else if (snapshot.hasError) {
+                                      return InkWell(
+                                          onTap: () {
+                                            Navigator.push(context, MaterialPageRoute(builder: (context) => WebViewExample()));
+                                          },
+                                          child: Image.asset(fit: BoxFit.cover, "assets/images/video-thumb.png"));
+                                    } else if (snapshot.data != null) {
+                                      return InkWell(
+                                        onTap: () {
+                                          Navigator.push(context, MaterialPageRoute(builder: (context) => WebViewExample()));
+                                        },
+                                        child: Stack(children: [
+                                          Positioned(height: 63.5, width: 63.5, child: Image.file(fit: BoxFit.fill, File(snapshot.data!))),
+                                          Positioned(height: 63.5, width: 63.5, child: Icon(color: Colors.white, size: 30, Icons.play_arrow_rounded)),
+                                        ]),
+                                      );
+                                    } else {
+                                      return InkWell(
+                                          onTap: () {
+                                            Navigator.push(context, MaterialPageRoute(builder: (context) => WebViewExample()));
+                                          },
+                                          child: Image.asset(fit: BoxFit.cover, "assets/images/video-thumb.png"));
+                                    }
+                                  },
+                                )),
                         ],
                       ),
                     ),

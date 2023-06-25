@@ -40,42 +40,42 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _submitForm() async {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<LoginViewModel>(context, listen: false).loginResultApi(username: usernameEmailController.text, password: passwordController.text);
-      LoginViewModel provider = Provider.of<LoginViewModel>(context, listen: false);
-      if (provider.isLoading) {
-        setState(() {
-          _isFormFilled = false;
-        });
-      }
-      if (!provider.isLogin) {
-        setState(() {
-          _isFormFilled = true;
-        });
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Username atau password salah")));
-      }
+    // Provider.of<LoginViewModel>(context, listen: false).loginResultApi(username: usernameEmailController.text, password: passwordController.text);
 
-      if (provider.isLogin) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Login Berhasil")));
-        Navigator.of(context).push(
-          PageRouteBuilder(
-              pageBuilder: (context, animation, secondaryAnimation) {
-                return BottomNavigationBrWidget();
-              },
-              transitionDuration: const Duration(milliseconds: 300),
-              transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                final tween = Tween(
-                  begin: const Offset(2, 0),
-                  end: Offset.zero,
-                );
-                return SlideTransition(
-                  position: animation.drive(tween),
-                  child: child,
-                );
-              }),
-        );
-      }
-    });
+    LoginViewModel provider = Provider.of<LoginViewModel>(context, listen: false);
+    await provider.loginResultApi(username: usernameEmailController.text, password: passwordController.text);
+    if (provider.isLoading) {
+      setState(() {
+        _isFormFilled = false;
+      });
+    }
+    if (!provider.isLoading && !provider.isLogin) {
+      setState(() {
+        _isFormFilled = true;
+      });
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Username atau password salah")));
+    }
+    if (!provider.isLoading && provider.isLogin) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Login Berhasil")));
+      Navigator.of(context).push(
+        PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) {
+              return BottomNavigationBrWidget();
+            },
+            transitionDuration: const Duration(milliseconds: 300),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              final tween = Tween(
+                begin: const Offset(2, 0),
+                end: Offset.zero,
+              );
+              return SlideTransition(
+                position: animation.drive(tween),
+                child: child,
+              );
+            }),
+      );
+    }
+    ;
   }
 
   @override
