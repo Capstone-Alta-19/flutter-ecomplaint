@@ -1,16 +1,13 @@
 import 'package:complainz/Provider/get_complaint_category_provider.dart';
 import 'package:complainz/Provider/get_complaint_id_provider.dart';
-import 'package:complainz/model/auth.dart';
-import 'package:complainz/screen/berita/berita_terkini_page.dart';
-import 'package:complainz/screen/laporan/berita_laporan_page.dart';
-import 'package:complainz/screen/laporan/isi_berita_laporan_page.dart';
-import 'package:complainz/screen/login/login_page.dart';
+import 'package:complainz/Provider/register_provider.dart';
+import 'package:complainz/model/api/register_api_provider.dart';
 import 'package:complainz/screen/splash_screen_page.dart';
-import 'package:complainz/screen/status/riwayat_laporan_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'Provider/create_aspirasi_provider.dart';
+import 'Provider/create_complaint_provider.dart';
 import 'config/app_color.dart';
-import 'screen/bottom_navbar.dart';
 import 'Provider/bottom_navbar_provider.dart';
 
 /* Future<void> main() async {
@@ -44,9 +41,18 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          ChangeNotifierProvider<BottomNavigationBarProvider>(create: (_) => BottomNavigationBarProvider()),
-          ChangeNotifierProvider<GetComplaintCategoryViewModel>(create: (_) => GetComplaintCategoryViewModel()),
-          ChangeNotifierProvider<GetComplaintIdViewModel>(create: (_) => GetComplaintIdViewModel()),
+          ChangeNotifierProvider<BottomNavigationBarProvider>(
+              create: (_) => BottomNavigationBarProvider()),
+          ChangeNotifierProvider<CreateRegisterViewModel>(
+              create: (_) => CreateRegisterViewModel()),
+          ChangeNotifierProvider<GetComplaintCategoryViewModel>(
+              create: (_) => GetComplaintCategoryViewModel()),
+          ChangeNotifierProvider<GetComplaintIdViewModel>(
+              create: (_) => GetComplaintIdViewModel()),
+          ChangeNotifierProvider<CreateComplaintViewModel>(
+              create: (_) => CreateComplaintViewModel()),
+          ChangeNotifierProvider<CreateAspirasiViewModel>(
+              create: (_) => CreateAspirasiViewModel()),
         ],
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
@@ -63,7 +69,7 @@ class MyAppState extends State<MyApp> {
                 )),
             /* home: const HomeScreen(
           key: ValueKey('Home Screen'), title: 'Flutter Demo Home Page'), */
-            home: SplashScreen()
+            home: const SplashScreen()
             /* routes: {
         "/add_post": (context) => AddPostScreen(),
       }, */

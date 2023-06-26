@@ -4,10 +4,17 @@ import '../../config/app_url.dart';
 
 Dio dio = Dio();
 
-Future postData(String username, String email, String phone, String password, String confirm_password) async {
+Future postData(String username, String email, String phone, String password,
+    String confirm_password) async {
   //final String pathUrl = 'http://178.128.210.192:8080/register/user';
 
-  dynamic data = {"username": username, "email": email, "phone": phone, "password": password, "confirm_password": confirm_password};
+  dynamic data = {
+    "username": username,
+    "email": email,
+    "phone": phone,
+    "password": password,
+    "confirm_password": confirm_password,
+  };
 
   var response = await dio.post(AppUrl.register,
       data: data,

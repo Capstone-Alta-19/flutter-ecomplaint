@@ -13,6 +13,7 @@ class TextArea extends StatelessWidget {
   final BorderRadius borderRadius;
   final InkWell icons1;
   final InkWell icons2;
+  final TextEditingController controller;
 
   const TextArea({
     super.key,
@@ -27,6 +28,7 @@ class TextArea extends StatelessWidget {
     required this.borderRadius,
     required this.icons1,
     required this.icons2,
+    required this.controller,
   });
 
   @override
@@ -36,6 +38,7 @@ class TextArea extends StatelessWidget {
       child: Stack(
         children: [
           TextFormField(
+            controller: controller,
             maxLines: maxLine,
             minLines: minLine,
             keyboardType: typeKeyboard,

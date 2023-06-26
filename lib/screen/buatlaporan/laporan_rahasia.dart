@@ -15,7 +15,9 @@ class _LaporanRahasiaState extends State<LaporanRahasia> {
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.pop(context);
+          },
           child: const ImageIcon(
               size: 50,
               AssetImage(
