@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
 import '../config/app_color.dart';
 
@@ -10,13 +13,19 @@ class IsiLaporanItem extends StatelessWidget {
   final String? video;
   const IsiLaporanItem({super.key, required this.laporan, required this.tanggapan, this.imageComplaint, this.video});
 
-  Future<Uint8List> getVideoThumbnail(String videoUrl) async {
-    final thumbnail = await VideoThumbnail.thumbnailData(
-      video: videoUrl,
-      imageFormat: ImageFormat.PNG,
+  Future<String?> generateThumbnail() async {
+    if (video == null) return null;
+
+    final thumbnailPath = await VideoThumbnail.thumbnailFile(
+      video: video!,
+      thumbnailPath: (await getTemporaryDirectory()).path,
+      imageFormat: ImageFormat.JPEG,
+      maxHeight: 64,
+      maxWidth: 64,
       quality: 100,
     );
-    return thumbnail!;
+
+    return thumbnailPath;
   }
 
   @override
@@ -57,12 +66,27 @@ class IsiLaporanItem extends StatelessWidget {
                             ),
                           if (video != null)
                             Container(
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                              height: 63.5,
-                              width: 63.5,
-                              child: Image.asset("assets/images/video-thumb.png"),
-                            ),
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                                height: 63.5,
+                                width: 63.5,
+                                child: FutureBuilder(
+                                  future: generateThumbnail(),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.connectionState == ConnectionState.waiting) {
+                                      return Image.asset(fit: BoxFit.cover, "assets/images/video-thumb.png");
+                                    } else if (snapshot.hasError) {
+                                      return Image.asset(fit: BoxFit.cover, "assets/images/video-thumb.png");
+                                    } else if (snapshot.data != null) {
+                                      return Stack(children: [
+                                        Positioned(height: 63.5, width: 63.5, child: Image.file(fit: BoxFit.fill, File(snapshot.data!))),
+                                        Positioned(height: 63.5, width: 63.5, child: Icon(color: Colors.white, size: 30, Icons.play_arrow_rounded)),
+                                      ]);
+                                    } else {
+                                      return Image.asset(fit: BoxFit.cover, "assets/images/video-thumb.png");
+                                    }
+                                  },
+                                )),
                           // FutureBuilder<Uint8List>(
                           //   future: getVideoThumbnail(video!), // Mendapatkan video thumbnail
                           //   builder: (context, snapshot) {

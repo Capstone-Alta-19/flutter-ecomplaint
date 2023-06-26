@@ -68,12 +68,7 @@ class MyAppState extends State<MyApp> {
                 backgroundColor: AppColors.secondary100,
                 surfaceTintColor: Colors.transparent,
               )),
-          /* home: const HomeScreen(
-          key: ValueKey('Home Screen'), title: 'Flutter Demo Home Page'), */
           home: const SplashScreen(),
-          /* routes: {
-        "/add_post": (context) => AddPostScreen(),
-      }, */
         ));
   }
 }
