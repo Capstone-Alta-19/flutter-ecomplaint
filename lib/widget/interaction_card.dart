@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
 import '../config/app_color.dart';
-import '../screen/laporan/komentar_page.dart';
 
 class InteractionCard extends StatelessWidget {
   final jumlahLike;
@@ -40,8 +39,8 @@ class InteractionCard extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 7.0, right: 9.0),
                         child: InkWell(
-                          child: const ImageIcon(size: 24, AssetImage("assets/icons/Chat-alt.png")),
                           onTap: onPressed,
+                          child: const ImageIcon(size: 24, AssetImage("assets/icons/Chat-alt.png")),
                         ),
                       ),
                       InkWell(
@@ -70,8 +69,8 @@ class InteractionCard extends StatelessWidget {
             const SizedBox(height: 12),
             RichText(
               text: TextSpan(children: [
-                TextSpan(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.font), text: jumlahLike),
-                TextSpan(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.font), text: "Likes"),
+                TextSpan(style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.font), text: jumlahLike),
+                const TextSpan(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.font), text: "Likes"),
               ]),
             )
           ],

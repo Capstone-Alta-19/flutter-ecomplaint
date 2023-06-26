@@ -125,14 +125,11 @@ class _CreateAccountState extends State<CreateAccount> {
                         onTap: () {
                           Navigator.of(context).push(
                             PageRouteBuilder(
-                                pageBuilder:
-                                    (context, animation, secondaryAnimation) {
+                                pageBuilder: (context, animation, secondaryAnimation) {
                                   return const Homepage();
                                 },
-                                transitionDuration:
-                                    const Duration(milliseconds: 300),
-                                transitionsBuilder: (context, animation,
-                                    secondaryAnimation, child) {
+                                transitionDuration: const Duration(milliseconds: 300),
+                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                   final tween = Tween(
                                     begin: const Offset(2, 0),
                                     end: Offset.zero,
@@ -156,14 +153,6 @@ class _CreateAccountState extends State<CreateAccount> {
                       const SizedBox(height: 22),
                       ElevatedButton(
                         onPressed: () {},
-                        child: const Text(
-                          'Daftar',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0XFF3C486B),
                           shadowColor: const Color(0XFFE5E5E5),
@@ -171,6 +160,14 @@ class _CreateAccountState extends State<CreateAccount> {
                             borderRadius: BorderRadius.circular(30),
                           ),
                           minimumSize: const Size(358, 40),
+                        ),
+                        child: const Text(
+                          'Daftar',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
                       ),
                     ],

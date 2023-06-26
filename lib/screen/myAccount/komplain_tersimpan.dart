@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import '../../config/app_color.dart';
-import '../../widget/custom_card.dart';
-import '../../widget/interaction_card.dart';
-import '../../widget/isi_laporan_item.dart';
-import '../../widget/profile_card.dart';
-import '../../widget/segment_title.dart';
-import '../../widget/selengkapnya_button.dart';
-import 'laporan/komentar_page.dart';
+import '../../../config/app_color.dart';
+import '../../../widget/custom_card.dart';
+import '../../../widget/interaction_card.dart';
+import '../../../widget/isi_laporan_item.dart';
+import '../../../widget/profile_card.dart';
+import '../../../widget/segment_title.dart';
+import '../../../widget/selengkapnya_button.dart';
+import '../laporan/komentar_page.dart';
 
 List<String> list = <String>['Urutkan Berdasarkan', 'Terbaru', 'Terlama'];
 
@@ -115,9 +115,7 @@ class _KomplainTersimpanState extends State<KomplainTersimpan> {
                                       Navigator.of(context).push(
                                         PageRouteBuilder(
                                             pageBuilder: (context, animation, secondaryAnimation) {
-                                              return const KomentarPage(
-                                                id: 1,
-                                              );
+                                              return const KomentarPage(id: 1);
                                             },
                                             transitionDuration: const Duration(milliseconds: 300),
                                             transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -142,7 +140,7 @@ class _KomplainTersimpanState extends State<KomplainTersimpan> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => KomentarPage(
+                                    builder: (context) => const KomentarPage(
                                           id: 1,
                                         )));
                           },

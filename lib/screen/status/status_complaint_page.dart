@@ -1,11 +1,13 @@
 import 'package:complainz/widget/segment_title.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../Provider/get_complaint_status_provider.dart';
 import '../../config/app_color.dart';
-import '../../widget/segment_title_without_back.dart';
 import 'detail_status_complaint.dart';
 
 class StatusComplaint extends StatefulWidget {
-  const StatusComplaint({super.key});
+  final String status;
+  const StatusComplaint({super.key, required this.status});
 
   @override
   State<StatusComplaint> createState() => _StatusComplaintState();
@@ -25,7 +27,16 @@ class _StatusComplaintState extends State<StatusComplaint> {
           child: Center(
             child: Column(
               children: [
-                const SegmentTitleTwoLine(title: "Status Complaint"),
+                SegmentTitleTwoLine(
+                    title: "Status Complaint",
+                    onPressed: () {
+                      Navigator.pop(context);
+                      setState(() {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          Provider.of<GetComplaintStatusViewModel>(context, listen: false).getResultCompaintStatus(status: "All");
+                        });
+                      });
+                    }),
                 const SizedBox(height: 30),
                 const Text(
                     style: TextStyle(
@@ -35,18 +46,39 @@ class _StatusComplaintState extends State<StatusComplaint> {
                     ),
                     "Click untuk melihat detail"),
                 const SizedBox(height: 13),
-                ComplaintDijawab(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DetailStatusComplaint(
-                                  idComplaint: 1,
-                                  statusComplaint: status.dijawab,
-                                )));
-                  },
-                ),
-                const SizedBox(height: 13),
+                if (widget.status == "Pending")
+                  ComplaintDiterima(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DetailStatusComplaint(
+                                    status: type.diterma,
+                                  )));
+                    },
+                  ),
+                if (widget.status == "Proccess")
+                  ComplaintDiproses(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DetailStatusComplaint(
+                                    status: type.diproses,
+                                  )));
+                    },
+                  ),
+                if (widget.status == "Resolved")
+                  ComplaintDijawab(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DetailStatusComplaint(
+                                    status: type.dijawab,
+                                  )));
+                    },
+                  ),
               ],
             ),
           ),
@@ -100,7 +132,6 @@ class ComplaintDiproses extends StatelessWidget {
         child: Column(
           children: [
             InkWell(
-              onTap: onPressed,
               child: Image.asset(width: 322, height: 100, "assets/logo/Complain Diterima.png"),
             ),
             Padding(

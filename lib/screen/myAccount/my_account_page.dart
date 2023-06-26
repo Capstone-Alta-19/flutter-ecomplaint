@@ -1,12 +1,13 @@
 import 'package:complainz/config/app_color.dart';
-import 'package:complainz/screen/ganti_profile_page.dart';
-import 'package:complainz/screen/komplain_tersimpan.dart';
+import 'package:complainz/screen/myAccount/about_page.dart';
+import 'package:complainz/screen/myAccount/ganti_profile_page.dart';
+import 'package:complainz/screen/myAccount/komplain_tersimpan.dart';
 import 'package:complainz/screen/login/loginregister_page.dart';
 import 'package:complainz/screen/status/riwayat_laporan_page.dart';
 import 'package:complainz/widget/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'register/ganti_password.dart';
+import '../register/ganti_password.dart';
 
 class MyAccount extends StatefulWidget {
   const MyAccount({super.key});
@@ -243,7 +244,7 @@ class _MyAccountState extends State<MyAccount> {
                         const SizedBox(height: 36),
                         InkWell(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => GantiProfile()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const GantiProfile()));
                           },
                           child: Row(
                             children: const [
@@ -281,26 +282,31 @@ class _MyAccountState extends State<MyAccount> {
                   ),
                 ),
                 const SizedBox(height: 8),
-                Container(
-                  padding: const EdgeInsets.only(left: 12, right: 12),
-                  decoration: BoxDecoration(
-                    color: Colors.transparent,
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  width: 366,
-                  height: 72,
-                  child: Card(
-                    child: Row(
-                      //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        Padding(padding: EdgeInsets.only(left: 34)),
-                        ImageIcon(AssetImage('assets/icons/Info_icon.png')),
-                        Padding(padding: EdgeInsets.only(left: 30)),
-                        Text(
-                          'Tentang Kami',
-                          style: TextStyle(color: AppColors.primary, fontSize: 20, fontWeight: FontWeight.w700),
-                        ),
-                      ],
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutUsPage()));
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.only(left: 12, right: 12),
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    width: 366,
+                    height: 72,
+                    child: Card(
+                      child: Row(
+                        //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: const [
+                          Padding(padding: EdgeInsets.only(left: 34)),
+                          ImageIcon(AssetImage('assets/icons/Info_icon.png')),
+                          Padding(padding: EdgeInsets.only(left: 30)),
+                          Text(
+                            'Tentang Kami',
+                            style: TextStyle(color: AppColors.primary, fontSize: 20, fontWeight: FontWeight.w700),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

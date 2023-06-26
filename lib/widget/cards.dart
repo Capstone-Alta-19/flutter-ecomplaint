@@ -34,11 +34,11 @@ class Cards extends StatelessWidget {
               flex: flex1,
               child: Container(
                 padding: paddingImage,
-                //padding: const EdgeInsets.only(left: 10),
-                child: assets,
                 //fit: BoxFit.cover,
                 width: 106,
                 height: 99.7,
+                //padding: const EdgeInsets.only(left: 10),
+                child: assets,
               ),
             ),
             Expanded(
@@ -48,7 +48,7 @@ class Cards extends StatelessWidget {
                 //padding: const EdgeInsets.only(left: 24, right: 10),
                 child: Text(
                   cardText,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: AppColors.primary,
                     fontSize: 32,
                     fontWeight: FontWeight.w600,
@@ -137,10 +137,10 @@ class CustomCards extends StatelessWidget {
               flex: flexImage,
               child: Container(
                 padding: const EdgeInsets.only(right: 10),
-                child: assets,
                 //fit: BoxFit.cover,
                 width: 106,
                 height: 99.7,
+                child: assets,
               ),
             ),
           ],

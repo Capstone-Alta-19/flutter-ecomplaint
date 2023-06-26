@@ -1,10 +1,12 @@
+import 'dart:typed_data';
+
 import 'package:complainz/Provider/get_complaint_id_provider.dart';
-import 'package:complainz/config/app_color.dart';
 import 'package:complainz/widget/isi_laporan_item_komen.dart';
 import 'package:complainz/widget/profile_card_komen_item.dart';
 import 'package:complainz/widget/segment_title.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:video_thumbnail/video_thumbnail.dart';
 
 import '../../widget/custom_card.dart';
 import '../../widget/isi_komentar_item.dart';
@@ -158,6 +160,13 @@ class _KomentarPageState extends State<KomentarPage> {
                   ],
                 ),
               ),
+              Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: InkWell(
+                    onTap: () {},
+                    child: const ImageIcon(
+                        AssetImage('assets/icons/ButtonComment.png')),
+                  )),
             ],
           ),
         ),

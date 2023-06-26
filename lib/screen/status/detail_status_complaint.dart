@@ -2,24 +2,20 @@ import 'package:complainz/screen/status/edit_status_complaint_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../config/app_color.dart';
-import '../../widget/custom_alert_dialog.dart';
-import '../../widget/custom_dialog.dart';
 import '../../widget/segment_title.dart';
 
-enum status { diterma, diproses, dijawab }
+enum type { diterma, diproses, dijawab }
 
 class DetailStatusComplaint extends StatefulWidget {
-  final status statusComplaint;
-  final idComplaint;
+  final type status;
 
-  DetailStatusComplaint({super.key, required this.statusComplaint, required this.idComplaint});
+  const DetailStatusComplaint({super.key, required this.status});
 
   @override
   State<DetailStatusComplaint> createState() => _DetailStatusComplaintState();
 }
 
 class _DetailStatusComplaintState extends State<DetailStatusComplaint> {
-  final damn = "terima";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,35 +33,94 @@ class _DetailStatusComplaintState extends State<DetailStatusComplaint> {
               const SizedBox(
                 height: 37,
               ),
-              if (damn == "jawab") const DetailDijawab(),
-              if (damn == "proses") const DetailDiproses(),
-              if (damn == "terima") const DetailDijawab(),
+              if (widget.status == type.diterma) const DetailDiterima(),
+              if (widget.status == type.diproses) const DetailDiproses(),
+              if (widget.status == type.dijawab) const DetailDijawab(),
               const SizedBox(height: 160),
-              FilledButton(
-                  style: const ButtonStyle(
-                    minimumSize: MaterialStatePropertyAll(Size(358, 40)),
-                    backgroundColor: MaterialStatePropertyAll(AppColors.primary),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) {
-                            return const EditStatusComplaint();
-                          },
-                          transitionDuration: const Duration(milliseconds: 300),
-                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                            final tween = Tween(
-                              begin: const Offset(2, 0),
-                              end: Offset.zero,
-                            );
-                            return SlideTransition(
-                              position: animation.drive(tween),
-                              child: child,
-                            );
-                          }),
-                    );
-                  },
-                  child: const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: AppColors.secondary100), "Edit laporan")),
+              if (widget.status == type.diterma)
+                FilledButton(
+                    style: const ButtonStyle(
+                      minimumSize: MaterialStatePropertyAll(Size(358, 40)),
+                      backgroundColor: MaterialStatePropertyAll(AppColors.primary),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        PageRouteBuilder(
+                            pageBuilder: (context, animation, secondaryAnimation) {
+                              return const EditStatusComplaint(
+                                status: Type.pending,
+                              );
+                            },
+                            transitionDuration: const Duration(milliseconds: 300),
+                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                              final tween = Tween(
+                                begin: const Offset(2, 0),
+                                end: Offset.zero,
+                              );
+                              return SlideTransition(
+                                position: animation.drive(tween),
+                                child: child,
+                              );
+                            }),
+                      );
+                    },
+                    child: const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: AppColors.secondary100), "Edit laporan")),
+              if (widget.status == type.diproses)
+                FilledButton(
+                    style: const ButtonStyle(
+                      minimumSize: MaterialStatePropertyAll(Size(358, 40)),
+                      backgroundColor: MaterialStatePropertyAll(AppColors.primary),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        PageRouteBuilder(
+                            pageBuilder: (context, animation, secondaryAnimation) {
+                              return const EditStatusComplaint(
+                                status: Type.proccess,
+                              );
+                            },
+                            transitionDuration: const Duration(milliseconds: 300),
+                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                              final tween = Tween(
+                                begin: const Offset(2, 0),
+                                end: Offset.zero,
+                              );
+                              return SlideTransition(
+                                position: animation.drive(tween),
+                                child: child,
+                              );
+                            }),
+                      );
+                    },
+                    child: const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: AppColors.secondary100), "Edit laporan")),
+              if (widget.status == type.dijawab)
+                FilledButton(
+                    style: const ButtonStyle(
+                      minimumSize: MaterialStatePropertyAll(Size(358, 40)),
+                      backgroundColor: MaterialStatePropertyAll(AppColors.primary),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        PageRouteBuilder(
+                            pageBuilder: (context, animation, secondaryAnimation) {
+                              return const EditStatusComplaint(
+                                status: Type.resolve,
+                              );
+                            },
+                            transitionDuration: const Duration(milliseconds: 300),
+                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                              final tween = Tween(
+                                begin: const Offset(2, 0),
+                                end: Offset.zero,
+                              );
+                              return SlideTransition(
+                                position: animation.drive(tween),
+                                child: child,
+                              );
+                            }),
+                      );
+                    },
+                    child: const Text(style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: AppColors.secondary100), "Edit laporan")),
             ],
           )),
         ),

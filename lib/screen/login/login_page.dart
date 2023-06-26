@@ -1,13 +1,11 @@
-import 'dart:math';
-
-import 'package:complainz/model/api/coban.dart';
+import 'package:complainz/Provider/login_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+// import 'package:intl/intl.dart';
 import '../../config/app_color.dart';
-import '../../model/auth.dart';
+import '../../model/api/login.dart';
 import '../../widget/account_question_button.dart';
 import '../bottom_navbar.dart';
-import '../home_page.dart';
 import '../register/register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -27,44 +25,57 @@ class _LoginPageState extends State<LoginPage> {
   void initState() {
     super.initState();
     _passwordVisible = true;
-
-    String date = "2023-06-11T23:22:13.944+07:00";
-    String formattedDate = DateFormat('dd/MM/yyyy').format(DateTime.parse(date));
-    print(formattedDate);
   }
 
   void _checkFormStatus() {
-    setState(() {
-      _isFormFilled = usernameEmailController.text.isNotEmpty;
-      _isFormFilled = passwordController.text.isNotEmpty;
-    });
+    if (usernameEmailController.text.isNotEmpty && passwordController.text.isNotEmpty) {
+      setState(() {
+        _isFormFilled = true;
+      });
+    } else {
+      setState(() {
+        _isFormFilled = false;
+      });
+    }
   }
 
   void _submitForm() async {
-    await login(usernameEmailController.text, passwordController.text).then((value) {
-      if (value == LoginStatus.success) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: const Text("Login Berhasil")));
-        Navigator.of(context).push(
-          PageRouteBuilder(
-              pageBuilder: (context, animation, secondaryAnimation) {
-                return BottomNavigationBrWidget();
-              },
-              transitionDuration: const Duration(milliseconds: 300),
-              transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                final tween = Tween(
-                  begin: const Offset(2, 0),
-                  end: Offset.zero,
-                );
-                return SlideTransition(
-                  position: animation.drive(tween),
-                  child: child,
-                );
-              }),
-        );
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: const Text("Username atau password salah")));
-      }
-    });
+    // Provider.of<LoginViewModel>(context, listen: false).loginResultApi(username: usernameEmailController.text, password: passwordController.text);
+
+    LoginViewModel provider = Provider.of<LoginViewModel>(context, listen: false);
+    await provider.loginResultApi(username: usernameEmailController.text, password: passwordController.text);
+    if (provider.isLoading) {
+      setState(() {
+        _isFormFilled = false;
+      });
+    }
+    if (!provider.isLoading && !provider.isLogin) {
+      setState(() {
+        _isFormFilled = true;
+      });
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Username atau password salah")));
+    }
+    if (!provider.isLoading && provider.isLogin) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Login Berhasil")));
+      Navigator.of(context).push(
+        PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) {
+              return BottomNavigationBrWidget();
+            },
+            transitionDuration: const Duration(milliseconds: 300),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              final tween = Tween(
+                begin: const Offset(2, 0),
+                end: Offset.zero,
+              );
+              return SlideTransition(
+                position: animation.drive(tween),
+                child: child,
+              );
+            }),
+      );
+    }
+    ;
   }
 
   @override

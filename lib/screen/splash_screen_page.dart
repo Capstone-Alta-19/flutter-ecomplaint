@@ -1,11 +1,8 @@
-import 'package:complainz/model/GetComplaintCategoryModel.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../config/app_color.dart';
 import 'bottom_navbar.dart';
-import 'home_page.dart';
 import 'login/loginregister_page.dart';
 
 class SplashScreen extends StatefulWidget {

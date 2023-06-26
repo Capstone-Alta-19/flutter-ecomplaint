@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 
 import '../config/app_color.dart';
@@ -6,7 +8,8 @@ class IsiLaporanItemKomen extends StatelessWidget {
   final String laporan;
   final String? tanggapan;
   final String? imageComplaint;
-  const IsiLaporanItemKomen({super.key, required this.laporan, required this.tanggapan, this.imageComplaint});
+  final String? video;
+  const IsiLaporanItemKomen({super.key, required this.laporan, required this.tanggapan, this.imageComplaint, this.video});
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +34,29 @@ class IsiLaporanItemKomen extends StatelessWidget {
                   const Text(style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.font), "Laporan"),
                   Text(style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.font), laporan),
                   // "Dosen Matakuliah salah memasukan nilai"
-                  if (imageComplaint != null)
+                  if (imageComplaint != null || video != null)
                     Padding(
-                      padding: EdgeInsets.only(top: 8),
-                      child: Container(
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                        height: 63.5,
-                        width: 63.5,
-                        child: Image.network(fit: BoxFit.cover, imageComplaint!),
+                      padding: const EdgeInsets.only(top: 8),
+                      child: Wrap(
+                        spacing: 8,
+                        children: [
+                          if (imageComplaint != null)
+                            Container(
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                              height: 63.5,
+                              width: 63.5,
+                              child: Image.network(fit: BoxFit.cover, imageComplaint!),
+                            ),
+                          if (video != null)
+                            Container(
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                              height: 63.5,
+                              width: 63.5,
+                              child: Image.memory(fit: BoxFit.cover, video! as Uint8List),
+                            ),
+                        ],
                       ),
                     ),
                 ],

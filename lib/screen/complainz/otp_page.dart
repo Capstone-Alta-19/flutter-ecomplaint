@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'config/app_color.dart';
+import '../../config/app_color.dart';
 
 class OtpPage extends StatefulWidget {
   const OtpPage({super.key});
@@ -53,21 +53,21 @@ class _OtpPageState extends State<OtpPage> {
             padding: const EdgeInsets.only(top: 13.0),
             child: Column(
               children: [
-                Text(
+                const Text(
                   'Masukkan kode verifikasi',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: const Color(0XFF3C486B),
+                    color: Color(0XFF3C486B),
                     fontSize: 40,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 const SizedBox(height: 24),
-                Text(
+                const Text(
                   'Kami telah mengirim kode verifikasi, \n periksa pesan masuk anda',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: const Color(0XFF3C486B),
+                    color: Color(0XFF3C486B),
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
                   ),
@@ -119,7 +119,7 @@ class _OtpPageState extends State<OtpPage> {
                         ),
                       ),
                       const SizedBox(width: 16),
-                      Container(
+                      SizedBox(
                         width: 70,
                         height: 90,
                         child: TextFormField(
@@ -139,7 +139,7 @@ class _OtpPageState extends State<OtpPage> {
                         ),
                       ),
                       const SizedBox(width: 16),
-                      Container(
+                      SizedBox(
                         width: 70,
                         height: 90,
                         child: TextFormField(
@@ -162,19 +162,19 @@ class _OtpPageState extends State<OtpPage> {
                   ),
                 ),
                 const SizedBox(height: 10),
-                Text(
+                const Text(
                   '5:00',
                   style: TextStyle(
-                    color: const Color.fromRGBO(60, 72, 107, 1),
+                    color: Color.fromRGBO(60, 72, 107, 1),
                     fontSize: 24,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(
+                const Text(
                   'Kirim ulang',
                   style: TextStyle(
-                    color: const Color(0XFF1D1B20),
+                    color: Color(0XFF1D1B20),
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
                   ),
@@ -184,13 +184,13 @@ class _OtpPageState extends State<OtpPage> {
                   padding: const EdgeInsets.only(left: 16, right: 16),
                   child: FilledButton.tonal(
                     onPressed: _isFormFilled ? _submitForm : null,
-                    child: Text(
-                      'Verifikasi',
-                      style: TextStyle(color: Colors.white),
-                    ),
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(358, 40),
                       backgroundColor: AppColors.primary,
+                    ),
+                    child: const Text(
+                      'Verifikasi',
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
