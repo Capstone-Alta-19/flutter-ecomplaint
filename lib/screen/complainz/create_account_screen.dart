@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../bottom_navbar.dart';
 import '../home_page.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -126,7 +127,7 @@ class _CreateAccountState extends State<CreateAccount> {
                           Navigator.of(context).push(
                             PageRouteBuilder(
                                 pageBuilder: (context, animation, secondaryAnimation) {
-                                  return const Homepage();
+                                  return BottomNavigationBrWidget();
                                 },
                                 transitionDuration: const Duration(milliseconds: 300),
                                 transitionsBuilder: (context, animation, secondaryAnimation, child) {

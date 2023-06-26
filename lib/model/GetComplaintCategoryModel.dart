@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final getComplaintCategoryModel = getComplaintCategoryModelFromJson(jsonString);
-
 import 'dart:convert';
 
 GetComplaintCategoryModel getComplaintCategoryModelFromJson(String str) => GetComplaintCategoryModel.fromJson(json.decode(str));

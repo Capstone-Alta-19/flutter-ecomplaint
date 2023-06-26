@@ -1,6 +1,4 @@
 import 'dart:io';
-import 'dart:typed_data';
-import 'package:complainz/screen/login/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
@@ -118,7 +116,7 @@ class IsiLaporanItemKomen extends StatelessWidget {
                                         },
                                         child: Stack(children: [
                                           Positioned(height: 63.5, width: 63.5, child: Image.file(fit: BoxFit.fill, File(snapshot.data!))),
-                                          Positioned(height: 63.5, width: 63.5, child: Icon(shadows: [Shadow(color: Colors.black12)], color: Colors.white, size: 30, Icons.play_arrow_rounded)),
+                                          const Positioned(height: 63.5, width: 63.5, child: Icon(shadows: [Shadow(color: Colors.black12)], color: Colors.white, size: 30, Icons.play_arrow_rounded)),
                                         ]),
                                       );
                                     } else {

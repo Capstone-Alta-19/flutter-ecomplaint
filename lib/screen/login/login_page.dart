@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 // import 'package:intl/intl.dart';
 import '../../config/app_color.dart';
-import '../../model/api/login.dart';
 import '../../widget/account_question_button.dart';
 import '../bottom_navbar.dart';
 import '../register/register_page.dart';
@@ -75,7 +74,6 @@ class _LoginPageState extends State<LoginPage> {
             }),
       );
     }
-    ;
   }
 
   @override

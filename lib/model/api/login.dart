@@ -24,7 +24,6 @@ class LoginApi {
           }));
       if (response.statusCode == 200) {
         SharedPreferences prefs = await SharedPreferences.getInstance();
-        print(response.data);
         await prefs.setString('token', response.data['user']['token']);
         return LoginStatus.success;
       } else {

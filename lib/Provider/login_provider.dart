@@ -1,7 +1,4 @@
-import 'package:complainz/model/api/delete_compliant_api.dart';
 import 'package:complainz/model/api/login.dart';
-import 'package:complainz/screen/status/detail_status_complaint.dart';
-
 import 'package:flutter/foundation.dart';
 
 class LoginViewModel extends ChangeNotifier {
@@ -21,11 +18,9 @@ class LoginViewModel extends ChangeNotifier {
 
       LoginApi api = LoginApi();
       _login = await api.login(usernameEmail: username, password: password);
-      print(_isLoading);
       if (_login == LoginStatus.success) {
         _isLogin = true;
         _isLoading = false;
-        print("status oke ${_isLoading}");
         notifyListeners();
       } else {
         _isLogin = false;
@@ -35,7 +30,6 @@ class LoginViewModel extends ChangeNotifier {
     } catch (error) {
       _isLoading = false;
       _isLogin = false;
-      print(_isLoading);
       _errorMessage = error.toString();
       notifyListeners();
     }

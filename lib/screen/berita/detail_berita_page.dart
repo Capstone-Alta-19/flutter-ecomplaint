@@ -145,7 +145,7 @@ class DetailBeritaItem extends StatelessWidget {
     return Column(
       children: [
         InkWell(
-          onTap: () {},
+          onTap: onPressed,
           child: CustomCard(
               child: SizedBox(
             width: 283,

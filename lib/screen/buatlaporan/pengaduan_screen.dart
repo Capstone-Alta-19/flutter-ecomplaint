@@ -29,6 +29,7 @@ class _PengaduanPageState extends State<PengaduanPage> {
     'Dosen dan Staff Akademik',
     'Sarana dan Prasarana',
     'Organisasi Mahasiswa',
+    'Sistem Perkuliahan',
     'Mahasiswa',
     'Lainnya',
   ];
@@ -46,8 +47,7 @@ class _PengaduanPageState extends State<PengaduanPage> {
   }
 
   void _submitForm() async {
-    final provider =
-        Provider.of<CreateComplaintViewModel>(context, listen: false);
+    final provider = Provider.of<CreateComplaintViewModel>(context, listen: false);
 
     // Menampilkan indikator loading
     showDialog(
@@ -97,17 +97,13 @@ class _PengaduanPageState extends State<PengaduanPage> {
   }
 
   void checkButtonStatus() {
-    if (controllerPengaduan.text.isNotEmpty &&
-        options != null &&
-        jnslaporan != null) {
+    if (controllerPengaduan.text.isNotEmpty && options != null && jnslaporan != null) {
       setState(() {
-        isButtonEnabled =
-            true; // Mengaktifkan tombol jika ketiga kondisi terpenuhi
+        isButtonEnabled = true; // Mengaktifkan tombol jika ketiga kondisi terpenuhi
       });
     } else {
       setState(() {
-        isButtonEnabled =
-            false; // Menonaktifkan tombol jika salah satu kondisi tidak terpenuhi
+        isButtonEnabled = false; // Menonaktifkan tombol jika salah satu kondisi tidak terpenuhi
       });
     }
   }
@@ -146,16 +142,11 @@ class _PengaduanPageState extends State<PengaduanPage> {
               minLine: 6,
               typeKeyboard: TextInputType.multiline,
               hinText: 'Ketik disini',
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
               positionBottom: 0,
               positionLeft: 1,
               globalColor: AppColors.primary,
-              borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(0),
-                  topRight: Radius.circular(30),
-                  bottomLeft: Radius.circular(30),
-                  bottomRight: Radius.circular(30)),
+              borderRadius: const BorderRadius.only(topLeft: Radius.circular(0), topRight: Radius.circular(30), bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
               icons1: InkWell(
                 onTap: () {},
                 child: Image.asset('assets/icons/Img_box.png', width: 20.4),
@@ -208,8 +199,7 @@ class _PengaduanPageState extends State<PengaduanPage> {
                       label: (i, v) => v,
                     ),
                     choiceActiveStyle: const C2ChoiceStyle(
-                      borderShape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      borderShape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
                       showCheckmark: false,
                       backgroundColor: AppColors.primary,
                       labelStyle: TextStyle(
@@ -344,8 +334,7 @@ class _AspirasiPageState extends State<AspirasiPage> {
   }
 
   void _submitForm() async {
-    final provider =
-        Provider.of<CreateAspirasiViewModel>(context, listen: false);
+    final provider = Provider.of<CreateAspirasiViewModel>(context, listen: false);
 
     // Menampilkan indikator loading
     showDialog(
@@ -395,17 +384,13 @@ class _AspirasiPageState extends State<AspirasiPage> {
   }
 
   void checkButtonStatus() {
-    if (controllerAspirasi.text.isNotEmpty &&
-        options != null &&
-        jnslaporanaspirasi != null) {
+    if (controllerAspirasi.text.isNotEmpty && options != null && jnslaporanaspirasi != null) {
       setState(() {
-        isButtonEnabled =
-            true; // Mengaktifkan tombol jika ketiga kondisi terpenuhi
+        isButtonEnabled = true; // Mengaktifkan tombol jika ketiga kondisi terpenuhi
       });
     } else {
       setState(() {
-        isButtonEnabled =
-            false; // Menonaktifkan tombol jika salah satu kondisi tidak terpenuhi
+        isButtonEnabled = false; // Menonaktifkan tombol jika salah satu kondisi tidak terpenuhi
       });
     }
   }
@@ -444,16 +429,11 @@ class _AspirasiPageState extends State<AspirasiPage> {
               minLine: 6,
               typeKeyboard: TextInputType.multiline,
               hinText: 'Ketik disini',
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
               positionBottom: 0,
               positionLeft: 1,
               globalColor: AppColors.primary,
-              borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(0),
-                  topRight: Radius.circular(30),
-                  bottomLeft: Radius.circular(30),
-                  bottomRight: Radius.circular(30)),
+              borderRadius: const BorderRadius.only(topLeft: Radius.circular(0), topRight: Radius.circular(30), bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
               icons1: InkWell(
                 onTap: () {},
                 child: Image.asset('assets/icons/Img_box.png', width: 20.4),
@@ -506,8 +486,7 @@ class _AspirasiPageState extends State<AspirasiPage> {
                       label: (i, v) => v,
                     ),
                     choiceActiveStyle: const C2ChoiceStyle(
-                      borderShape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      borderShape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
                       showCheckmark: false,
                       backgroundColor: AppColors.primary,
                       labelStyle: TextStyle(

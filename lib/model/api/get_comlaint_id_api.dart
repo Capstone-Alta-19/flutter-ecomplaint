@@ -24,7 +24,6 @@ class GetComplaintIdApi {
         GetComplaintIdModel complainId = GetComplaintIdModel.fromJson(response.data["complaint"]);
 
         // List<GetComplaintCategoryModel> complaintCategory = List<GetComplaintCategoryModel>.from(response.data['complaintCategory'].map(e)) => GetComplaintCategoryModel.fromJson(model);
-        print(complainId);
         return complainId;
       } else {
         throw Exception('Error');

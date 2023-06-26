@@ -1,4 +1,3 @@
-import 'package:complainz/model/get_complaint_id_model.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -25,7 +24,6 @@ class GetNewsIdApi {
         GetNewsIdModel newsId = GetNewsIdModel.fromJson(response.data["news"]);
 
         // List<GetComplaintCategoryModel> complaintCategory = List<GetComplaintCategoryModel>.from(response.data['complaintCategory'].map(e)) => GetComplaintCategoryModel.fromJson(model);
-        print(newsId);
         return newsId;
       } else {
         throw Exception('Error');

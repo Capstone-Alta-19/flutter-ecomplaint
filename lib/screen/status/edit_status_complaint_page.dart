@@ -125,22 +125,9 @@ class _EditStatusComplaintState extends State<EditStatusComplaint> {
                                             barrierColor: null,
                                             context: context,
                                             builder: (BuildContext context) => CustomDialog(
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      WidgetsBinding.instance.addPostFrameCallback((_) {
-                                                        Provider.of<DeleteComplaintIdViewModel>(context, listen: false).deleteResultCompaintId(id: result.id);
-                                                      });
-                                                    });
-                                                    if (deletedProvider.isLoading) {
-                                                      Navigator.pop(context);
-                                                      showDialog(
-                                                          barrierDismissible: true,
-                                                          barrierColor: null,
-                                                          context: context,
-                                                          builder: (BuildContext context) => const CustomLoadingDialog(
-                                                                title: "Diproses",
-                                                              ));
-                                                    }
+                                                  onPressed: () async {
+                                                    await deletedProvider.deleteResultCompaintId(id: result.id);
+
                                                     if (!deletedProvider.isLoading && deletedProvider.isDeleted == true) {
                                                       Navigator.pop(context);
                                                       showDialog(

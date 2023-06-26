@@ -19,7 +19,7 @@ class _WebviewState extends State<Webview> {
       ..setNavigationDelegate(
         NavigationDelegate(
           onProgress: (int progress) {
-            CircularProgressIndicator();
+            const CircularProgressIndicator();
           },
           onPageStarted: (String url) {},
           onPageFinished: (String url) {},

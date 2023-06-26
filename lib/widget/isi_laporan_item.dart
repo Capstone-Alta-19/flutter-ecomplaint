@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
@@ -80,7 +79,7 @@ class IsiLaporanItem extends StatelessWidget {
                                     } else if (snapshot.data != null) {
                                       return Stack(children: [
                                         Positioned(height: 63.5, width: 63.5, child: Image.file(fit: BoxFit.fill, File(snapshot.data!))),
-                                        Positioned(height: 63.5, width: 63.5, child: Icon(color: Colors.white, size: 30, Icons.play_arrow_rounded)),
+                                        const Positioned(height: 63.5, width: 63.5, child: Icon(color: Colors.white, size: 30, Icons.play_arrow_rounded)),
                                       ]);
                                     } else {
                                       return Image.asset(fit: BoxFit.cover, "assets/images/video-thumb.png");

@@ -1,5 +1,4 @@
 import 'package:complainz/model/api/delete_compliant_api.dart';
-import 'package:complainz/screen/status/detail_status_complaint.dart';
 
 import 'package:flutter/foundation.dart';
 

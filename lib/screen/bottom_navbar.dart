@@ -8,6 +8,7 @@ import 'buatlaporan/laporkan_screen.dart';
 import 'home_page.dart';
 import 'myAccount/my_account_page.dart';
 
+// ignore: must_be_immutable
 class BottomNavigationBrWidget extends StatelessWidget {
   int _selectedIndex = 0;
 
