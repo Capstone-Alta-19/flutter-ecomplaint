@@ -29,6 +29,7 @@ class CreateRegisterApi {
             'Content-type': 'application/json; charset=UTF-8',
           }));
 
+      print(response.statusCode);
 //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJyb2xlIjoiVVNFUiIsInVzZXJJZCI6MX0.sKjg0jYpSn0NcsCR5cSrLmdfr5fxnKsuGq5zD9TxpZc
       if (response.statusCode == 200) {
         SharedPreferences prefs = await SharedPreferences.getInstance();

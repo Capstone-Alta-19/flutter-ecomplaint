@@ -40,6 +40,7 @@ class CreateRegisterViewModel extends ChangeNotifier {
       if (_createRegister == Type.success) {
         _isRegister = true;
         _isLoading = false;
+        print("succes");
         notifyListeners();
       } else {
         _isRegister = false;
@@ -50,6 +51,7 @@ class CreateRegisterViewModel extends ChangeNotifier {
       _isRegister = false;
       _isLoading = false;
       _errorMessage = error.toString();
+      print("succes");
       notifyListeners();
     }
   }

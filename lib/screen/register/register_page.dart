@@ -48,65 +48,63 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   void _checkFormStatus() {
-    if (controllerUsername.text.isNotEmpty && controllerEmail.text.isNotEmpty && controllerNomor.text.isNotEmpty && controllerPasswordRepeat.text.isNotEmpty && controllerPasswordRepeat.text == controllerPassword.text) {
-      setState(() {
-        _isFormFilled == true;
-      });
-    } else {
-      setState(() {
-        _isFormFilled == false;
-      });
-    }
+    setState(() {
+      _isFormFilled = controllerUsername.text.isNotEmpty;
+      _isFormFilled = controllerEmail.text.isNotEmpty;
+      _isFormFilled = controllerNomor.text.isNotEmpty;
+      _isFormFilled = controllerPassword.text.isNotEmpty;
+      _isFormFilled = controllerPasswordRepeat.text.isNotEmpty;
+    });
   }
 
   void _submitForm() async {
     if (controllerPassword.text != controllerPasswordRepeat.text) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Username atau password salah")));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Password tidak Cocok")));
       return;
-    }
-
-    final provider = Provider.of<CreateRegisterViewModel>(context, listen: false);
-    await provider.createResultRegister(
-      username: controllerUsername.text,
-      email: controllerEmail.text,
-      phone: controllerNomor.text,
-      date_birth: _date.toString(),
-      password: controllerPassword.text,
-      confirm_password: controllerPasswordRepeat.text,
-    );
-    if (provider.isLoading) {
-      setState(() {
-        _isFormFilled = false;
-      });
-    }
-    if (!provider.isLoading && !provider.isRegister) {
-      setState(() {
-        _isFormFilled = true;
-      });
-      // ignore: use_build_context_synchronously
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Register Gagal")));
-    }
-    if (!provider.isLoading && provider.isRegister) {
-      // ignore: use_build_context_synchronously
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Register Berhasil")));
-      // ignore: use_build_context_synchronously
-      Navigator.of(context).push(
-        PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) {
-              return const CreateAccount();
-            },
-            transitionDuration: const Duration(milliseconds: 300),
-            transitionsBuilder: (context, animation, secondaryAnimation, child) {
-              final tween = Tween(
-                begin: const Offset(2, 0),
-                end: Offset.zero,
-              );
-              return SlideTransition(
-                position: animation.drive(tween),
-                child: child,
-              );
-            }),
+    } else {
+      final provider = Provider.of<CreateRegisterViewModel>(context, listen: false);
+      await provider.createResultRegister(
+        username: controllerUsername.text,
+        email: controllerEmail.text,
+        phone: controllerNomor.text,
+        date_birth: _date.toString(),
+        password: controllerPassword.text,
+        confirm_password: controllerPasswordRepeat.text,
       );
+      if (provider.isLoading) {
+        setState(() {
+          _isFormFilled = false;
+        });
+      }
+      if (!provider.isLoading && !provider.isRegister) {
+        setState(() {
+          _isFormFilled = true;
+        });
+        // ignore: use_build_context_synchronously
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Register Gagal")));
+      }
+      if (!provider.isLoading && provider.isRegister) {
+        // ignore: use_build_context_synchronously
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Register Berhasil")));
+        // ignore: use_build_context_synchronously
+        Navigator.of(context).push(
+          PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) {
+                return const CreateAccount();
+              },
+              transitionDuration: const Duration(milliseconds: 300),
+              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                final tween = Tween(
+                  begin: const Offset(2, 0),
+                  end: Offset.zero,
+                );
+                return SlideTransition(
+                  position: animation.drive(tween),
+                  child: child,
+                );
+              }),
+        );
+      }
     }
   }
 
