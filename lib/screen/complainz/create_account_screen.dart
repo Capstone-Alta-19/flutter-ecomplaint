@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../bottom_navbar.dart';
-import '../home_page.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});

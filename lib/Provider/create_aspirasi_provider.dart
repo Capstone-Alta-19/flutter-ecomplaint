@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/foundation.dart';
 import '../model/api/complaint_aspirasi_api.dart';
 
@@ -5,12 +7,12 @@ class CreateAspirasiViewModel extends ChangeNotifier {
   Enum? _createAspirasi;
   String _errorMessage = '';
   bool _isLoading = true;
-  bool _isDeleted = false;
+  bool _isCreate = false;
 
   Enum? get createAspirasi => _createAspirasi;
   String get errorMessage => _errorMessage;
   bool get isLoading => _isLoading;
-  bool get isDeleted => _isDeleted;
+  bool get isCreate => _isCreate;
 
   Future<void> createResultAspirasi({
     required String type,
@@ -35,16 +37,16 @@ class CreateAspirasiViewModel extends ChangeNotifier {
       );
 
       if (_createAspirasi == Type.success) {
-        _isDeleted = true;
+        _isCreate = true;
         _isLoading = false;
         notifyListeners();
       } else {
-        _isDeleted = false;
+        _isCreate = false;
         _isLoading = false;
         notifyListeners();
       }
     } catch (error) {
-      _isDeleted = false;
+      _isCreate = false;
       _isLoading = false;
       _errorMessage = error.toString();
       notifyListeners();

@@ -7,6 +7,7 @@ class Webview extends StatefulWidget {
 
   const Webview({super.key, required this.link});
   @override
+  // ignore: library_private_types_in_public_api
   _WebviewState createState() => _WebviewState();
 }
 

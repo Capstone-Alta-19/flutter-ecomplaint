@@ -18,7 +18,7 @@ class AboutUsPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              SegmentTitleTwoLine(title: "Tentang Kami"),
+              const SegmentTitleTwoLine(title: "Tentang Kami"),
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(

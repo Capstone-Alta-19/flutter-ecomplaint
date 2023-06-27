@@ -71,14 +71,11 @@ class _PengaduanPageState extends State<PengaduanPage> {
     Navigator.pop(context); // Menutup dialog indikator loading
 
     if (provider.isLoading) {
-      print("loading");
-    } else if (!provider.isDeleted) {
+    } else if (!provider.isCreate) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: const Text("Complaint Gagal")),
+        const SnackBar(content: Text("Complaint Gagal")),
       );
     } else {
-      print("success");
-
       if (jnslaporan == true) {
         // Jika laporan adalah rahasia, arahkan ke halaman utama (Home)
         Navigator.pushReplacement(
@@ -316,6 +313,7 @@ class _AspirasiPageState extends State<AspirasiPage> {
     'Dosen dan Staff Akademik',
     'Sarana dan Prasarana',
     'Organisasi Mahasiswa',
+    'Sistem Perkuliahan',
     'Mahasiswa',
     'Lainnya',
   ];
@@ -358,14 +356,11 @@ class _AspirasiPageState extends State<AspirasiPage> {
     Navigator.pop(context); // Menutup dialog indikator loading
 
     if (provider.isLoading) {
-      print("loading");
-    } else if (!provider.isDeleted) {
+    } else if (!provider.isCreate) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: const Text("Complaint Gagal")),
+        const SnackBar(content: Text("Complaint Gagal")),
       );
     } else {
-      print("success");
-
       if (jnslaporanaspirasi == true) {
         // Jika laporan adalah rahasia, arahkan ke halaman utama (Home)
         Navigator.pushReplacement(
@@ -563,7 +558,7 @@ class _AspirasiPageState extends State<AspirasiPage> {
                   padding: const EdgeInsets.only(left: 16, right: 16),
                   child: FilledButton.tonal(
                     onPressed: isButtonEnabled ? _submitForm : null,
-                    child: Text(
+                    child: const Text(
                       'Daftar',
                       style: TextStyle(color: Colors.white),
                     ),

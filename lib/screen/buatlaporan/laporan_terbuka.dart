@@ -98,7 +98,7 @@ class _LaporanTerbukaState extends State<LaporanTerbuka> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => RiwayatLaporanPage(),
+                      builder: (context) => const RiwayatLaporanPage(),
                     ));
               },
               btnText: 'Lihat Laporan',

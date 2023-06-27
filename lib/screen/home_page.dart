@@ -3,7 +3,6 @@ import 'package:complainz/screen/berita/berita_terkini_page.dart';
 import 'package:complainz/widget/selengkapnya_button.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../config/app_color.dart';
 import '../widget/custom_card.dart';
@@ -33,11 +32,6 @@ class _HomepageState extends State<Homepage> {
     ),
   ];
   final Uri liveChat = Uri.parse('https://flutter.dev');
-  Future<void> _launchUrl() async {
-    if (!await launchUrl(liveChat)) {
-      throw Exception('Could not launch $liveChat');
-    }
-  }
 
   int carouselIndex = 0;
 

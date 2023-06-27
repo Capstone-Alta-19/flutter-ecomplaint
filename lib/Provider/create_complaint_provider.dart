@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, non_constant_identifier_names
+
 import 'package:complainz/screen/status/detail_status_complaint.dart';
 
 import 'package:flutter/foundation.dart';
@@ -8,12 +10,12 @@ class CreateComplaintViewModel extends ChangeNotifier {
   Enum? _createComplaint;
   String _errorMessage = '';
   bool _isLoading = true;
-  bool _isDeleted = false;
+  bool _isCreate = false;
 
   Enum? get createComplaint => _createComplaint;
   String get errorMessage => _errorMessage;
   bool get isLoading => _isLoading;
-  bool get isDeleted => _isDeleted;
+  bool get isCreate => _isCreate;
 
   Future<void> createResultComplaint({
     required String type,
@@ -38,16 +40,16 @@ class CreateComplaintViewModel extends ChangeNotifier {
       );
 
       if (_createComplaint == Type.success) {
-        _isDeleted = true;
+        _isCreate = true;
         _isLoading = false;
         notifyListeners();
       } else {
-        _isDeleted = false;
+        _isCreate = false;
         _isLoading = false;
         notifyListeners();
       }
     } catch (error) {
-      _isDeleted = false;
+      _isCreate = false;
       _isLoading = false;
       _errorMessage = error.toString();
       notifyListeners();

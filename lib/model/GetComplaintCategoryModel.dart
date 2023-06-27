@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'dart:convert';
 
 GetComplaintCategoryModel getComplaintCategoryModelFromJson(String str) => GetComplaintCategoryModel.fromJson(json.decode(str));

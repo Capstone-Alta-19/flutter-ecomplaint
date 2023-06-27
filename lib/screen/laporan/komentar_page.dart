@@ -1,13 +1,10 @@
-import 'dart:typed_data';
 import 'package:complainz/Provider/get_complaint_id_provider.dart';
 import 'package:complainz/config/app_color.dart';
 import 'package:complainz/widget/isi_laporan_item_komen.dart';
 import 'package:complainz/widget/profile_card_komen_item.dart';
 import 'package:complainz/widget/segment_title.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:video_thumbnail/video_thumbnail.dart';
 
 import '../../widget/custom_card.dart';
 import '../../widget/isi_komentar_item.dart';
@@ -123,11 +120,11 @@ class _KomentarPageState extends State<KomentarPage> {
                             padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16, top: 16),
                             child: Row(
                               children: [
-                                CircleAvatar(
+                                const CircleAvatar(
                                   backgroundImage: AssetImage('assets/images/Profile.png'),
                                 ),
-                                SizedBox(width: 8.0),
-                                Expanded(
+                                const SizedBox(width: 8.0),
+                                const Expanded(
                                   child: TextField(
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(),
@@ -135,7 +132,7 @@ class _KomentarPageState extends State<KomentarPage> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(width: 8.0),
+                                const SizedBox(width: 8.0),
                                 InkWell(
                                   onTap: () {},
                                   child: Image.asset(
