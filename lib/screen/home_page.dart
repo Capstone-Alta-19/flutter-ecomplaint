@@ -3,7 +3,8 @@ import 'package:complainz/screen/berita/berita_terkini_page.dart';
 import 'package:complainz/widget/selengkapnya_button.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../config/app_color.dart';
 import '../widget/custom_card.dart';
 import 'laporan/berita_laporan_page.dart';
@@ -31,9 +32,15 @@ class _HomepageState extends State<Homepage> {
       child: Image.asset('assets/logo/banner3.png'),
     ),
   ];
-  final Uri liveChat = Uri.parse('https://flutter.dev');
 
   int carouselIndex = 0;
+
+  Future<void> _launchWa() async {
+    String url = "https://wa.me/6282115309289?text=Halo Saya Ingin Complaint Secara Live";
+    if (await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication)) {
+      throw Exception('Tidak dapat membuka WhatsApp.');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -260,15 +267,23 @@ class _HomepageState extends State<Homepage> {
           ),
           Positioned(
             right: 8,
-            height: MediaQuery.of(context).size.height + 30,
+            top: MediaQuery.of(context).size.height / 2 - 25,
             child: Container(
-              height: 90,
-              width: 85,
-              decoration: const BoxDecoration(shape: BoxShape.circle),
-              child: Image.asset(
-                "assets/icons/Chat-live-button.png",
-              ),
-            ),
+                width: 85,
+                height: 90,
+                decoration: const BoxDecoration(shape: BoxShape.circle),
+                child: IconButton(
+                  highlightColor: Colors.transparent,
+                  splashColor: Colors.transparent,
+                  onPressed: _launchWa,
+                  icon: Image.asset(
+                    "assets/icons/Chat-live-button.png",
+                  ),
+                )
+                // Image.asset(
+                //   "assets/icons/Chat-live-button.png",
+                // ),
+                ),
           ),
         ],
       ),
