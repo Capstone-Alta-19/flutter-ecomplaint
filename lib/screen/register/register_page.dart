@@ -60,48 +60,46 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   void _submitForm() async {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<CreateRegisterViewModel>(context, listen: false).createResultRegister(
-        username: controllerUsername.text,
-        email: controllerEmail.text,
-        phone: controllerNomor.text,
-        date_birth: _date.toString(),
-        password: controllerPassword.text,
-        confirm_password: controllerPasswordRepeat.text,
-      );
-    });
-    final provider = Provider.of<CreateRegisterViewModel>(context, listen: false);
+    if (controllerPassword.text != controllerPasswordRepeat.text) {
+      print("Password tidak sama");
+      return;
+    }
+
+    Provider.of<CreateRegisterViewModel>(context, listen: false)
+        .createResultRegister(
+      username: controllerUsername.text,
+      email: controllerEmail.text,
+      phone: controllerNomor.text,
+      date_birth: _date.toString(),
+      password: controllerPassword.text,
+      confirm_password: controllerPasswordRepeat.text,
+    );
+
+    final provider =
+        Provider.of<CreateRegisterViewModel>(context, listen: false);
     if (provider.isLoading == false) {
       print("success");
     } else {
       print("gagal");
     }
-    /*  await postData(
-            controllerUsername.text,
-            controllerEmail.text,
-            controllerNomor.text,
-            controllerPassword.text,
-            controllerPasswordRepeat.text)
-        .then((value) {
-      print(value);
-    }); */
 
     Navigator.of(context).push(
       PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) {
-            return const CreateAccount();
-          },
-          transitionDuration: const Duration(milliseconds: 300),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            final tween = Tween(
-              begin: const Offset(2, 0),
-              end: Offset.zero,
-            );
-            return SlideTransition(
-              position: animation.drive(tween),
-              child: child,
-            );
-          }),
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return const CreateAccount();
+        },
+        transitionDuration: const Duration(milliseconds: 300),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          final tween = Tween(
+            begin: const Offset(2, 0),
+            end: Offset.zero,
+          );
+          return SlideTransition(
+            position: animation.drive(tween),
+            child: child,
+          );
+        },
+      ),
     );
   }
 
@@ -201,7 +199,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
                           validator: (email) {
-                            if (email != null && !EmailValidator.validate(email)) {
+                            if (email != null &&
+                                !EmailValidator.validate(email)) {
                               return 'Enter a Email valid';
                             } else {
                               return null;
@@ -259,7 +258,9 @@ class _RegisterPageState extends State<RegisterPage> {
                                   });
                                 },
                                 child: Icon(
-                                  _obsecureText ? Icons.visibility : Icons.visibility_off,
+                                  _obsecureText
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
                                 ),
                               )),
                         ),
@@ -274,7 +275,8 @@ class _RegisterPageState extends State<RegisterPage> {
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(),
                             labelText: 'Masukkan Kembali Password',
-                            errorText: _passwordMatch ? null : 'Password tidak cocok',
+                            errorText:
+                                _passwordMatch ? null : 'Password tidak cocok',
                             hintStyle: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
@@ -291,29 +293,39 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             const SizedBox(height: 12),
                             Padding(
-                              padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+                              padding:
+                                  const EdgeInsets.fromLTRB(16, 16, 16, 16),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   const Text(
                                     'Sudah Punya Akun? ',
-                                    style: TextStyle(color: AppColors.primary, fontSize: 14, fontWeight: FontWeight.w500),
+                                    style: TextStyle(
+                                        color: AppColors.primary,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500),
                                   ),
                                   GestureDetector(
                                     onTap: () {
                                       Navigator.of(context).push(
                                         PageRouteBuilder(
-                                            pageBuilder: (context, animation, secondaryAnimation) {
+                                            pageBuilder: (context, animation,
+                                                secondaryAnimation) {
                                               return const LoginPage();
                                             },
-                                            transitionDuration: const Duration(milliseconds: 300),
-                                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                            transitionDuration: const Duration(
+                                                milliseconds: 300),
+                                            transitionsBuilder: (context,
+                                                animation,
+                                                secondaryAnimation,
+                                                child) {
                                               final tween = Tween(
                                                 begin: const Offset(2, 0),
                                                 end: Offset.zero,
                                               );
                                               return SlideTransition(
-                                                position: animation.drive(tween),
+                                                position:
+                                                    animation.drive(tween),
                                                 child: child,
                                               );
                                             }),
