@@ -1,9 +1,7 @@
 // ignore_for_file: unused_import, non_constant_identifier_names
 
 import 'package:complainz/screen/status/detail_status_complaint.dart';
-
 import 'package:flutter/foundation.dart';
-
 import '../model/api/create_complaint_api.dart';
 
 class CreateComplaintViewModel extends ChangeNotifier {

@@ -58,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
     }
     if (!provider.isLoading && provider.isLogin) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Login Berhasil")));
-      Navigator.of(context).push(
+      Navigator.of(context).pushReplacement(
         PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) {
               return BottomNavigationBrWidget();

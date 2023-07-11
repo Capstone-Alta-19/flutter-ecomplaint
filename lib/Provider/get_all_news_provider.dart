@@ -1,7 +1,5 @@
 import 'package:flutter/foundation.dart';
-
 import '../model/api/get_all_news_api.dart';
-
 import '../model/get_all_news_model.dart';
 
 class GetAllNewsViewModel extends ChangeNotifier {

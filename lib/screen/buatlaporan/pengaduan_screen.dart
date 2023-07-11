@@ -27,8 +27,8 @@ class _PengaduanPageState extends State<PengaduanPage> {
   List<String> options = [
     'Dosen dan Staff Akademik',
     'Sarana dan Prasarana',
-    'Organisasi Mahasiswa',
     'Sistem Perkuliahan',
+    'Organisasi Mahasiswa',
     'Mahasiswa',
     'Lainnya',
   ];
@@ -312,8 +312,8 @@ class _AspirasiPageState extends State<AspirasiPage> {
   List<String> options = [
     'Dosen dan Staff Akademik',
     'Sarana dan Prasarana',
-    'Organisasi Mahasiswa',
     'Sistem Perkuliahan',
+    'Organisasi Mahasiswa',
     'Mahasiswa',
     'Lainnya',
   ];
